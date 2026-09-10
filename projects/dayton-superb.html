@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>같은 실행으로 110%와 67%가 갈린 두 행사 — 신민근</title>
+<meta name="description" content="데이톤과 슈퍼브에서 같은 항목을 실행했는데 결과가 갈렸습니다. 채널을 유입량과 질로 나눠 본 분석과, 미달 건에서 무엇을 측정하지 않았는지에 대한 회고.">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/main.css">
+<script>
+/* 스크롤 등장 효과는 자바스크립트가 살아 있을 때만 켠다.
+   main.js 가 끝내 로드되지 않으면 3초 뒤 숨김을 풀어 내용이 반드시 보이게 한다. */
+document.documentElement.className += " js";
+setTimeout(function () {
+  if (!window.__revealReady) { document.documentElement.classList.remove("js"); }
+}, 3000);
+</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23005d5d'/><path d='M4 19h24' stroke='%23ff832b' stroke-width='2' stroke-dasharray='4 3'/><circle cx='10' cy='12' r='2.5' fill='%23ff832b'/><circle cx='21' cy='9' r='2.5' fill='%23ff832b'/><circle cx='16' cy='25' r='2.5' fill='%239ef0f0'/></svg>">
+</head>
+<body>
+
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+
+<header class="header">
+  <div class="header__inner">
+    <a class="header__name" href="../index.html">신민근<em>포트폴리오</em></a>
+    <a class="header__back" href="../index.html#projects">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+        <path d="M7.4 12.6 2.8 8l4.6-4.6.9.9L5.3 7.4H13v1.2H5.3l3 3.1z"/>
+      </svg>
+      프로젝트 목록
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="detail-hero">
+  <div class="wrap">
+    <p class="detail-hero__kicker" data-reveal>마케팅과 사업 개발 · 04</p>
+    <h1 class="detail-hero__title" data-reveal data-reveal-delay="60">
+      같은 실행으로 110%와 67%가 갈린 두 행사
+    </h1>
+    <p class="detail-hero__lede" data-reveal data-reveal-delay="120">
+      데이톤은 데이터 분석 공모전, 슈퍼브는 기업과 함께한 해커톤입니다.
+      두 행사 모두 랜딩페이지와 포스터, 홍보 콘텐츠, 진행 상황 공유, 후기까지 같은 항목을 실행했습니다.
+      데이톤은 30팀 목표에 <b>33팀</b>, 슈퍼브는 300명 목표에 <b>202명</b>이었습니다.
+    </p>
+
+    <dl class="factbar" data-reveal data-reveal-delay="180">
+      <div class="fact"><dt>소속</dt><dd>데이터·AI 대학생 학회 BDAI<br>8기 마케팅팀</dd></div>
+      <div class="fact"><dt>기간</dt><dd>2026년 상반기</dd></div>
+      <div class="fact"><dt>맡은 일</dt><dd>랜딩페이지 · 홍보 · 채널 분석</dd></div>
+      <div class="fact"><dt>측정</dt><dd>GA4 채널별 세션 · LMS 배너 로그</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="narrative">
+
+      <div class="beats">
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">상황</h2>
+          <p class="beat__text">
+            같은 다섯 가지를 실행했습니다. 랜딩페이지 제작, 포스터 제작, 홍보 콘텐츠 제작,
+            진행 상황 인스타그램 공유, 후기 콘텐츠 제작입니다.
+            그런데 결과는 <b>110%와 67.3%로 갈렸습니다.</b>
+            실행 항목이 같다면 차이는 다른 데 있다는 뜻입니다.
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">분석</h2>
+          <p class="beat__text">
+            데이톤은 채널을 세션 수만이 아니라 참여율과 재방문율까지 나눠 봤습니다.
+            링커리어가 전체 세션의 54.9%를 가져왔지만, 인스타그램은 세션이 절반 이하인데
+            참여율 94.8%, 재방문율 20.7%로 질이 가장 높았습니다.
+            <b>양을 만드는 채널과 질을 만드는 채널이 달랐습니다.</b>
+            모집 초기에는 링커리어로 모수를 만들고, 후반 리마인드는 인스타그램에 실었습니다.
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">지면 분석</h2>
+          <p class="beat__text">
+            LMS 배너도 같은 방식으로 봤습니다. 웰컴 배너가 노출 2,207건으로 가장 많았지만 클릭률은 1.54%였고,
+            채용공고 탭은 노출이 57건뿐인데 클릭률이 14.04%였습니다.
+            <b>다른 프로젝트에서 확인한 경향이 여기서도 그대로 나타났습니다.</b>
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">남은 과제</h2>
+          <p class="beat__text">
+            슈퍼브의 미달은 아직 채널별 유입 데이터로 원인을 규명하지 못했습니다.
+            일정이 시험 기간과 겹친다는 점을 근거로 기업 측과 일정을 다시 협의했지만,
+            <b>조율 이후의 유입 변화를 따로 측정하지 않은 것이 이 프로젝트의 가장 큰 공백</b>입니다.
+            다음에 같은 상황이 오면 조율 전후를 나눠 측정하는 것부터 설계하겠습니다.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <div class="viz" data-reveal>
+          <h2 class="viz__title">목표 대비 달성률</h2>
+          <div class="gauges">
+            <div class="gauge gauge--hit">
+              <div class="gauge__head">
+                <span class="gauge__name">데이톤 · 참가 팀</span>
+                <span class="gauge__val">110%</span>
+              </div>
+              <div class="gauge__track">
+                <span class="gauge__fill" style="--w:100%"></span>
+                <span class="gauge__mark" style="--at:91%"></span>
+              </div>
+              <div class="gauge__foot"><span>목표 30팀</span><span>실적 33팀</span></div>
+            </div>
+
+            <div class="gauge gauge--miss">
+              <div class="gauge__head">
+                <span class="gauge__name">슈퍼브 · 참가자</span>
+                <span class="gauge__val">67.3%</span>
+              </div>
+              <div class="gauge__track">
+                <span class="gauge__fill" style="--w:61.2%"></span>
+                <span class="gauge__mark" style="--at:91%"></span>
+              </div>
+              <div class="gauge__foot"><span>목표 300명</span><span>실적 202명</span></div>
+            </div>
+          </div>
+          <p class="viz__cap">두 막대는 같은 축을 씁니다. 세로선이 목표 100% 지점입니다.</p>
+        </div>
+
+        <div class="viz" data-reveal>
+          <h2 class="viz__title">데이톤 채널별 유입의 양과 질</h2>
+          <svg class="quad" viewBox="0 0 540 390" role="img"
+               aria-label="데이톤 채널별 산점도. 가로축은 세션 수, 세로축은 참여율, 원의 크기는 재방문율입니다. 링커리어는 세션 128건에 참여율 86%, 인스타그램은 세션 58건에 참여율 94.8%로 재방문율이 가장 높습니다.">
+            <line class="quad__grid" x1="72" y1="60"  x2="500" y2="60"></line>
+            <line class="quad__grid" x1="72" y1="146" x2="500" y2="146"></line>
+            <line class="quad__grid" x1="72" y1="232" x2="500" y2="232"></line>
+            <line class="quad__axis" x1="72" y1="318" x2="500" y2="318"></line>
+            <line class="quad__axis" x1="72" y1="60"  x2="72"  y2="318"></line>
+
+            <text class="quad__tick" x="64" y="64"  text-anchor="end">100%</text>
+            <text class="quad__tick" x="64" y="150" text-anchor="end">90%</text>
+            <text class="quad__tick" x="64" y="236" text-anchor="end">80%</text>
+            <text class="quad__tick" x="64" y="322" text-anchor="end">70%</text>
+
+            <text class="quad__tick" x="72"  y="340" text-anchor="middle">0</text>
+            <text class="quad__tick" x="192" y="340" text-anchor="middle">40</text>
+            <text class="quad__tick" x="312" y="340" text-anchor="middle">80</text>
+            <text class="quad__tick" x="432" y="340" text-anchor="middle">120</text>
+
+            <text class="quad__tick" x="286" y="364" text-anchor="middle">세션 수</text>
+            <text class="quad__tick" x="30"  y="46">참여율</text>
+
+            <circle class="quad__bub" cx="456" cy="180" r="11"></circle>
+            <text class="quad__name" x="456" y="158" text-anchor="middle">링커리어</text>
+
+            <circle class="quad__bub quad__bub--accent" cx="246" cy="104" r="22"></circle>
+            <text class="quad__name" x="246" y="72" text-anchor="middle">인스타그램</text>
+
+            <circle class="quad__bub quad__bub--faint" cx="135" cy="264" r="14"></circle>
+            <text class="quad__name" x="135" y="296" text-anchor="middle">올콘</text>
+
+            <circle class="quad__bub quad__bub--faint" cx="132" cy="189" r="8"></circle>
+            <text class="quad__name" x="132" y="168" text-anchor="middle">올포유</text>
+
+            <circle class="quad__bub quad__bub--faint" cx="84" cy="60" r="8"></circle>
+            <text class="quad__name" x="100" y="56">META</text>
+
+            <text class="quad__tick" x="500" y="380" text-anchor="end">원 크기 = 재방문율</text>
+          </svg>
+          <p class="viz__cap">
+            외부 채널 총 233세션 기준입니다. 링커리어 128, 인스타그램 58, 올콘 21, 올포유 20, META 유료광고 4세션.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="vizfull">
+        <div class="viz" data-reveal>
+          <h2 class="viz__title">데이톤 LMS 배너 성과</h2>
+          <div class="dtable">
+            <div class="dtable__scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">지면</th>
+                    <th scope="col">노출</th>
+                    <th scope="col">클릭</th>
+                    <th scope="col">클릭률</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>채용공고 탭</td><td>57</td><td>8</td><td>14.04%</td></tr>
+                  <tr><td>대시보드</td><td>1,685</td><td>62</td><td>3.68%</td></tr>
+                  <tr><td>커뮤니티 탭</td><td>744</td><td>20</td><td>2.69%</td></tr>
+                  <tr><td>Knock 탭</td><td>376</td><td>9</td><td>2.39%</td></tr>
+                  <tr><td>웰컴 배너</td><td>2,207</td><td>34</td><td>1.54%</td></tr>
+                  <tr class="is-total"><td>합계</td><td>5,069</td><td>133</td><td>2.62%</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p class="viz__cap">
+            노출이 가장 많은 웰컴 배너의 클릭률이 가장 낮고, 노출이 가장 적은 채용공고 탭이 가장 높습니다.
+          </p>
+        </div>
+    </div>
+
+    <div class="takeaway" data-reveal>
+      <p class="takeaway__label">배운 것</p>
+      <p class="takeaway__text">
+        META 유료광고는 참여율이 100%였지만 세션이 4건이라 지표로 쓸 수 없었습니다.
+        <b>비율 지표는 모수가 확보된 다음에야 의미를 가집니다.</b>
+        이후 채널 판단은 세션이 일정 규모 이상인 채널로 한정했습니다.
+        그리고 결과가 좋았던 행사보다 미달한 행사에서 배울 것이 많았는데,
+        정작 그 행사에서 필요한 데이터를 남기지 않았다는 점이 가장 아팠습니다.
+      </p>
+    </div>
+  </div>
+</section>
+
+<nav class="pager" aria-label="프로젝트 이동">
+  <a class="pager__item" href="recruit-content.html">
+    <span class="pager__dir">이전 프로젝트</span>
+    <span class="pager__title">15개 콘텐츠 전부에 광고비를 태우지 않기</span>
+  </a>
+  <a class="pager__item pager__item--next" href="retention.html">
+    <span class="pager__dir">다음 프로젝트</span>
+    <span class="pager__title">6개월 구독 플랜 이탈률 80%, 리텐션 방어 실험 설계</span>
+  </a>
+</nav>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <p class="footer__line">숫자가 근거가 되면<br>팀은 멈추지 않습니다</p>
+      <dl class="footer__contact">
+        <dt>이메일</dt>
+        <dd><a href="mailto:alsrms45@gmail.com">alsrms45@gmail.com</a></dd>
+        <dt>깃허브</dt>
+        <dd><a href="https://github.com/mingeun-git">github.com/mingeun-git</a></dd>
+      </dl>
+    </div>
+    <p class="footer__note">
+      표기된 수치는 BDAI 8기 마케팅팀 활동 기준이며 GA4, 인스타그램 인사이트, LMS 배너 로그에서 집계했습니다.
+    </p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>6개월 구독 플랜 이탈률 80%, 리텐션 방어 실험 설계 — 신민근</title>
+<meta name="description" content="플랜끼리 비교했을 때는 보이지 않던 차이를 플랜 내부 집단 비교로 찾아내고, 3~5주차를 겨냥한 A/B 테스트를 설계한 기록.">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/main.css">
+<script>
+/* 스크롤 등장 효과는 자바스크립트가 살아 있을 때만 켠다.
+   main.js 가 끝내 로드되지 않으면 3초 뒤 숨김을 풀어 내용이 반드시 보이게 한다. */
+document.documentElement.className += " js";
+setTimeout(function () {
+  if (!window.__revealReady) { document.documentElement.classList.remove("js"); }
+}, 3000);
+</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23005d5d'/><path d='M4 19h24' stroke='%23ff832b' stroke-width='2' stroke-dasharray='4 3'/><circle cx='10' cy='12' r='2.5' fill='%23ff832b'/><circle cx='21' cy='9' r='2.5' fill='%23ff832b'/><circle cx='16' cy='25' r='2.5' fill='%239ef0f0'/></svg>">
+</head>
+<body>
+
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+
+<header class="header">
+  <div class="header__inner">
+    <a class="header__name" href="../index.html">신민근<em>포트폴리오</em></a>
+    <a class="header__back" href="../index.html#projects">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+        <path d="M7.4 12.6 2.8 8l4.6-4.6.9.9L5.3 7.4H13v1.2H5.3l3 3.1z"/>
+      </svg>
+      프로젝트 목록
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="detail-hero">
+  <div class="wrap">
+    <p class="detail-hero__kicker" data-reveal>데이터 분석 · 01</p>
+    <h1 class="detail-hero__title" data-reveal data-reveal-delay="60">
+      6개월 구독 플랜 이탈률 80%, 리텐션 방어 실험 설계
+    </h1>
+    <p class="detail-hero__lede" data-reveal data-reveal-delay="120">
+      한 교육 플랫폼의 6개월 구독 플랜은 프로모션 이후 신규 구독자와 단기 매출이 크게 늘었지만,
+      첫 만료 시점의 이탈률이 약 <b>80%</b>로 다른 플랜보다 압도적으로 높았습니다.
+      프로젝트의 목표는 이탈 원인 규명 자체가 아니라 <b>리텐션 개선 전략을 제안하는 것</b>이었습니다.
+    </p>
+
+    <dl class="factbar" data-reveal data-reveal-delay="180">
+      <div class="fact"><dt>형태</dt><dd>팀 프로젝트</dd></div>
+      <div class="fact"><dt>맡은 일</dt><dd>분석 방향 제안 · 실험 설계</dd></div>
+      <div class="fact"><dt>도구</dt><dd>SQL · Python</dd></div>
+      <div class="fact"><dt>산출물</dt><dd>A/B 테스트 기획안</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="narrative">
+
+      <div class="beats">
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">초기 가설과 반전</h2>
+          <p class="beat__text">
+            팀의 첫 가설은 “프로모션으로 들어온 유저라 학습 동기가 낮을 것”이었습니다.
+            이 가설을 확인하려고 플랜별 행동 데이터를 비교했는데,
+            <b>학습 유지율과 리텐션 지표가 다른 플랜과 큰 차이가 없었습니다.</b>
+            가설이 틀린 것까지는 확인했지만 다음 방향이 막혔습니다.
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">방향 전환 제안</h2>
+          <p class="beat__text">
+            큰 흐름에서 차이가 없다면 더 세부적인 퍼널 안에서 병목을 찾아야 한다고 판단했습니다.
+            그래서 <b>6개월 플랜 안에서 유지 집단과 이탈 집단을 다시 나눠</b> 비교하자고 제안했습니다.
+            팀원들은 “플랜별 비교에서 안 나온 게 플랜 안에서 나오겠냐”고 반신반의했지만,
+            유저 행동을 따라가 보니 볼 것이 꽤 나왔습니다.
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">발견</h2>
+          <p class="beat__text">
+            두 집단은 초기 학습 경험 자체에는 큰 차이가 없었습니다.
+            레슨 경험 비율과 레슨 완료율이 비슷했습니다.
+            그런데 <b>3~5주차부터 활동 유지율 격차가 약 20%p까지 급격히 벌어졌습니다.</b>
+            이탈은 시작부터가 아니라 특정 구간에서 만들어지고 있었습니다.
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">혼란과 판단</h2>
+          <p class="beat__text">
+            일부 지표는 앞뒤가 맞지 않았습니다.
+            레슨을 한 번도 듣지 않은 유저 비율은 이탈 집단에서 훨씬 높았는데,
+            레슨을 경험한 유저 비율과 완료율은 두 집단이 거의 같았습니다.
+            팀은 원인을 완벽히 규명하는 데 시간을 쓰고 있었고, 저는
+            <b>이 프로젝트의 목적이 원인 분석이 아니라 리텐션 방어 전략 수립</b>이라는 점을 공유했습니다.
+            기간은 정해져 있었고, 모든 조각을 맞추기보다 확인된 지표 안에서 다음 행동을 정하는 편이 낫다고 봤습니다.
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">실험 설계</h2>
+          <ul class="beat__list">
+            <li>격차가 벌어지는 <b>3~5주차</b>에 리마인드 푸시 알림을 보내는 A/B 테스트를 제안했습니다.</li>
+            <li>해당 시점에 발송하는 집단과 다른 시점에 발송하는 집단을 비교하는 구조로 설계했습니다.</li>
+            <li>주요 지표, 보조 지표, 가드레일 지표를 나눠 정의하고 기획안을 작성했습니다.</li>
+            <li>실제 실험 실행까지는 가지 못했습니다. 이 부분은 이 프로젝트의 한계입니다.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="viz" data-reveal>
+          <h2 class="viz__title">분석 단위를 바꾼 순서</h2>
+          <div class="steps">
+            <div class="step">
+              <span class="step__label">1차. 플랜끼리 비교</span>
+              <span class="step__val">차이 없음</span>
+            </div>
+            <p class="step__link">더 작은 단위로</p>
+            <div class="step step--won">
+              <span class="step__label">2차. 플랜 안에서 유지 · 이탈 비교</span>
+              <span class="step__val">격차 발견</span>
+            </div>
+            <p class="step__link">격차 구간을 겨냥</p>
+            <div class="step step--accent">
+              <span class="step__label">3차. 3~5주차 리마인드 A/B 설계</span>
+              <span class="step__val">기획안</span>
+            </div>
+          </div>
+          <p class="viz__cap">
+            같은 데이터라도 비교 단위를 바꾸면 보이지 않던 차이가 드러납니다.
+          </p>
+        </div>
+
+        <div class="viz" data-reveal>
+          <h2 class="viz__title">두 집단의 활동 유지율 격차</h2>
+          <svg class="quad" viewBox="0 0 540 320" role="img"
+               aria-label="주차별 활동 유지율 선 그래프. 1주차와 2주차에는 두 집단이 거의 같지만, 3주차부터 5주차 사이에 격차가 약 20퍼센트포인트까지 벌어집니다.">
+            <line class="quad__grid" x1="60" y1="40"  x2="500" y2="40"></line>
+            <line class="quad__grid" x1="60" y1="105" x2="500" y2="105"></line>
+            <line class="quad__grid" x1="60" y1="170" x2="500" y2="170"></line>
+            <line class="quad__axis" x1="60" y1="235" x2="500" y2="235"></line>
+            <line class="quad__axis" x1="60" y1="40"  x2="60"  y2="235"></line>
+
+            <text class="quad__tick" x="52" y="44"  text-anchor="end">100%</text>
+            <text class="quad__tick" x="52" y="109" text-anchor="end">80%</text>
+            <text class="quad__tick" x="52" y="174" text-anchor="end">60%</text>
+            <text class="quad__tick" x="52" y="239" text-anchor="end">40%</text>
+
+            <text class="quad__tick" x="60"  y="257" text-anchor="middle">1주</text>
+            <text class="quad__tick" x="170" y="257" text-anchor="middle">2주</text>
+            <text class="quad__tick" x="280" y="257" text-anchor="middle">3주</text>
+            <text class="quad__tick" x="390" y="257" text-anchor="middle">4주</text>
+            <text class="quad__tick" x="500" y="257" text-anchor="middle">5주</text>
+            <text class="quad__tick" x="280" y="281" text-anchor="middle">구독 후 경과 주차</text>
+            <text class="quad__tick" x="20"  y="28">활동 유지율</text>
+
+            <!-- 격차 구간 표시 -->
+            <rect x="280" y="40" width="220" height="195" fill="#ba4e00" fill-opacity="0.06"></rect>
+            <line x1="280" y1="40" x2="280" y2="235" stroke="#ba4e00" stroke-width="1.5" stroke-dasharray="5 4"></line>
+            <text x="290" y="58" fill="#8a3800" font-size="13" font-weight="600" font-family="'IBM Plex Sans KR', sans-serif">격차가 벌어지는 구간</text>
+
+            <!-- 유지 집단 -->
+            <polyline points="60,52 170,68 280,82 390,95 500,104"
+                      fill="none" stroke="#005d5d" stroke-width="2.5"></polyline>
+            <circle cx="60"  cy="52"  r="4.5" fill="#005d5d"></circle>
+            <circle cx="170" cy="68"  r="4.5" fill="#005d5d"></circle>
+            <circle cx="280" cy="82"  r="4.5" fill="#005d5d"></circle>
+            <circle cx="390" cy="95"  r="4.5" fill="#005d5d"></circle>
+            <circle cx="500" cy="104" r="4.5" fill="#005d5d"></circle>
+            <text class="quad__name" x="500" y="94" text-anchor="end">유지 집단</text>
+
+            <!-- 이탈 집단 -->
+            <polyline points="60,58 170,78 280,112 390,158 500,196"
+                      fill="none" stroke="#a8a8a8" stroke-width="2.5" stroke-dasharray="6 4"></polyline>
+            <circle cx="60"  cy="58"  r="4.5" fill="#a8a8a8"></circle>
+            <circle cx="170" cy="78"  r="4.5" fill="#a8a8a8"></circle>
+            <circle cx="280" cy="112" r="4.5" fill="#a8a8a8"></circle>
+            <circle cx="390" cy="158" r="4.5" fill="#a8a8a8"></circle>
+            <circle cx="500" cy="196" r="4.5" fill="#a8a8a8"></circle>
+            <text class="quad__name" x="500" y="216" text-anchor="end">이탈 집단</text>
+
+            <text class="quad__tick" x="500" y="312" text-anchor="end">격차 추이를 나타낸 도식</text>
+          </svg>
+          <p class="viz__cap">
+            두 집단의 차이가 어디서 벌어지는지를 보여주는 도식입니다.
+            확인된 값은 격차가 3~5주차에 생기고 그 폭이 약 20%p라는 점이며, 주차별 절대 수치는 표기하지 않았습니다.
+          </p>
+        </div>
+
+        <div class="viz" data-reveal>
+          <h2 class="viz__title">실험 지표 구성</h2>
+          <div class="dtable">
+            <div class="dtable__scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">구분</th>
+                    <th scope="col">보려던 것</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>주요 지표</td><td>3~5주차 이후 활동 유지율</td></tr>
+                  <tr><td>보조 지표</td><td>알림 열람률, 레슨 재진입률</td></tr>
+                  <tr><td>가드레일 지표</td><td>알림 차단률, 구독 해지 요청</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p class="viz__cap">
+            리텐션을 올리려다 알림 피로도를 키우는 것을 막기 위해 가드레일 지표를 함께 뒀습니다.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="takeaway" data-reveal>
+      <p class="takeaway__label">배운 것</p>
+      <p class="takeaway__text">
+        <b>데이터 분석의 목적은 원인을 완벽히 설명하는 것이 아니라, 제한된 시간 안에서 다음 행동을 정하는 것입니다.</b>
+        앞뒤가 맞지 않는 지표를 붙잡고 있으면 팀이 멈춥니다.
+        확인된 것과 확인되지 않은 것을 구분해 놓고, 확인된 범위 안에서 실험을 설계하는 편이
+        결과적으로 더 빨리 답에 가까워진다고 느꼈습니다.
+      </p>
+    </div>
+  </div>
+</section>
+
+<nav class="pager" aria-label="프로젝트 이동">
+  <a class="pager__item" href="dayton-superb.html">
+    <span class="pager__dir">이전 프로젝트</span>
+    <span class="pager__title">같은 실행으로 110%와 67%가 갈린 두 행사</span>
+  </a>
+  <a class="pager__item pager__item--next" href="../index.html#projects">
+    <span class="pager__dir">목록</span>
+    <span class="pager__title">프로젝트 전체 보기</span>
+  </a>
+</nav>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <p class="footer__line">숫자가 근거가 되면<br>팀은 멈추지 않습니다</p>
+      <dl class="footer__contact">
+        <dt>이메일</dt>
+        <dd><a href="mailto:alsrms45@gmail.com">alsrms45@gmail.com</a></dd>
+        <dt>깃허브</dt>
+        <dd><a href="https://github.com/mingeun-git">github.com/mingeun-git</a></dd>
+      </dl>
+    </div>
+    <p class="footer__note">
+      이 프로젝트의 수치는 교육 플랫폼 분석 과제에서 확인한 값입니다.
+      주차별 원본 수치는 표기하지 않고, 두 집단의 격차가 벌어지는 흐름만 도식으로 나타냈습니다.
+    </p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

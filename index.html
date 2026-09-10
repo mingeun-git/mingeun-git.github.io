@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="ko" itemscope itemtype="https://schema.org/ProfilePage">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>신민근 — 데이터로 근거를 만들고 제안하는 사람</title>
-<meta name="description" content="BDAI 8기 마케팅팀. 성과 데이터가 없던 신규 LMS 광고 지면을 측정 체계부터 만들어 16개사와 25건의 기업 광고를 성사시켰습니다.">
-<meta name="theme-color" content="#F2FAFB" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0B1213" media="(prefers-color-scheme: dark)">
+<meta name="description" content="측정되지 않던 것에 값을 매기고 그 근거로 계약을 만듭니다. BDAI 8기 마케팅팀에서 신규 LMS 광고 지면을 사업으로 만들어 16개사와 25건을 성사시켰습니다.">
+<meta name="theme-color" content="#ffffff">
 
 <meta property="og:type" content="profile">
 <meta property="og:title" content="신민근 — 데이터로 근거를 만들고 제안하는 사람">
@@ -15,1020 +14,528 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/main.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231A6068'/><path d='M6 20h20' stroke='%23F1BE93' stroke-width='2.5' stroke-dasharray='4 3'/><circle cx='11' cy='13' r='2.4' fill='%23F1BE93'/><circle cx='21' cy='10' r='2.4' fill='%23F1BE93'/><circle cx='16' cy='25' r='2.4' fill='%23A7E7F2' opacity='.6'/></svg>">
+<script>
+/* 스크롤 등장 효과는 자바스크립트가 살아 있을 때만 켠다.
+   main.js 가 끝내 로드되지 않으면 3초 뒤 숨김을 풀어 내용이 반드시 보이게 한다. */
+document.documentElement.className += " js";
+setTimeout(function () {
+  if (!window.__revealReady) { document.documentElement.classList.remove("js"); }
+}, 3000);
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23005d5d'/><path d='M4 19h24' stroke='%23ff832b' stroke-width='2' stroke-dasharray='4 3'/><circle cx='10' cy='12' r='2.5' fill='%23ff832b'/><circle cx='21' cy='9' r='2.5' fill='%23ff832b'/><circle cx='16' cy='25' r='2.5' fill='%239ef0f0'/></svg>">
 </head>
 <body>
 
-<a class="skiplink" href="#main">본문으로 건너뛰기</a>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
 
-<!-- ══════════════════════════════════════════════ 상단 앱 바 ══ -->
-<header class="appbar" id="appbar">
-  <div class="appbar__inner">
-    <a class="appbar__name" href="#intro">신민근</a>
-
-    <nav class="appbar__nav" aria-label="섹션 이동">
-      <a class="appbar__link" href="#approach">일하는 방식</a>
-      <a class="appbar__link" href="#results">성과</a>
-      <a class="appbar__link" href="#cycle">영업 사이클</a>
-      <a class="appbar__link" href="#cases">사례</a>
-      <a class="appbar__link" href="#data">데이터 분석</a>
-      <a class="appbar__link" href="#profile">이력</a>
+<!-- ═══════════════════════════════════════════════════ 헤더 ══ -->
+<header class="header">
+  <div class="header__inner">
+    <a class="header__name" href="#intro">신민근<em>포트폴리오</em></a>
+    <nav class="header__nav" aria-label="섹션 이동">
+      <a class="header__link" href="#intro">소개</a>
+      <a class="header__link" href="#strengths">강점</a>
+      <a class="header__link" href="#skills">핵심 역량</a>
+      <a class="header__link" href="#projects">프로젝트</a>
+      <a class="header__link" href="#record">이력</a>
+      <a class="header__link" href="#contact">연락</a>
     </nav>
-
-    <button class="appbar__theme" id="themeToggle" type="button" aria-label="밝은 화면과 어두운 화면 전환">
-      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="4.2"></circle>
-        <path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6"></path>
-      </svg>
-    </button>
   </div>
 </header>
 
 <main id="main">
 
-<!-- ══════════════════════════════════════════════════ 히어로 ══ -->
-<section class="section section--flush hero" id="intro">
+<!-- ═══════════════════════════════════════════════════ 소개 ══ -->
+<section class="section hero" id="intro">
   <div class="wrap">
 
-    <div class="hero__identity">
-      <h1 class="hero__name" itemprop="name">신민근</h1>
-      <p class="hero__meta">인천대학교 전기공학 · 미디어커뮤니케이션 복수전공</p>
+    <div class="hero__eyebrow" data-reveal>
+      <h1 class="hero__who">신민근</h1>
+      <p class="hero__what">인천대학교 전기공학 · 미디어커뮤니케이션 복수전공</p>
+      <p class="hero__aim">데이터 기반 영업 기획 · 사업 개발 직무 지원</p>
     </div>
 
-    <p class="hero__headline">숫자가 없는 곳에<br>기준을 세웁니다</p>
-
-    <p class="hero__lede">
-      BDAI 8기 마케팅팀에서 새로 만든 LMS의 광고 지면을 팔 수 있는 상품으로 만들었습니다.
-      성과 데이터가 하나도 없는 상태에서 시작해 지면 분석, 리스트업, 제안서, 계약까지 진행했고
-      <strong>16개사와 광고 25건</strong>을 성사시켰습니다.
+    <p class="hero__line" data-reveal data-reveal-delay="60">
+      측정되지 않던 것에 값을 매기고,<br>그 근거로 계약을 만듭니다
     </p>
 
-    <!-- 히어로 요약 수치 -->
-    <div class="hero__stats">
-      <div class="hero__stat">
-        <p class="hero__stat-figure">16개사</p>
-        <p class="hero__stat-label">기업 광고 계약<br>리스트업 30~40개사에서</p>
-      </div>
-      <div class="hero__stat">
-        <p class="hero__stat-figure">25건</p>
-        <p class="hero__stat-label">누적 광고 집행<br>광고주당 평균 1.6건</p>
-      </div>
-      <div class="hero__stat">
-        <p class="hero__stat-figure">784원</p>
-        <p class="hero__stat-label">정규반 학회원<br>1명당 모집 단가</p>
-      </div>
-      <div class="hero__stat">
-        <p class="hero__stat-figure">42 → 55</p>
-        <p class="hero__stat-label">에타크루 확보 학교<br>3개월 직접 운영</p>
-      </div>
-    </div>
+    <p class="hero__body" data-reveal data-reveal-delay="140">
+      데이터·AI 대학생 학회 BDAI의 8기 마케팅팀에서,
+      학회가 새로 만든 학습 관리 시스템(LMS)의 광고 지면을 사업으로 만들었습니다.
+      성과 데이터가 하나도 없어 단가를 매길 근거조차 없던 상태에서, 지면별 클릭률과 체류 시간을 먼저 쌓고
+      그 수치로 제안서를 썼습니다. 30~40개사를 리스트업해 <strong>16개사와 계약</strong>했고
+      <strong>25건</strong>을 집행했습니다.
+    </p>
 
-    <!-- 커트라인 산점도: 이 사람의 의사결정 방식 자체를 화면 장치로 -->
-    <figure class="cutplot">
-      <div class="cutplot__head">
-        <figcaption class="cutplot__title">광고를 집행할지 정하는 규칙</figcaption>
-        <p class="cutplot__note">콘텐츠별 프로필 방문 수와 커트라인 Q3 = 98 · 규칙 도식</p>
-      </div>
-
-      <svg class="cutplot__svg" viewBox="0 0 800 240" role="img"
-           aria-label="콘텐츠별 프로필 방문 수 분포 도식. 가로 점선이 커트라인 98회를 표시하고, 그 위로 올라간 9개 점만 강조되어 있습니다.">
-        <!-- 기준선 -->
-        <line class="cutplot__grid" x1="32" y1="220" x2="768" y2="220"></line>
-
-        <!-- 커트라인 -->
-        <line class="cutplot__cutline" x1="32" y1="122" x2="768" y2="122"></line>
-        <text class="cutplot__cutlabel" x="768" y="113" text-anchor="end">커트라인 98</text>
-
-        <!-- 축 라벨 -->
-        <text class="cutplot__axislabel" x="32" y="236">업로드 순서</text>
-        <text class="cutplot__axislabel" x="32" y="32">프로필 방문 수</text>
-
-        <!-- 커트라인 미만 -->
-        <g>
-          <circle class="cutplot__dot" cx="44"  cy="208" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="64"  cy="175" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="85"  cy="132" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="105" cy="189" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="146" cy="158" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="166" cy="196" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="186" cy="123" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="227" cy="165" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="247" cy="182" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="268" cy="144" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="288" cy="201" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="329" cy="179" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="349" cy="152" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="369" cy="191" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="430" cy="173" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="451" cy="187" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="491" cy="162" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="512" cy="198" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="552" cy="149" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="573" cy="184" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="593" cy="171" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="613" cy="194" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="654" cy="140" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="674" cy="177" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="695" cy="160" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="715" cy="203" r="4.5"></circle>
-          <circle class="cutplot__dot" cx="756" cy="167" r="4.5"></circle>
-        </g>
-
-        <!-- 커트라인 초과: 광고 집행 -->
-        <g>
-          <circle class="cutplot__dot cutplot__dot--over" style="animation-delay:1000ms" cx="125" cy="100" r="5.5"></circle>
-          <circle class="cutplot__dot cutplot__dot--over" style="animation-delay:1070ms" cx="207" cy="80"  r="5.5"></circle>
-          <circle class="cutplot__dot cutplot__dot--over" style="animation-delay:1140ms" cx="308" cy="115" r="5.5"></circle>
-          <circle class="cutplot__dot cutplot__dot--over" style="animation-delay:1210ms" cx="390" cy="64"  r="5.5"></circle>
-          <circle class="cutplot__dot cutplot__dot--over" style="animation-delay:1280ms" cx="410" cy="102" r="5.5"></circle>
-          <circle class="cutplot__dot cutplot__dot--over" style="animation-delay:1350ms" cx="471" cy="119" r="5.5"></circle>
-          <circle class="cutplot__dot cutplot__dot--over" style="animation-delay:1420ms" cx="532" cy="108" r="5.5"></circle>
-          <circle class="cutplot__dot cutplot__dot--over" style="animation-delay:1490ms" cx="634" cy="87"  r="5.5"></circle>
-          <circle class="cutplot__dot cutplot__dot--over" style="animation-delay:1560ms" cx="735" cy="121" r="5.5"></circle>
-        </g>
+    <a class="hero__cta" href="#projects" data-reveal data-reveal-delay="200">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+        <path d="M2 2h5v5H2V2zm7 0h5v5H9V2zM2 9h5v5H2V9zm7 0h5v5H9V9z"/>
       </svg>
+      프로젝트 보기
+    </a>
 
-      <div class="cutplot__legend">
-        <span class="cutplot__key"><span class="cutplot__swatch cutplot__swatch--over"></span>커트라인을 넘김 · 광고 집행</span>
-        <span class="cutplot__key"><span class="cutplot__swatch"></span>넘지 못함 · 집행하지 않음</span>
+    <dl class="keyfigs" data-reveal data-reveal-delay="260">
+      <div class="keyfig">
+        <dd class="keyfig__num">16개사</dd>
+        <dt class="keyfig__cap">기업 광고 계약<br>리스트업 30~40개사에서</dt>
       </div>
-
-      <p class="viz__caption viz__caption--detached">
-        전체 콘텐츠의 프로필 방문 수를 줄 세워 박스플롯을 그리고, Q3 값인 98회를 커트라인으로 잡았습니다.
-        업로드 후 3일간 관찰해 커트라인을 넘긴 콘텐츠에만 광고비를 태웠습니다.
-        3일을 기다린 이유는 초반에 조용하다가 뒤늦게 터지는 콘텐츠가 실제로 있었기 때문입니다.
-      </p>
-    </figure>
+      <div class="keyfig">
+        <dd class="keyfig__num">25건</dd>
+        <dt class="keyfig__cap">누적 광고 집행<br>광고주당 평균 1.6건 재집행</dt>
+      </div>
+      <div class="keyfig">
+        <dd class="keyfig__num">1,021명</dd>
+        <dt class="keyfig__cap">정규 교육 과정 학회원 모집<br>광고비 기준 1명당 784원</dt>
+      </div>
+      <div class="keyfig">
+        <dd class="keyfig__num">42 → 55</dd>
+        <dt class="keyfig__cap">대학 커뮤니티 홍보단 확보 학교<br>선발 후 3개월 직접 운영</dt>
+      </div>
+    </dl>
 
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════ 일하는 방식 ══ -->
-<section class="section" id="approach">
+<!-- ═══════════════════════════════════════════════════ 강점 ══ -->
+<section class="section section--layer" id="strengths">
   <div class="wrap">
-    <div class="section-head">
-      <h2 class="section-head__title">측정을 만들고, 기준으로 자르고, 수치로 제안합니다</h2>
-      <p class="section-head__lede">
+
+    <div class="shead" data-reveal>
+      <h2 class="shead__title">판단할 때 지키는 네 가지</h2>
+      <p class="shead__lede">
         대학생 조직에서는 대부분의 결정이 경험과 감으로 내려집니다.
-        저는 그 자리에 측정 가능한 근거를 놓는 일을 맡았습니다.
+        목소리 큰 사람이 이기거나, 아닌 것 같은데 따라가는 상황이 아쉬웠습니다.
+        저는 그 자리에 확인할 수 있는 근거를 놓는 쪽을 맡았습니다.
       </p>
     </div>
 
-    <div class="pillars">
-      <article class="pillar">
-        <p class="pillar__figure">9개 채널</p>
-        <h3 class="pillar__title">측정부터 만든다</h3>
-        <p class="pillar__body">
-          모든 콘텐츠와 랜딩에 UTM을 붙여 GA4에서 경로를 분리했습니다.
-          에타크루는 학교마다 파라미터를 다르게 넣어 어느 학교에서 들어온 유입인지까지 구분했습니다.
+    <div class="strengths">
+      <article class="strength" data-reveal>
+        <h3 class="strength__title">측정할 수 없으면 판단하지 않는다</h3>
+        <p class="strength__body">
+          숫자가 없으면 회의가 취향 싸움이 됩니다.
+          그래서 어떤 일을 시작하기 전에 무엇을 어떻게 셀지부터 정합니다.
+          지난 기수에는 학교별로 홍보 성과를 나눠 볼 방법이 아예 없었는데, 그 측정부터 만들었습니다.
         </p>
+        <p class="strength__proof">운영 채널 <b>9개</b> · 학교별 유입을 나눠서 측정</p>
       </article>
 
-      <article class="pillar">
-        <p class="pillar__figure">265만 원</p>
-        <h3 class="pillar__title">기준을 정하고 배분한다</h3>
-        <p class="pillar__body">
-          한 해 광고 예산을 목적별로 나누고, 콘텐츠 단위 집행은 커트라인 하나로 결정했습니다.
-          어떤 콘텐츠가 마음에 드는지가 아니라 분포의 어디에 있는지를 봤습니다.
+      <article class="strength" data-reveal data-reveal-delay="80">
+        <h3 class="strength__title">쓰기 전에 기준을 먼저 정한다</h3>
+        <p class="strength__body">
+          예산을 나눌 때 어떤 콘텐츠가 마음에 드는지는 보지 않았습니다.
+          집행할지 말지를 사람이 그때그때 정하면 애착이 끼어들기 때문에,
+          숫자로 된 커트라인을 먼저 정해 두고 그 선을 넘긴 것에만 돈을 썼습니다.
         </p>
+        <p class="strength__proof">커트라인 프로필 방문 <b>98회</b> · 집행 예산 <b>265만 원</b></p>
       </article>
 
-      <article class="pillar">
-        <p class="pillar__figure">16개사</p>
-        <h3 class="pillar__title">수치로 제안하고 성사시킨다</h3>
-        <p class="pillar__body">
-          누적 회원 수, 평균 체류 시간, 도달, 지면별 클릭률을 담은 제안서로 기업을 설득했습니다.
-          계약 이후에도 결과를 다시 측정해 단가 근거를 갱신했습니다.
+      <article class="strength" data-reveal data-reveal-delay="160">
+        <h3 class="strength__title">상대가 검증할 수 있는 숫자로 말한다</h3>
+        <p class="strength__body">
+          “반응이 좋습니다”는 설득이 되지 않습니다.
+          기업을 만날 때는 상대가 스스로 계산해 볼 수 있는 형태로 자료를 만들었습니다.
+          우리 회원이 몇 명이고, 어느 지면에 얼마나 머물고, 클릭이 몇 퍼센트인지를 그대로 적었습니다.
         </p>
+        <p class="strength__proof">리스트업 30~40개사에서 계약 <b>16개사</b></p>
+      </article>
+
+      <article class="strength" data-reveal data-reveal-delay="240">
+        <h3 class="strength__title">안 된 것도 그대로 남긴다</h3>
+        <p class="strength__body">
+          같은 항목을 실행했는데 데이터 분석 공모전은 목표의 110%,
+          기업과 함께한 해커톤은 67.3%였습니다.
+          미달한 쪽은 아직 원인을 데이터로 규명하지 못했고, 무엇을 측정하지 않았는지를 기록해 뒀습니다.
+        </p>
+        <p class="strength__proof">공모전 <b>110%</b> · 해커톤 <b>67.3%</b></p>
       </article>
     </div>
+
+    <!-- 두 번째 강점이 실제로 어떻게 작동했는지 보여주는 예시 -->
+    <div class="example" data-reveal>
+      <div>
+        <h3 class="example__title">예시. 「쓰기 전에 기준을 먼저 정한다」가 실제로 작동한 방식</h3>
+        <p class="example__body">
+          정규 교육 과정 학회원을 모집할 때 45일 동안 콘텐츠 15개를 만들었고 광고 예산은 80만 원이었습니다.
+          전부에 나눠 태우면 어느 것도 의미 있는 도달을 내지 못하는 규모였습니다.
+          그래서 전체 콘텐츠의 프로필 방문 수를 줄 세워 <b>3사분위 값 98회</b>를 커트라인으로 잡고,
+          업로드 후 <b>3일간 관찰</b>해 그 선을 넘긴 콘텐츠에만 집행했습니다.
+          3일을 기다린 이유는 초반에 조용하다가 뒤늦게 터지는 콘텐츠가 실제로 있었기 때문입니다.
+        </p>
+      </div>
+
+      <figure class="cutplot">
+        <svg class="cutplot__svg" viewBox="0 0 760 250" role="img"
+             aria-label="콘텐츠별 프로필 방문 수 분포 도식. 가로 점선이 커트라인 98회를 표시하고, 그 위로 올라간 콘텐츠 9개만 주황색으로 강조되어 있습니다.">
+          <line class="cutplot__base" x1="30" y1="222" x2="730" y2="222"></line>
+
+          <line class="cutplot__line" x1="30" y1="124" x2="730" y2="124"></line>
+          <text class="cutplot__linelabel" x="730" y="114" text-anchor="end">커트라인 98회</text>
+
+          <text class="cutplot__axis" x="30" y="30">프로필 방문 수</text>
+          <text class="cutplot__axis" x="30" y="243">업로드 순서</text>
+
+          <g>
+            <circle class="cutplot__dot" cx="42"  cy="210" r="5"></circle>
+            <circle class="cutplot__dot" cx="61"  cy="177" r="5"></circle>
+            <circle class="cutplot__dot" cx="81"  cy="134" r="5"></circle>
+            <circle class="cutplot__dot" cx="100" cy="191" r="5"></circle>
+            <circle class="cutplot__dot" cx="139" cy="160" r="5"></circle>
+            <circle class="cutplot__dot" cx="158" cy="198" r="5"></circle>
+            <circle class="cutplot__dot" cx="177" cy="127" r="5"></circle>
+            <circle class="cutplot__dot" cx="216" cy="167" r="5"></circle>
+            <circle class="cutplot__dot" cx="235" cy="184" r="5"></circle>
+            <circle class="cutplot__dot" cx="255" cy="146" r="5"></circle>
+            <circle class="cutplot__dot" cx="274" cy="203" r="5"></circle>
+            <circle class="cutplot__dot" cx="313" cy="181" r="5"></circle>
+            <circle class="cutplot__dot" cx="332" cy="154" r="5"></circle>
+            <circle class="cutplot__dot" cx="351" cy="193" r="5"></circle>
+            <circle class="cutplot__dot" cx="409" cy="175" r="5"></circle>
+            <circle class="cutplot__dot" cx="429" cy="189" r="5"></circle>
+            <circle class="cutplot__dot" cx="467" cy="164" r="5"></circle>
+            <circle class="cutplot__dot" cx="487" cy="200" r="5"></circle>
+            <circle class="cutplot__dot" cx="525" cy="151" r="5"></circle>
+            <circle class="cutplot__dot" cx="545" cy="186" r="5"></circle>
+            <circle class="cutplot__dot" cx="564" cy="173" r="5"></circle>
+            <circle class="cutplot__dot" cx="583" cy="196" r="5"></circle>
+            <circle class="cutplot__dot" cx="622" cy="142" r="5"></circle>
+            <circle class="cutplot__dot" cx="641" cy="179" r="5"></circle>
+            <circle class="cutplot__dot" cx="661" cy="162" r="5"></circle>
+            <circle class="cutplot__dot" cx="680" cy="205" r="5"></circle>
+            <circle class="cutplot__dot" cx="719" cy="169" r="5"></circle>
+          </g>
+
+          <g>
+            <circle class="cutplot__dot cutplot__dot--over" cx="119" cy="102" r="6"></circle>
+            <circle class="cutplot__dot cutplot__dot--over" cx="197" cy="82"  r="6"></circle>
+            <circle class="cutplot__dot cutplot__dot--over" cx="293" cy="117" r="6"></circle>
+            <circle class="cutplot__dot cutplot__dot--over" cx="370" cy="66"  r="6"></circle>
+            <circle class="cutplot__dot cutplot__dot--over" cx="390" cy="104" r="6"></circle>
+            <circle class="cutplot__dot cutplot__dot--over" cx="448" cy="121" r="6"></circle>
+            <circle class="cutplot__dot cutplot__dot--over" cx="506" cy="110" r="6"></circle>
+            <circle class="cutplot__dot cutplot__dot--over" cx="602" cy="89"  r="6"></circle>
+            <circle class="cutplot__dot cutplot__dot--over" cx="700" cy="123" r="6"></circle>
+          </g>
+        </svg>
+
+        <figcaption class="cutplot__legend">
+          <span class="cutplot__key"><span class="cutplot__sw cutplot__sw--over"></span>선을 넘김 · 광고 집행</span>
+          <span class="cutplot__key"><span class="cutplot__sw"></span>넘지 못함 · 집행 안 함</span>
+        </figcaption>
+      </figure>
+    </div>
+
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════ 성과 보드 ══ -->
-<section class="section section--tinted" id="results">
+<!-- ══════════════════════════════════════════════ 핵심 역량 ══ -->
+<section class="section" id="skills">
   <div class="wrap">
-    <div class="section-head">
-      <h2 class="section-head__title">BDAI 8기에서 남긴 수치</h2>
-      <p class="section-head__lede">
-        2026년 상반기, 마케팅팀에서 담당한 활동의 결과입니다.
-        GA4, 인스타그램 인사이트, LMS 배너 로그에서 집계했습니다.
+
+    <div class="shead" data-reveal>
+      <h2 class="shead__title">핵심 역량</h2>
+      <p class="shead__lede">
+        무엇을 할 수 있다고 적는 대신, 실제로 무엇을 했고 그 결과가 어떤 숫자로 남았는지를 함께 적었습니다.
       </p>
     </div>
 
-    <div class="board">
-      <div class="board__cell">
-        <p class="board__figure">13,000명</p>
-        <p class="board__label">인스타그램 팔로워<br>10,000명에서 시작</p>
-      </div>
-      <div class="board__cell">
-        <p class="board__figure">6,000명</p>
-        <p class="board__label">LMS 누적 가입자<br>개발 직후 3월부터 마케팅</p>
-      </div>
-      <div class="board__cell">
-        <p class="board__figure">1,021명</p>
-        <p class="board__label">정규반 학회원 모집<br>전 기수 약 900명</p>
-      </div>
-      <div class="board__cell">
-        <p class="board__figure">55개교</p>
-        <p class="board__label">에타크루 확보 학교<br>이전 42개교</p>
-      </div>
-      <div class="board__cell">
-        <p class="board__figure">25건</p>
-        <p class="board__label">기업 광고 집행<br>광고주 16개사</p>
-      </div>
-      <div class="board__cell">
-        <p class="board__figure">5.3%</p>
-        <p class="board__label">LMS 전체 배너 클릭률<br>제휴 탭은 14.7%</p>
-      </div>
-      <div class="board__cell">
-        <p class="board__figure">110%</p>
-        <p class="board__label">데이톤 팀 모집 달성률<br>30팀 목표에 33팀</p>
-      </div>
-      <div class="board__cell">
-        <p class="board__figure">약 400명</p>
-        <p class="board__label">에타크루 운영진 지원자<br>3개월간 직접 관리</p>
-      </div>
-    </div>
-
-    <div class="board-split">
-
-      <!-- 예산 배분 -->
-      <div class="viz">
-        <h3 class="viz__title">광고 예산 265만 원을 어디에 썼는가</h3>
-
-        <div class="stack" role="img" aria-label="광고 예산 배분. 인스타그램 프로필 유입 125만 원, 정규반 모집 80만 원, LMS 유입 60만 원.">
-          <span class="stack__seg stack__seg--a" style="--w:47.2%">47.2%</span>
-          <span class="stack__seg stack__seg--b" style="--w:30.2%">30.2%</span>
-          <span class="stack__seg stack__seg--c" style="--w:22.6%">22.6%</span>
-        </div>
-
-        <dl class="stack-key">
-          <div class="stack-key__row">
-            <span class="stack-key__swatch stack-key__swatch--a"></span>
-            <dt>인스타그램 프로필 유입</dt>
-            <dd class="stack-key__value">125만 원</dd>
-          </div>
-          <div class="stack-key__row">
-            <span class="stack-key__swatch stack-key__swatch--b"></span>
-            <dt>정규반 학회원 모집</dt>
-            <dd class="stack-key__value">80만 원</dd>
-          </div>
-          <div class="stack-key__row">
-            <span class="stack-key__swatch stack-key__swatch--c"></span>
-            <dt>LMS 유입</dt>
-            <dd class="stack-key__value">60만 원</dd>
-          </div>
-        </dl>
-
-        <p class="viz__caption">
-          예산의 절반 가까이를 팔로워 확보에 썼습니다.
-          팔로워는 한 캠페인의 비용이 아니라 정규반 모집, 에타크루, 데이톤이 공유해서 쓰는 채널 자산이라고 봤기 때문입니다.
-          뒤에 오는 모든 모집의 획득 단가를 낮추는 선행 투자에 가깝습니다.
-        </p>
-      </div>
-
-      <!-- 획득 단가 -->
-      <div class="viz">
-        <h3 class="viz__title">목적별 획득 단가</h3>
-
-        <div class="dtable">
-          <div class="dtable__scroll">
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">목적</th>
-                  <th scope="col">광고비</th>
-                  <th scope="col">성과</th>
-                  <th scope="col">1명당</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>정규반 모집</td>
-                  <td>80만 원</td>
-                  <td>1,021명</td>
-                  <td>784원</td>
-                </tr>
-                <tr>
-                  <td>팔로워 확보</td>
-                  <td>125만 원</td>
-                  <td>+3,000명</td>
-                  <td>417원</td>
-                </tr>
-                <tr>
-                  <td>LMS 가입</td>
-                  <td>60만 원</td>
-                  <td>누적 6,000명</td>
-                  <td>100원</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <p class="viz__caption">
-          광고비를 전체 성과로 나눈 명목 단가입니다.
-          팔로워 증가와 LMS 가입에는 오가닉 유입이 섞여 있어 광고 단독 기여분은 아닙니다.
-          광고만의 기여를 보려면 UTM 기준 유입으로 다시 계산해야 하고, 이 부분은 아직 정리하지 못했습니다.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════ B2B 영업 사이클 ══ -->
-<section class="section" id="cycle">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="section-head__title">지면 분석에서 수주까지 한 번에 돌려봤습니다</h2>
-      <p class="section-head__lede">
-        학회 안에서 벌인 일이지만, 거래처를 찾고 제안서를 쓰고 조건을 맞춰 계약하고
-        실적을 다시 측정하는 순서는 그대로였습니다.
-      </p>
-    </div>
-
-    <ol class="cycle">
-      <li class="cycle__step">
-        <span class="cycle__num">01</span>
-        <h3 class="cycle__title">시장과 지면 분석</h3>
-        <p class="cycle__body">
+    <div class="compet">
+      <div class="compet__row" data-reveal>
+        <h3 class="compet__name">시장과 지면 분석</h3>
+        <p class="compet__did">
           LMS의 탭을 클릭률, 체류 시간, 유입 인원으로 비교해 광고 상품이 될 지면을 추렸습니다.
-          노출이 많은 지면이 아니라 <em>의도를 갖고 들어온 지면</em>을 골랐습니다.
+          노출이 많은 지면이 아니라 의도를 갖고 들어온 지면을 골랐습니다.
         </p>
-      </li>
-      <li class="cycle__step">
-        <span class="cycle__num">02</span>
-        <h3 class="cycle__title">리드 발굴</h3>
-        <p class="cycle__body">
-          이전에 소통 이력이 있는 출판사와 교육 기업을 중심으로 <em>30~40개사</em>를 리스트업하고
-          담당자 컨택 경로를 정리했습니다.
-        </p>
-      </li>
-      <li class="cycle__step">
-        <span class="cycle__num">03</span>
-        <h3 class="cycle__title">제안서 작성과 발송</h3>
-        <p class="cycle__body">
-          누적 회원 수, 평균 체류 시간, 도달, 지면별 클릭률, 배너 규격을 넣은 광고 제안서를 만들어
-          메일로 발송했습니다. 기업이 바로 소재를 만들 수 있도록 지면마다 사이즈를 명시했습니다.
-        </p>
-      </li>
-      <li class="cycle__step">
-        <span class="cycle__num">04</span>
-        <h3 class="cycle__title">조건 협상과 계약</h3>
-        <p class="cycle__body">
-          성과 데이터가 없는 신생 지면이라는 약점을 <em>첫 집행 무료</em>로 상쇄하고,
-          도서 제공 같은 리워드로 회수했습니다. 16개사와 계약했습니다.
-        </p>
-      </li>
-      <li class="cycle__step">
-        <span class="cycle__num">05</span>
-        <h3 class="cycle__title">실적 관리와 재집행</h3>
-        <p class="cycle__body">
-          집행 25건의 결과를 지면별로 다시 측정해 단가 근거를 갱신했습니다.
-          광고주당 평균 <em>1.6건</em>으로 재집행이 이어졌습니다.
-        </p>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════ 대표 사례 ══ -->
-<section class="section section--tinted" id="cases">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="section-head__title">대표 사례 네 건</h2>
-      <p class="section-head__lede">
-        상황이 어땠고, 무엇을 근거로 판단했고, 결과가 어떻게 됐는지 순서로 적었습니다.
-        목표에 못 미친 건도 같이 넣었습니다.
-      </p>
-    </div>
-
-    <div class="cases">
-
-      <!-- ── 사례 01 ───────────────────────────────────────── -->
-      <article class="case" id="case-01">
-        <header class="case__head">
-          <p class="case__index">사례 01 · 사업 개발</p>
-          <h3 class="case__title">성과 데이터가 0인 신규 지면을 광고 상품으로 만들기</h3>
-          <p class="case__result">
-            리스트업 30~40개사에서 <b>16개사</b>와 계약하고, 누적 <b>25건</b>을 집행했습니다.
-            지면별 클릭률 벤치마크를 만들어 단가 산정의 근거로 넘겼습니다.
-          </p>
-          <div class="case__tags">
-            <span class="tag">지면 분석</span>
-            <span class="tag">제안서 작성</span>
-            <span class="tag">B2B 영업</span>
-            <span class="tag">수익화 구조 설계</span>
-          </div>
-        </header>
-
-        <div class="case__grid">
-          <div class="beats">
-            <div class="beat">
-              <p class="beat__label">상황</p>
-              <p class="beat__text">
-                노션으로 학회원을 관리하다 인원이 늘어 자체 LMS를 만들었습니다.
-                관리 도구를 넘어 강사와 외부 인원까지 들어오는 커뮤니티로 키우려 했고, 광고는 그 수익화 수단이었습니다.
-                문제는 <b>신생 지면이라 단가를 매길 근거가 하나도 없었다</b>는 점입니다.
-              </p>
-            </div>
-
-            <div class="beat">
-              <p class="beat__label">판단</p>
-              <p class="beat__text">
-                데이터 공백을 무료 집행으로 메우기로 했습니다.
-                <b>무료 광고는 손실이 아니라 유료화에 필요한 근거를 사는 비용</b>이라고 봤습니다.
-                기업 입장에서도 불특정 다수가 아니라 학회가 직접 관리하는 내부 유저에게 도달하는 거래라 마다할 이유가 없었습니다.
-              </p>
-            </div>
-
-            <div class="beat">
-              <p class="beat__label">실행</p>
-              <ul class="beat__list">
-                <li>탭별 클릭률과 체류 시간, 유입 인원을 비교해 광고 지면 다섯 곳을 선별</li>
-                <li>지면마다 배너 규격을 정리해 기업에 소재 제작을 요청</li>
-                <li>누적 회원 수와 체류 시간, 도달, 지면별 클릭률을 담은 제안서 작성</li>
-                <li>첫 집행은 무료로 하되 도서 제공 등 리워드로 회수</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="case__viz viz">
-            <h4 class="viz__title">지면별 클릭률</h4>
-            <div class="bars">
-              <div class="bar bar--lead">
-                <span class="bar__name">제휴 탭</span>
-                <span class="bar__track"><span class="bar__fill" style="--w:100%"></span></span>
-                <span class="bar__value">14.7%</span>
-              </div>
-              <div class="bar bar--lead">
-                <span class="bar__name">채용공고 탭</span>
-                <span class="bar__track"><span class="bar__fill" style="--w:70%"></span></span>
-                <span class="bar__value">10.3%</span>
-              </div>
-              <div class="bar">
-                <span class="bar__name">전체 평균</span>
-                <span class="bar__track"><span class="bar__fill" style="--w:36%"></span></span>
-                <span class="bar__value">5.3%</span>
-              </div>
-              <div class="bar">
-                <span class="bar__name">Knock 탭</span>
-                <span class="bar__track"><span class="bar__fill" style="--w:15.6%"></span></span>
-                <span class="bar__value">2.3%</span>
-              </div>
-              <div class="bar">
-                <span class="bar__name">웰컴 배너</span>
-                <span class="bar__track"><span class="bar__fill" style="--w:11.6%"></span></span>
-                <span class="bar__value">1.7%</span>
-              </div>
-              <div class="bar">
-                <span class="bar__name">대시보드</span>
-                <span class="bar__track"><span class="bar__fill" style="--w:10.9%"></span></span>
-                <span class="bar__value">1.6%</span>
-              </div>
-              <div class="bar">
-                <span class="bar__name">커뮤니티 탭</span>
-                <span class="bar__track"><span class="bar__fill" style="--w:10.9%"></span></span>
-                <span class="bar__value">1.6%</span>
-              </div>
-            </div>
-
-            <h4 class="viz__title viz__title--stacked">영업 퍼널</h4>
-            <div class="steps">
-              <div class="step">
-                <span class="step__label">리스트업한 타깃 기업</span>
-                <span class="step__value">30~40개사</span>
-              </div>
-              <p class="step__link">전환 약 46%</p>
-              <div class="step step--won">
-                <span class="step__label">광고 계약 성사</span>
-                <span class="step__value">16개사</span>
-              </div>
-              <p class="step__link">광고주당 평균 1.6건</p>
-              <div class="step step--accent">
-                <span class="step__label">누적 광고 집행</span>
-                <span class="step__value">25건</span>
-              </div>
-            </div>
-            <p class="viz__caption">길벗출판사, 한빛출판사, 모두의연구소, 데이콘 등 포함 16개사입니다.</p>
-          </div>
-        </div>
-
-        <p class="case__insight">
-          노출이 가장 많은 웰컴 배너의 클릭률은 1.7%, 노출이 훨씬 적은 제휴 탭은 14.7%였습니다.
-          <b>지면의 가치는 트래픽의 양이 아니라 진입 의도에서 나왔습니다.</b>
-          이후 단가는 노출 수가 아니라 지면 성격을 기준으로 매겼습니다.
-        </p>
-      </article>
-
-      <!-- ── 사례 02 ───────────────────────────────────────── -->
-      <article class="case" id="case-02">
-        <header class="case__head">
-          <p class="case__index">사례 02 · 타깃 선별</p>
-          <h3 class="case__title">미확보 10개교를 다 쫓지 않고 7개교로 좁힌 이유</h3>
-          <p class="case__result">
-            확보 학교를 <b>42개교에서 55개교</b>로 늘렸고, 운영진 지원자 약 <b>400명</b>을 받았습니다.
-            선발한 크루원은 3개월간 직접 관리했습니다.
-          </p>
-          <div class="case__tags">
-            <span class="tag">UTM 설계</span>
-            <span class="tag">GA4</span>
-            <span class="tag">우선순위 산정</span>
-            <span class="tag">채널 확장</span>
-          </div>
-        </header>
-
-        <div class="case__grid case__grid--reverse">
-          <div class="beats">
-            <div class="beat">
-              <p class="beat__label">상황</p>
-              <p class="beat__text">
-                작년에는 확보됐던 <b>우선순위 10개교가 이번에는 비어</b> 있었습니다.
-                남은 기간과 인력으로 열 곳을 모두 공략하기는 어려웠습니다.
-              </p>
-            </div>
-
-            <div class="beat">
-              <p class="beat__label">판단</p>
-              <p class="beat__text">
-                학교마다 UTM 파라미터를 다르게 넣어 GA4에서 유입을 분리해 봤습니다.
-                작년 유입이 높았고 이번 기수 학회원이 10명을 넘는 <b>7개교</b>로 좁혔습니다.
-                학회원이 이미 10명 이상인 학교는 지원자가 나올 모수와 내부 추천 경로가 이미 있다고 봤기 때문입니다.
-              </p>
-            </div>
-
-            <div class="beat">
-              <p class="beat__label">실행</p>
-              <ul class="beat__list">
-                <li>카드뉴스와 공지글에 모집 대상 학교명을 직접 기재</li>
-                <li>홍보 대상을 정규 학회원에서 예비 학회원까지 확대</li>
-                <li>참여 혜택으로 학회 행사 참여권과 기프티콘 제공</li>
-                <li>학교별 분석 보고서를 만들어 추가 홍보가 필요한 곳을 도출</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="case__viz viz">
-            <h4 class="viz__title">미확보 학교를 좁힌 과정</h4>
-            <div class="steps">
-              <div class="step">
-                <span class="step__label">작년 대비 미확보</span>
-                <span class="step__value">10개교</span>
-              </div>
-              <p class="step__link">작년 UTM 기준 유입 상위</p>
-              <p class="step__link">이번 기수 학회원 10명 이상</p>
-              <div class="step step--won">
-                <span class="step__label">집중 공략 대상</span>
-                <span class="step__value">7개교</span>
-              </div>
-            </div>
-
-            <h4 class="viz__title viz__title--stacked">확보 학교 수</h4>
-            <div class="compare">
-              <div class="compare__cell">
-                <p class="compare__label">이전 기수</p>
-                <p class="compare__figure">42개교</p>
-                <p class="compare__delta">기준</p>
-              </div>
-              <div class="compare__cell compare__cell--after">
-                <p class="compare__label">이번 기수</p>
-                <p class="compare__figure">55개교</p>
-                <p class="compare__delta">13개교 증가</p>
-              </div>
-            </div>
-
-            <p class="viz__caption">
-              사전 준비와 직접 요청, 지인 크루를 통한 모집을 병행했습니다.
-            </p>
-          </div>
-        </div>
-
-        <p class="case__insight">
-          타깃은 좁히고 모수는 넓혔습니다.
-          <b>누구에게 말할지는 7개교로 줄이고, 누가 들을 수 있는지는 예비 학회원까지 늘렸습니다.</b>
-          공지에 학교명을 직접 쓰는 것이 이 캠페인에서 가장 값싼 전환 장치였습니다.
-        </p>
-      </article>
-
-      <!-- ── 사례 03 ───────────────────────────────────────── -->
-      <article class="case" id="case-03">
-        <header class="case__head">
-          <p class="case__index">사례 03 · 예산 운용</p>
-          <h3 class="case__title">15개 콘텐츠 전부에 광고비를 태우지 않기</h3>
-          <p class="case__result">
-            45일간 9개 채널을 운영해 정규반 <b>1,021명</b>을 모았습니다.
-            전 기수 약 900명에서 <b>121명</b> 늘었고, 1명당 모집 단가는 <b>784원</b>이었습니다.
-          </p>
-          <div class="case__tags">
-            <span class="tag">콘텐츠 총괄</span>
-            <span class="tag">예산 배분</span>
-            <span class="tag">메일 CRM</span>
-            <span class="tag">부서 간 일정 조율</span>
-          </div>
-        </header>
-
-        <div class="case__grid">
-          <div class="beats">
-            <div class="beat">
-              <p class="beat__label">상황</p>
-              <p class="beat__text">
-                45일 동안 15개 콘텐츠를 만들고 9개 채널을 돌려야 했습니다.
-                광고 예산은 80만 원이었고, <b>콘텐츠마다 나눠 태우면 어느 것도 유의미한 도달을 내지 못하는 규모</b>였습니다.
-              </p>
-            </div>
-
-            <div class="beat">
-              <p class="beat__label">판단</p>
-              <p class="beat__text">
-                전체 콘텐츠의 프로필 방문 수를 줄 세워 박스플롯을 그리고 <b>Q3 값 98회</b>를 커트라인으로 정했습니다.
-                팔로워 확보가 최우선 목표였기 때문에 팔로우 수가 아니라 프로필 방문을 기준으로 삼았습니다.
-                팔로우 수로 자르면 대상 콘텐츠가 너무 적어졌습니다.
-              </p>
-            </div>
-
-            <div class="beat">
-              <p class="beat__label">실행</p>
-              <ul class="beat__list">
-                <li>사전 선별 없이 15개 전부를 같은 커트라인 아래 관찰</li>
-                <li>관찰 기간은 업로드 후 3일. 뒤늦게 터지는 콘텐츠를 놓치지 않기 위한 장치</li>
-                <li>커트라인을 넘긴 콘텐츠는 집행 연장과 확장, 후킹 포인트는 다음 기획에 반영</li>
-                <li>데이터팀, 운영관리팀, 교육기획팀과 일정을 조율하며 콘텐츠 총괄</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="case__viz viz">
-            <h4 class="viz__title">기수별 모집 인원</h4>
-            <div class="bars">
-              <div class="bar">
-                <span class="bar__name">전 기수</span>
-                <span class="bar__track"><span class="bar__fill" style="--w:88.1%"></span></span>
-                <span class="bar__value">약 900명</span>
-              </div>
-              <div class="bar bar--lead">
-                <span class="bar__name">이번 기수</span>
-                <span class="bar__track"><span class="bar__fill" style="--w:100%"></span></span>
-                <span class="bar__value">1,021명</span>
-              </div>
-            </div>
-            <p class="viz__caption">전 기수 모집 인원은 약 900명으로 집계돼 있어 근사치입니다.</p>
-
-            <h4 class="viz__title viz__title--stacked">운영 규모와 집행 규칙</h4>
-            <div class="dtable">
-              <div class="dtable__scroll">
-                <table>
-                  <tbody>
-                    <tr><td>운영 기간</td><td>45일</td></tr>
-                    <tr><td>제작 콘텐츠</td><td>15개</td></tr>
-                    <tr><td>운영 채널</td><td>9개</td></tr>
-                    <tr><td>집행 커트라인</td><td>프로필 방문 98회</td></tr>
-                    <tr><td>관찰 기간</td><td>업로드 후 3일</td></tr>
-                    <tr><td>광고비</td><td>80만 원</td></tr>
-                    <tr><td>모집 인원</td><td>1,021명</td></tr>
-                    <tr><td>1명당 모집 단가</td><td>784원</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <p class="viz__caption">
-              커트라인 98회는 전체 콘텐츠 프로필 방문 수의 3사분위 값입니다.
-            </p>
-          </div>
-        </div>
-
-        <p class="case__insight">
-          커트라인을 미리 정해두면 개별 콘텐츠에 대한 애착이 판단에 끼어들지 않습니다.
-          <b>이 규칙의 목적은 예산 절감이 아니라, 성과가 확인되기 전에는 돈을 쓰지 않는 순서를 만드는 것이었습니다.</b>
-        </p>
-      </article>
-
-      <!-- ── 사례 04 ───────────────────────────────────────── -->
-      <article class="case" id="case-04">
-        <header class="case__head">
-          <p class="case__index">사례 04 · 채널 분석과 회고</p>
-          <h3 class="case__title">같은 실행으로 110%와 67%가 갈린 두 행사</h3>
-          <p class="case__result">
-            데이톤은 30팀 목표에 <b>33팀</b>을 모았고, 슈퍼브는 300명 목표에 <b>202명</b>에 그쳤습니다.
-            실행 항목은 같았습니다.
-          </p>
-          <div class="case__tags">
-            <span class="tag">채널 성과 분석</span>
-            <span class="tag">목표 관리</span>
-            <span class="tag">랜딩페이지</span>
-            <span class="tag">회고</span>
-          </div>
-        </header>
-
-        <div class="case__grid case__grid--reverse">
-          <div class="beats">
-            <div class="beat">
-              <p class="beat__label">상황</p>
-              <p class="beat__text">
-                두 행사 모두 랜딩페이지, 포스터, 홍보 콘텐츠, 진행 상황 공유, 후기까지
-                <b>같은 항목을 실행했는데 결과는 110%와 67.3%로 갈렸습니다.</b>
-              </p>
-            </div>
-
-            <div class="beat">
-              <p class="beat__label">분석</p>
-              <p class="beat__text">
-                데이톤은 채널을 세션 수만이 아니라 참여율과 재방문율까지 나눠 봤습니다.
-                링커리어가 세션의 54.9%를 가져왔지만, 인스타그램은 세션이 절반 이하인데 참여율 94.8%,
-                재방문율 20.7%로 질이 가장 높았습니다.
-                <b>양을 만드는 채널과 질을 만드는 채널이 달랐습니다.</b>
-              </p>
-            </div>
-
-            <div class="beat">
-              <p class="beat__label">남은 과제</p>
-              <p class="beat__text">
-                슈퍼브의 미달은 아직 채널별 유입 데이터로 원인을 규명하지 못했습니다.
-                일정이 시험 기간과 겹쳐 기업 측과 조율했지만,
-                <b>조율 이후의 유입 변화를 따로 측정하지 않은 것이 이 프로젝트의 가장 큰 공백</b>입니다.
-              </p>
-            </div>
-          </div>
-
-          <div class="case__viz viz">
-            <h4 class="viz__title">목표 대비 달성률</h4>
-            <div class="gauges">
-              <div class="gauge gauge--hit">
-                <div class="gauge__head">
-                  <span class="gauge__name">데이톤 · 참가 팀</span>
-                  <span class="gauge__value">110%</span>
-                </div>
-                <div class="gauge__track">
-                  <span class="gauge__fill" style="--w:100%"></span>
-                  <span class="gauge__marker" style="--at:91%"></span>
-                </div>
-                <div class="gauge__foot"><span>목표 30팀</span><span>실적 33팀</span></div>
-              </div>
-
-              <div class="gauge gauge--miss">
-                <div class="gauge__head">
-                  <span class="gauge__name">슈퍼브 · 참가자</span>
-                  <span class="gauge__value">67.3%</span>
-                </div>
-                <div class="gauge__track">
-                  <span class="gauge__fill" style="--w:61.2%"></span>
-                  <span class="gauge__marker" style="--at:91%"></span>
-                </div>
-                <div class="gauge__foot"><span>목표 300명</span><span>실적 202명</span></div>
-              </div>
-            </div>
-
-            <h4 class="viz__title viz__title--stacked">데이톤 채널별 유입의 양과 질</h4>
-            <svg class="quad" viewBox="0 0 520 380" role="img"
-                 aria-label="데이톤 채널별 산점도. 가로축 세션 수, 세로축 참여율, 원 크기는 재방문율. 링커리어는 세션 128건에 참여율 86%, 인스타그램은 세션 58건에 참여율 94.8%로 재방문율이 가장 높습니다.">
-              <!-- 격자 -->
-              <line class="quad__grid" x1="66" y1="56"  x2="486" y2="56"></line>
-              <line class="quad__grid" x1="66" y1="141" x2="486" y2="141"></line>
-              <line class="quad__grid" x1="66" y1="227" x2="486" y2="227"></line>
-              <!-- 축 -->
-              <line class="quad__axis" x1="66" y1="312" x2="486" y2="312"></line>
-              <line class="quad__axis" x1="66" y1="56"  x2="66"  y2="312"></line>
-
-              <!-- y 눈금 -->
-              <text class="quad__label" x="58" y="60"  text-anchor="end">100%</text>
-              <text class="quad__label" x="58" y="145" text-anchor="end">90%</text>
-              <text class="quad__label" x="58" y="231" text-anchor="end">80%</text>
-              <text class="quad__label" x="58" y="316" text-anchor="end">70%</text>
-              <!-- x 눈금 -->
-              <text class="quad__label" x="66"  y="332" text-anchor="middle">0</text>
-              <text class="quad__label" x="186" y="332" text-anchor="middle">40</text>
-              <text class="quad__label" x="306" y="332" text-anchor="middle">80</text>
-              <text class="quad__label" x="426" y="332" text-anchor="middle">120</text>
-
-              <text class="quad__label" x="276" y="356" text-anchor="middle">세션 수</text>
-              <text class="quad__label" x="28"  y="36">참여율</text>
-
-              <!-- 버블: 반지름은 재방문율 -->
-              <circle class="quad__bubble" cx="450" cy="175" r="11"></circle>
-              <text class="quad__pointlabel" x="450" y="153" text-anchor="middle">링커리어</text>
-
-              <circle class="quad__bubble quad__bubble--accent" cx="240" cy="100" r="22"></circle>
-              <text class="quad__pointlabel" x="240" y="68" text-anchor="middle">인스타그램</text>
-
-              <circle class="quad__bubble quad__bubble--faint" cx="129" cy="259" r="14"></circle>
-              <text class="quad__pointlabel" x="129" y="290" text-anchor="middle">올콘</text>
-
-              <circle class="quad__bubble quad__bubble--faint" cx="126" cy="184" r="8"></circle>
-              <text class="quad__pointlabel" x="126" y="164" text-anchor="middle">올포유</text>
-
-              <circle class="quad__bubble quad__bubble--faint" cx="78" cy="56" r="8"></circle>
-              <text class="quad__pointlabel" x="94" y="52">META</text>
-
-              <text class="quad__label" x="486" y="374" text-anchor="end">원 크기 = 재방문율</text>
-            </svg>
-
-            <p class="viz__caption">
-              총 233세션 기준입니다. 링커리어 128, 인스타그램 58, 올콘 21, 올포유 20, META 유료광고 4세션.
-            </p>
-          </div>
-        </div>
-
-        <p class="case__insight">
-          META 유료광고는 참여율이 100%였지만 세션이 4건이라 지표로 쓸 수 없었습니다.
-          <b>비율 지표는 모수가 확보된 다음에야 의미를 가집니다.</b>
-          이후 채널 판단은 세션이 일정 규모 이상인 채널로 한정했습니다.
-        </p>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════ 데이터 분석 프로젝트 ══ -->
-<section class="section" id="data">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="section-head__title">데이터 분석 프로젝트</h2>
-      <p class="section-head__lede">
-        마케팅 운영과 별개로, 주어진 데이터에서 문제를 정의하고 다음 실험까지 설계한 작업들입니다.
-      </p>
-    </div>
-
-    <div class="projects">
-
-      <article class="project">
-        <p class="project__status">정리 완료</p>
-        <h3 class="project__title">6개월 구독 플랜 이탈률 80%, 리텐션 방어 실험 설계</h3>
-        <p class="project__body">
-          팀의 초기 가설은 프로모션으로 들어온 유저라 학습 동기가 낮다는 것이었지만,
-          플랜별 비교에서는 차이가 나오지 않았습니다.
-          6개월 플랜 내부에서 유지 집단과 이탈 집단을 다시 나누자고 제안했고,
-          초기 학습 경험은 비슷한데 3~5주차부터 활동 유지율 격차가 벌어지는 지점을 찾았습니다.
-        </p>
-
-        <dl class="project__metrics">
-          <div class="project__metric"><dt>첫 만료 이탈률</dt><dd>80%</dd></div>
-          <div class="project__metric"><dt>격차 발생 구간</dt><dd>3~5주차</dd></div>
-          <div class="project__metric"><dt>유지율 차이</dt><dd>약 20%p</dd></div>
-        </dl>
-
-        <div class="project__slots">
-          <dl class="project__slot">
-            <dt>결과</dt>
-            <dd>
-              해당 구간에 리마인드 알림을 보내는 A/B 테스트 기획안을 작성했습니다.
-              주요 지표와 보조 지표, 가드레일 지표를 나눠 설계했고 실험 실행까지는 가지 못했습니다.
-            </dd>
-          </dl>
-        </div>
-      </article>
-
-      <article class="project project--pending">
-        <p class="project__status">정리 중</p>
-        <h3 class="project__title">두 번째 분석 프로젝트</h3>
-        <p class="project__body">
-          아래 세 칸에 문제 정의, 분석 방법, 결과를 채웁니다.
-          사례 01부터 04까지와 같은 구조로 맞춥니다.
-        </p>
-        <div class="project__slots">
-          <dl class="project__slot"><dt>문제</dt><dd>무엇이 이상했는지</dd></dl>
-          <dl class="project__slot"><dt>방법</dt><dd>어떤 데이터를 어떻게 봤는지</dd></dl>
-          <dl class="project__slot"><dt>결과</dt><dd>어떤 판단으로 이어졌는지</dd></dl>
-        </div>
-      </article>
-
-      <article class="project project--pending">
-        <p class="project__status">정리 중</p>
-        <h3 class="project__title">세 번째 분석 프로젝트</h3>
-        <p class="project__body">
-          아래 세 칸에 문제 정의, 분석 방법, 결과를 채웁니다.
-          사례 01부터 04까지와 같은 구조로 맞춥니다.
-        </p>
-        <div class="project__slots">
-          <dl class="project__slot"><dt>문제</dt><dd>무엇이 이상했는지</dd></dl>
-          <dl class="project__slot"><dt>방법</dt><dd>어떤 데이터를 어떻게 봤는지</dd></dl>
-          <dl class="project__slot"><dt>결과</dt><dd>어떤 판단으로 이어졌는지</dd></dl>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════ 이력 · 스킬 ══ -->
-<section class="section section--tinted" id="profile">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="section-head__title">전기공학에서 미디어를 거쳐 데이터로</h2>
-      <p class="section-head__lede">
-        졸업 과제에서 협업의 필요를 느껴 전공을 넓혔고, 콘텐츠를 만들며 반응을 재는 일에 익숙해졌습니다.
-        지금은 그 반응을 근거로 바꾸는 일을 합니다.
-      </p>
-    </div>
-
-    <div class="split">
-
-      <div>
-        <h3 class="subhead">활동</h3>
-        <ol class="timeline">
-          <li class="tl tl--now">
-            <p class="tl__when">2026.02 ~</p>
-            <div class="tl__what">
-              <p class="tl__role">BDAI 8기 마케팅팀</p>
-              <p class="tl__detail">LMS 광고 사업 개발, 에타크루 모집과 운영, 정규반 모집 콘텐츠 총괄</p>
-            </div>
-          </li>
-          <li class="tl tl--now">
-            <p class="tl__when">2026.02 ~</p>
-            <div class="tl__what">
-              <p class="tl__role">코드잇 데이터 분석가 부트캠프</p>
-              <p class="tl__detail">SQL과 Python 기반 분석, 리텐션 및 A/B 테스트 설계</p>
-            </div>
-          </li>
-          <li class="tl">
-            <p class="tl__when">2025.07</p>
-            <div class="tl__what">
-              <p class="tl__role">웹예능 잠깐만 · 촬영감독</p>
-              <p class="tl__detail">지방 촬영 대관이 무산될 뻔한 상황을 사전 허가와 운영 계획을 정리해 설득하고 진행</p>
-            </div>
-          </li>
-          <li class="tl">
-            <p class="tl__when">2025.02</p>
-            <div class="tl__what">
-              <p class="tl__role">인천대학교 축구부 인프런트 · 홍보팀</p>
-              <p class="tl__detail">기존 콘텐츠 반응을 비교해 선수 인터뷰 대신 하이라이트와 밈 재해석으로 방향 전환</p>
-            </div>
-          </li>
-          <li class="tl">
-            <p class="tl__when">2024.09</p>
-            <div class="tl__what">
-              <p class="tl__role">인천대학교 정주대학 프로그램 우수상</p>
-            </div>
-          </li>
-          <li class="tl">
-            <p class="tl__when">2024.03</p>
-            <div class="tl__what">
-              <p class="tl__role">미디어커뮤니케이션 복수전공 시작</p>
-              <p class="tl__detail">전기공학 졸업 과제에서 협업의 필요를 느끼고 전공을 넓힘</p>
-            </div>
-          </li>
-          <li class="tl">
-            <p class="tl__when">2023.08</p>
-            <div class="tl__what">
-              <p class="tl__role">영화 콘텐츠 크루 온더플로어 · 대본팀장</p>
-              <p class="tl__detail">비평글과 팟캐스트 대본 작성, 영화관 두 곳과 협업 및 메일링 제안</p>
-            </div>
-          </li>
-          <li class="tl">
-            <p class="tl__when">2020.03</p>
-            <div class="tl__what">
-              <p class="tl__role">인천대학교 전기공학과 입학</p>
-              <p class="tl__detail">졸업 과제로 자동화 식물 케어 서비스를 기획하고 직접 구현</p>
-            </div>
-          </li>
-        </ol>
+        <p class="compet__proof">제휴 탭 클릭률 14.7%<br>웰컴 배너 1.7%<br>노출 순위와 반대되는 결과</p>
       </div>
 
-      <div>
-        <h3 class="subhead">다루는 도구</h3>
-        <div class="skillset">
-          <div class="skillgroup">
-            <p class="skillgroup__name">분석과 추출</p>
-            <ul class="skillgroup__items">
-              <li>SQL</li><li>Python</li><li>R</li>
-            </ul>
-          </div>
-          <div class="skillgroup">
-            <p class="skillgroup__name">측정과 트래킹</p>
-            <ul class="skillgroup__items">
-              <li>GA4</li><li>UTM 설계</li><li>인스타그램 인사이트</li><li>배너 로그 집계</li>
-            </ul>
-          </div>
-          <div class="skillgroup">
-            <p class="skillgroup__name">문서와 제안</p>
-            <ul class="skillgroup__items">
-              <li>Excel</li><li>PowerPoint 제안서</li><li>광고 제안서</li><li>성과 보고서</li>
-            </ul>
-          </div>
-          <div class="skillgroup">
-            <p class="skillgroup__name">제작</p>
-            <ul class="skillgroup__items">
-              <li>Premiere Pro</li><li>카드뉴스</li><li>배너</li><li>랜딩페이지</li>
-            </ul>
+      <div class="compet__row" data-reveal>
+        <h3 class="compet__name">사업 개발과 영업</h3>
+        <p class="compet__did">
+          타깃 기업을 리스트업하고 광고 제안서를 만들어 발송했습니다.
+          데이터가 없다는 약점을 첫 집행 무료로 상쇄하고 리워드로 회수하는 조건을 설계했습니다.
+        </p>
+        <p class="compet__proof">리스트업 30~40개사<br>계약 16개사 · 집행 25건<br>광고주당 평균 1.6건</p>
+      </div>
+
+      <div class="compet__row" data-reveal>
+        <h3 class="compet__name">예산 배분과 실적 관리</h3>
+        <p class="compet__did">
+          한 해 광고 예산을 목적별로 나누고, 콘텐츠 단위 집행은 커트라인 하나로 결정했습니다.
+          집행 뒤에는 지면별로 결과를 다시 측정해 단가 근거를 갱신했습니다.
+        </p>
+        <p class="compet__proof">총 예산 265만 원<br>학회원 모집 1명당 784원<br>팔로워 3,000명 증가, 1명당 417원</p>
+      </div>
+
+      <div class="compet__row" data-reveal>
+        <h3 class="compet__name">측정 설계</h3>
+        <p class="compet__did">
+          모든 콘텐츠와 랜딩페이지에 UTM을 삽입해 GA4에서 유입 경로를 분리했습니다.
+          이 측정 기반이 있었기에 지면별, 학교별, 채널별 비교가 가능했습니다.
+        </p>
+        <p class="compet__proof">운영 채널 9개<br>학교별 파라미터 분리<br>채널별 참여율·재방문율 추적</p>
+      </div>
+
+      <div class="compet__row" data-reveal>
+        <h3 class="compet__name">협업과 일정 조율</h3>
+        <p class="compet__did">
+          데이터팀, 운영관리팀, 교육기획팀과 일정을 맞추며 모집 콘텐츠를 총괄했습니다.
+          해커톤에서는 일정이 시험 기간과 겹친다는 점을 근거로 기업 측과 일정을 다시 협의했습니다.
+        </p>
+        <p class="compet__proof">45일간 콘텐츠 15개 총괄<br>9개 채널 동시 운영</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ 프로젝트 ══ -->
+<section class="section section--layer" id="projects">
+  <div class="wrap">
+
+    <div class="shead" data-reveal>
+      <h2 class="shead__title">프로젝트</h2>
+      <p class="shead__lede">
+        각 항목을 누르면 상황과 판단, 실행, 결과를 그래프와 함께 볼 수 있습니다.
+        목표에 못 미친 건도 그대로 넣었습니다.
+      </p>
+    </div>
+
+    <!-- 그룹 1 -->
+    <div class="projgroup" data-reveal>
+      <div class="projgroup__head">
+        <h3 class="projgroup__name">마케팅과 사업 개발</h3>
+        <p class="projgroup__note">BDAI 8기 마케팅팀 · 2026년 상반기</p>
+      </div>
+
+      <div class="projgrid">
+        <a class="tile" href="projects/lms-ad-sales.html">
+          <p class="tile__meta"><span>사업 개발</span><span>B2B 영업</span><span>제안서</span></p>
+          <h4 class="tile__title">성과 데이터가 0인 신규 지면을 광고 상품으로 만들기</h4>
+          <p class="tile__desc">
+            단가를 매길 근거가 없던 신생 광고 지면에 측정 체계를 세우고,
+            리스트업부터 제안서, 조건 협상, 계약까지 진행했습니다.
+          </p>
+          <dl class="tile__stats">
+            <div class="tile__stat"><dt>광고 계약</dt><dd>16개사</dd></div>
+            <div class="tile__stat"><dt>누적 집행</dt><dd>25건</dd></div>
+          </dl>
+          <span class="tile__go">자세히 보기</span>
+        </a>
+
+        <a class="tile" href="projects/etacrew.html">
+          <p class="tile__meta"><span>타깃 선별</span><span>UTM · GA4</span><span>채널 확장</span></p>
+          <h4 class="tile__title">미확보 10개교를 다 쫓지 않고 7개교로 좁힌 이유</h4>
+          <p class="tile__desc">
+            대학별 커뮤니티에 학회를 알릴 학생 홍보단을 어느 학교에서 뽑을지 고르는 문제였습니다.
+            학교별 유입을 분리해 전환 가능성이 높은 곳만 골랐습니다.
+          </p>
+          <dl class="tile__stats">
+            <div class="tile__stat"><dt>확보 학교</dt><dd>42 → 55</dd></div>
+            <div class="tile__stat"><dt>운영진 지원</dt><dd>약 400명</dd></div>
+          </dl>
+          <span class="tile__go">자세히 보기</span>
+        </a>
+
+        <a class="tile" href="projects/recruit-content.html">
+          <p class="tile__meta"><span>예산 운용</span><span>콘텐츠 총괄</span><span>메일 CRM</span></p>
+          <h4 class="tile__title">15개 콘텐츠 전부에 광고비를 태우지 않기</h4>
+          <p class="tile__desc">
+            정규 교육 과정 학회원을 모집하는 45일 캠페인이었습니다.
+            9개 채널을 운영하며 집행 커트라인 하나로 광고 예산을 배분했습니다.
+          </p>
+          <dl class="tile__stats">
+            <div class="tile__stat"><dt>모집 인원</dt><dd>1,021명</dd></div>
+            <div class="tile__stat"><dt>1명당 단가</dt><dd>784원</dd></div>
+          </dl>
+          <span class="tile__go">자세히 보기</span>
+        </a>
+
+        <a class="tile" href="projects/dayton-superb.html">
+          <p class="tile__meta"><span>채널 분석</span><span>목표 관리</span><span>회고</span></p>
+          <h4 class="tile__title">같은 실행으로 110%와 67%가 갈린 두 행사</h4>
+          <p class="tile__desc">
+            데이터 분석 공모전과 기업 해커톤에서 같은 항목을 실행했는데 결과가 갈렸습니다.
+            채널을 유입량만이 아니라 참여율과 재방문율로 나눠 봤습니다.
+          </p>
+          <dl class="tile__stats">
+            <div class="tile__stat"><dt>공모전 달성률</dt><dd>110%</dd></div>
+            <div class="tile__stat"><dt>해커톤 달성률</dt><dd>67.3%</dd></div>
+          </dl>
+          <span class="tile__go">자세히 보기</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 그룹 2 -->
+    <div class="projgroup" data-reveal>
+      <div class="projgroup__head">
+        <h3 class="projgroup__name">데이터 분석</h3>
+        <p class="projgroup__note">주어진 데이터에서 문제를 정의하고 다음 실험까지 설계한 작업</p>
+      </div>
+
+      <div class="projgrid">
+        <a class="tile" href="projects/retention.html">
+          <p class="tile__meta"><span>리텐션</span><span>퍼널 분석</span><span>A/B 테스트 설계</span></p>
+          <h4 class="tile__title">6개월 구독 플랜 이탈률 80%, 리텐션 방어 실험 설계</h4>
+          <p class="tile__desc">
+            플랜끼리 비교했을 때는 보이지 않던 차이를, 플랜 내부에서 유지 집단과 이탈 집단을
+            다시 나눠 찾아냈습니다.
+          </p>
+          <dl class="tile__stats">
+            <div class="tile__stat"><dt>첫 만료 이탈률</dt><dd>80%</dd></div>
+            <div class="tile__stat"><dt>격차 발생</dt><dd>3~5주차</dd></div>
+          </dl>
+          <span class="tile__go">자세히 보기</span>
+        </a>
+
+        <div class="tile tile--pending">
+          <span class="tile__badge">정리 중</span>
+          <h4 class="tile__title">두 번째 분석 프로젝트</h4>
+          <p class="tile__desc">
+            문제 정의와 분석 방법, 결과를 앞의 프로젝트들과 같은 구조로 정리하고 있습니다.
+          </p>
+        </div>
+
+        <div class="tile tile--pending">
+          <span class="tile__badge">정리 중</span>
+          <h4 class="tile__title">세 번째 분석 프로젝트</h4>
+          <p class="tile__desc">
+            문제 정의와 분석 방법, 결과를 앞의 프로젝트들과 같은 구조로 정리하고 있습니다.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ 이력 ══ -->
+<section class="section" id="record">
+  <div class="wrap">
+
+    <div class="shead" data-reveal>
+      <h2 class="shead__title">이력</h2>
+      <p class="shead__lede">
+        전기공학으로 입학해 졸업 과제에서 협업의 필요를 느끼고 미디어커뮤니케이션을 복수전공했습니다.
+        콘텐츠를 만들며 반응을 재는 일에 익숙해졌고, 지금은 그 반응을 근거로 바꾸는 일을 합니다.
+      </p>
+    </div>
+
+    <div class="twocol">
+
+      <!-- 활동 -->
+      <div data-reveal>
+        <h3 class="blockhead">활동</h3>
+
+        <div class="record record--now">
+          <p class="record__when">2026.02 ~</p>
+          <div class="record__what">
+            <p class="record__role">BDAI 8기 마케팅팀</p>
+            <p class="record__note">LMS 광고 사업 개발, 대학 커뮤니티 홍보단 모집과 3개월 운영, 정규 교육 과정 학회원 모집 콘텐츠 총괄, 인스타그램 유료 광고 집행</p>
           </div>
         </div>
 
-        <h3 class="subhead subhead--stacked">학력</h3>
-        <div class="dtable">
-          <div class="dtable__scroll">
-            <table>
-              <tbody>
-                <tr><td>인천대학교 전기공학과</td><td>주전공</td></tr>
-                <tr><td>인천대학교 미디어커뮤니케이션학과</td><td>복수전공</td></tr>
-              </tbody>
-            </table>
+        <div class="record record--now">
+          <p class="record__when">2026.02 ~</p>
+          <div class="record__what">
+            <p class="record__role">코드잇 데이터 분석가 부트캠프</p>
+            <p class="record__note">SQL과 Python 기반 분석, 구독 리텐션 분석 및 A/B 테스트 설계</p>
           </div>
+        </div>
+
+        <div class="record">
+          <p class="record__when">2025.07</p>
+          <div class="record__what">
+            <p class="record__role">웹예능 잠깐만 · 촬영감독</p>
+            <p class="record__note">지방 촬영 대관이 무산될 뻔한 상황에서 사전 허가와 현장 운영 계획을 정리해 설득하고 촬영을 마쳤습니다</p>
+          </div>
+        </div>
+
+        <div class="record">
+          <p class="record__when">2025.03</p>
+          <div class="record__what">
+            <p class="record__role">우바미디어네트워크 · 홍보팀</p>
+            <p class="record__note">스케치 코미디 촬영, 메이킹 필름 제작. 퀴즈노스 영상 공모전 장려상</p>
+          </div>
+        </div>
+
+        <div class="record">
+          <p class="record__when">2025.02</p>
+          <div class="record__what">
+            <p class="record__role">인천대학교 축구부 인프런트 · 홍보팀</p>
+            <p class="record__note">기존 콘텐츠의 반응을 비교해 선수 인터뷰 대신 경기 하이라이트와 밈 재해석으로 방향을 바꿨습니다</p>
+          </div>
+        </div>
+
+        <div class="record">
+          <p class="record__when">2023.12</p>
+          <div class="record__what">
+            <p class="record__role">독립영화 잡지 메이폴 3호 · 에디터</p>
+            <p class="record__note">비평글 작성, 영화사 진진 인터뷰 진행</p>
+          </div>
+        </div>
+
+        <div class="record">
+          <p class="record__when">2023.08</p>
+          <div class="record__what">
+            <p class="record__role">영화 콘텐츠 크루 온더플로어 · 대본팀장</p>
+            <p class="record__note">비평글과 팟캐스트 대본 약 10회 작성. 영화관 두 곳에 협업을 제안해 홍보 콘텐츠와 티켓 지원을 받았습니다</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 학력 · 수상 · 도구 -->
+      <div data-reveal data-reveal-delay="80">
+        <h3 class="blockhead">학력</h3>
+
+        <div class="record">
+          <p class="record__when">2024.03 ~</p>
+          <div class="record__what">
+            <p class="record__role">인천대학교 미디어커뮤니케이션학과</p>
+            <p class="record__note">복수전공. AI를 활용한 댓글 분석 캡스톤 수행</p>
+          </div>
+        </div>
+
+        <div class="record">
+          <p class="record__when">2020.03 ~</p>
+          <div class="record__what">
+            <p class="record__role">인천대학교 전기공학과</p>
+            <p class="record__note">주전공. 졸업 과제로 자동화 식물 케어 서비스를 기획하고 직접 구현</p>
+          </div>
+        </div>
+
+        <h3 class="blockhead">수상</h3>
+
+        <div class="record">
+          <p class="record__when">2024.09</p>
+          <div class="record__what">
+            <p class="record__role">인천대학교 정주대학 프로그램 우수상</p>
+          </div>
+        </div>
+
+        <h3 class="blockhead">다루는 도구</h3>
+
+        <div class="skillrow">
+          <p class="skillrow__name">분석과 추출</p>
+          <ul class="skillrow__items"><li>SQL</li><li>Python</li><li>R</li></ul>
+        </div>
+        <div class="skillrow">
+          <p class="skillrow__name">측정과 트래킹</p>
+          <ul class="skillrow__items"><li>GA4</li><li>UTM 설계</li><li>인스타그램 인사이트</li><li>배너 로그 집계</li></ul>
+        </div>
+        <div class="skillrow">
+          <p class="skillrow__name">문서와 제안</p>
+          <ul class="skillrow__items"><li>Excel</li><li>PowerPoint</li><li>광고 제안서</li><li>성과 보고서</li></ul>
+        </div>
+        <div class="skillrow">
+          <p class="skillrow__name">제작</p>
+          <ul class="skillrow__items"><li>Premiere Pro</li><li>카드뉴스</li><li>배너</li><li>랜딩페이지</li></ul>
         </div>
       </div>
 
@@ -1038,22 +545,23 @@
 
 </main>
 
-<!-- ══════════════════════════════════════════════════ 푸터 ══ -->
-<footer class="footer">
+<!-- ═══════════════════════════════════════════════════ 푸터 ══ -->
+<footer class="footer" id="contact">
   <div class="wrap">
     <div class="footer__grid">
       <p class="footer__line">숫자가 근거가 되면<br>팀은 멈추지 않습니다</p>
-      <div class="footer__contact">
-        <p>신민근</p>
-        <p>이메일 <a href="mailto:alsrms45@gmail.com">alsrms45@gmail.com</a></p>
-        <p>깃허브 <a href="https://github.com/mingeun-git">github.com/mingeun-git</a></p>
-      </div>
+      <dl class="footer__contact">
+        <dt>이메일</dt>
+        <dd><a href="mailto:alsrms45@gmail.com">alsrms45@gmail.com</a></dd>
+        <dt>깃허브</dt>
+        <dd><a href="https://github.com/mingeun-git">github.com/mingeun-git</a></dd>
+      </dl>
     </div>
 
-    <p class="footer__meta">
-      표기된 수치는 BDAI 8기 마케팅팀 활동 기준입니다.
-      GA4, 인스타그램 인사이트, LMS 배너 로그에서 집계했습니다.
+    <p class="footer__note">
+      표기된 수치는 BDAI 8기 마케팅팀 활동 기준이며 GA4, 인스타그램 인사이트, LMS 배너 로그에서 집계했습니다.
       그래프와 표는 별도 이미지 없이 HTML과 SVG로 직접 그렸습니다.
+      화면은 IBM Carbon Design System의 색상과 타입 스케일을 기반으로 구성했습니다.
     </p>
   </div>
 </footer>

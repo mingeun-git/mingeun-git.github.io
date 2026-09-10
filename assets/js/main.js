@@ -1,138 +1,111 @@
 /* ============================================================================
    신민근 포트폴리오 — 동작
    ----------------------------------------------------------------------------
-   1. 상단 앱 바의 스크롤 경계선
-   2. 현재 읽고 있는 섹션 표시
-   3. 밝은 화면 / 어두운 화면 전환
-   자바스크립트가 꺼져 있어도 페이지 내용은 모두 보인다.
+   1. 스크롤에 따라 내용이 한 번씩 드러남
+   2. 헤더에서 지금 보고 있는 섹션 표시
+   자바스크립트가 꺼져 있으면 모든 내용이 처음부터 그대로 보인다.
+   (숨김 상태는 <html class="js"> 가 붙었을 때만 적용된다)
    ========================================================================== */
 
 (function () {
   "use strict";
 
-  /* ------------------------------------------------ 1. 앱 바 경계선 */
+  // 이 파일이 실제로 로드됐다는 표시. head 의 안전장치가 이 값을 확인한다.
+  window.__revealReady = true;
 
-  var appbar = document.getElementById("appbar");
+  var reduced =
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  function syncAppbar() {
-    if (!appbar) return;
-    appbar.dataset.scrolled = window.scrollY > 8 ? "true" : "false";
-  }
+  /* --------------------------------------------- 1. 스크롤 등장 */
 
-  /* --------------------------------------- 2. 현재 섹션 표시 (스크롤 스파이) */
-
-  var navLinks = Array.prototype.slice.call(
-    document.querySelectorAll(".appbar__link")
+  var targets = Array.prototype.slice.call(
+    document.querySelectorAll("[data-reveal]")
   );
 
-  var sections = navLinks
-    .map(function (link) {
-      var id = link.getAttribute("href");
-      return id && id.charAt(0) === "#" ? document.querySelector(id) : null;
-    })
-    .filter(Boolean);
-
-  function setCurrent(id) {
-    navLinks.forEach(function (link) {
-      if (link.getAttribute("href") === "#" + id) {
-        link.setAttribute("aria-current", "true");
-      } else {
-        link.removeAttribute("aria-current");
-      }
+  function showAll() {
+    targets.forEach(function (el) {
+      el.classList.add("is-in");
     });
   }
 
-  if ("IntersectionObserver" in window && sections.length) {
-    var visible = new Map();
+  if (reduced || !("IntersectionObserver" in window) || !targets.length) {
+    showAll();
+  } else {
+    var revealer = new IntersectionObserver(
+      function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
 
-    var observer = new IntersectionObserver(
+          // 같은 줄에 있는 항목들이 차례로 들어오도록 아주 짧은 시차만 준다
+          var delay = Number(entry.target.getAttribute("data-reveal-delay")) || 0;
+          if (delay) {
+            entry.target.style.transitionDelay = delay + "ms";
+          }
+          entry.target.classList.add("is-in");
+          obs.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "0px 0px -12% 0px", threshold: 0.08 }
+    );
+
+    targets.forEach(function (el) {
+      revealer.observe(el);
+    });
+
+    // 스크롤 없이 접속을 끝내는 경우를 대비한 안전장치
+    window.setTimeout(showAll, 4000);
+  }
+
+  /* ------------------------------------- 2. 지금 보고 있는 섹션 표시 */
+
+  var links = Array.prototype.slice.call(
+    document.querySelectorAll(".header__link")
+  );
+
+  var sections = links
+    .map(function (link) {
+      var href = link.getAttribute("href");
+      return href && href.charAt(0) === "#" ? document.querySelector(href) : null;
+    })
+    .filter(Boolean);
+
+  if ("IntersectionObserver" in window && sections.length) {
+    var ratios = {};
+
+    var spy = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
-          visible.set(entry.target.id, entry.isIntersecting ? entry.intersectionRatio : 0);
+          ratios[entry.target.id] = entry.isIntersecting
+            ? entry.intersectionRatio
+            : 0;
         });
 
         var best = null;
         var bestRatio = 0;
-        visible.forEach(function (ratio, id) {
-          if (ratio > bestRatio) {
-            bestRatio = ratio;
+        Object.keys(ratios).forEach(function (id) {
+          if (ratios[id] > bestRatio) {
+            bestRatio = ratios[id];
             best = id;
           }
         });
 
-        if (best) setCurrent(best);
+        links.forEach(function (link) {
+          if (best && link.getAttribute("href") === "#" + best) {
+            link.setAttribute("aria-current", "true");
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
       },
       {
-        // 앱 바 높이만큼 위를 잘라내고, 화면 아래쪽 절반은 판정에서 제외한다
-        rootMargin: "-72px 0px -45% 0px",
-        threshold: [0, 0.15, 0.35, 0.6, 1]
+        rootMargin: "-56px 0px -50% 0px",
+        threshold: [0, 0.12, 0.3, 0.6, 1]
       }
     );
 
     sections.forEach(function (section) {
-      observer.observe(section);
+      spy.observe(section);
     });
   }
-
-  /* ------------------------------------------------- 3. 화면 밝기 전환 */
-
-  var STORAGE_KEY = "portfolio-theme";
-  var root = document.documentElement;
-  var toggle = document.getElementById("themeToggle");
-
-  function systemPrefersDark() {
-    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  }
-
-  function currentTheme() {
-    return root.getAttribute("data-theme") || (systemPrefersDark() ? "dark" : "light");
-  }
-
-  function applyTheme(theme) {
-    root.setAttribute("data-theme", theme);
-    if (toggle) {
-      toggle.setAttribute(
-        "aria-label",
-        theme === "dark" ? "밝은 화면으로 전환" : "어두운 화면으로 전환"
-      );
-    }
-  }
-
-  try {
-    var saved = localStorage.getItem(STORAGE_KEY);
-    if (saved === "dark" || saved === "light") applyTheme(saved);
-  } catch (err) {
-    /* 저장소를 못 쓰는 환경에서는 시스템 설정을 그대로 따른다 */
-  }
-
-  if (toggle) {
-    toggle.addEventListener("click", function () {
-      var next = currentTheme() === "dark" ? "light" : "dark";
-      applyTheme(next);
-      try {
-        localStorage.setItem(STORAGE_KEY, next);
-      } catch (err) {
-        /* 저장 실패는 무시한다 */
-      }
-    });
-  }
-
-  /* ------------------------------------------------------- 스크롤 연결 */
-
-  var ticking = false;
-
-  window.addEventListener(
-    "scroll",
-    function () {
-      if (ticking) return;
-      ticking = true;
-      window.requestAnimationFrame(function () {
-        syncAppbar();
-        ticking = false;
-      });
-    },
-    { passive: true }
-  );
-
-  syncAppbar();
 })();

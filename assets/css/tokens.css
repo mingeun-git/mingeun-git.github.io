@@ -1,391 +1,263 @@
 /* ============================================================================
    신민근 포트폴리오 — 디자인 토큰
    ----------------------------------------------------------------------------
-   3계층 구조:  원시(primitive) → 의미(semantic) → 컴포넌트(component)
-   색 체계:     Material Design 3 톤 팔레트
-   소스 컬러:   Petrol #1A6068  (계측기·청사진의 청록)
-   강조 컬러:   Copper #7B5433  (전기 인프라의 재료. "기준을 넘은 것"에만 사용)
-   ----------------------------------------------------------------------------
-   원칙: 컴포넌트 CSS에서는 절대 원시 토큰이나 raw hex를 직접 쓰지 않는다.
-        반드시 의미 토큰 또는 컴포넌트 토큰을 경유한다.
+   기반 시스템 : IBM Carbon Design System v11
+   팔레트      : @carbon/colors 원본 hex 값 그대로 사용
+   타입 스케일 : @carbon/type 의 type-scale / heading / body 정의 그대로 사용
+   간격        : Carbon spacing scale (2px 배수 그리드)
+
+   Carbon 을 고른 이유
+   - 수치와 표가 많은 화면을 위해 만들어진 시스템이라 위계가 촘촘하다.
+   - 회색 램프의 대비가 강해 본문과 보조 텍스트가 확실히 구분된다.
+   - 이미 쓰던 IBM Plex 와 같은 계열이라 타입이 시스템과 어긋나지 않는다.
+
+   이 프로젝트에서 손댄 곳 (의도적 변경, 아래에 이유를 남김)
+   1. 강조색을 IBM Blue 60 이 아니라 Teal 70 으로 바꿨다.
+      → 파랑을 쓰면 IBM 제품 화면처럼 읽힌다. Teal 70 은 Carbon 정품 색이면서
+        흰 배경 대비 7.9:1 로 충분히 진하다.
+   2. 본문 행간을 Carbon 기본값보다 약간 넓혔다.
+      → Carbon 의 1.5 는 라틴 문자 기준이다. 한글은 글자 밀도가 높아
+        같은 값에서 답답해 보인다. 본문만 1.62 로 조정했다.
+   3. 다크 테마를 넣지 않았다.
+      → 두 테마를 어중간하게 맞추는 것보다 한 화면의 대비를 정확히 잡는 쪽을 택했다.
+
+   구조: 원시(primitive) → 의미(semantic) → 컴포넌트(component)
+   컴포넌트 CSS 에서는 원시 토큰이나 raw hex 를 직접 쓰지 않는다.
    ========================================================================== */
 
 /* ============================================================================
-   LAYER 1 — 원시 토큰 (raw values)
-   톤 번호는 M3 규약을 따른다. 0 = 검정, 100 = 흰색.
+   LAYER 1 — 원시 토큰 · @carbon/colors 원본값
    ========================================================================== */
 
 :root {
-  /* --- 팔레트 A. Petrol : 주조색 -------------------------------------- */
-  --p-petrol-0:   #000000;
-  --p-petrol-10:  #041F23;
-  --p-petrol-20:  #0A353A;
-  --p-petrol-25:  #0E3F45;
-  --p-petrol-30:  #124A51;
-  --p-petrol-35:  #16545C;
-  --p-petrol-40:  #1A6068;
-  --p-petrol-50:  #2A7A83;
-  --p-petrol-60:  #45949E;
-  --p-petrol-70:  #64AFB9;
-  --p-petrol-80:  #86CBD5;
-  --p-petrol-90:  #A7E7F2;
-  --p-petrol-95:  #D2F4F9;
-  --p-petrol-98:  #EEFBFD;
-  --p-petrol-99:  #F7FDFE;
-  --p-petrol-100: #FFFFFF;
+  --c-white: #ffffff;
+  --c-black: #000000;
 
-  /* --- 팔레트 B. Slate : 보조색 (저채도 청회색) ------------------------ */
-  --p-slate-10:  #0B1F22;
-  --p-slate-20:  #203538;
-  --p-slate-25:  #2B4043;
-  --p-slate-30:  #364B4F;
-  --p-slate-40:  #4D6367;
-  --p-slate-50:  #667C80;
-  --p-slate-60:  #80969A;
-  --p-slate-70:  #9AB1B5;
-  --p-slate-80:  #B5CCD1;
-  --p-slate-90:  #D1E8ED;
-  --p-slate-95:  #E4F3F7;
-  --p-slate-98:  #F1FAFC;
+  /* Gray — 배경과 텍스트의 기준 램프 */
+  --c-gray-10:  #f4f4f4;
+  --c-gray-20:  #e0e0e0;
+  --c-gray-30:  #c6c6c6;
+  --c-gray-40:  #a8a8a8;
+  --c-gray-50:  #8d8d8d;
+  --c-gray-60:  #6f6f6f;
+  --c-gray-70:  #525252;
+  --c-gray-80:  #393939;
+  --c-gray-90:  #262626;
+  --c-gray-100: #161616;
 
-  /* --- 팔레트 C. Copper : 강조색 --------------------------------------- */
-  --p-copper-10:  #2B1500;
-  --p-copper-20:  #472A0E;
-  --p-copper-25:  #533418;
-  --p-copper-30:  #603E20;
-  --p-copper-40:  #7B5433;
-  --p-copper-50:  #986D49;
-  --p-copper-60:  #B58760;
-  --p-copper-70:  #D3A279;
-  --p-copper-80:  #F1BE93;
-  --p-copper-90:  #FFDCC0;
-  --p-copper-95:  #FFEDE1;
-  --p-copper-98:  #FFF8F5;
+  /* Cool Gray — 표 머리와 한 단계 눌러야 하는 면에 사용 */
+  --c-coolgray-10:  #f2f4f8;
+  --c-coolgray-20:  #dde1e6;
+  --c-coolgray-30:  #c1c7cd;
+  --c-coolgray-60:  #697077;
+  --c-coolgray-70:  #4d5358;
+  --c-coolgray-90:  #21272a;
+  --c-coolgray-100: #121619;
 
-  /* --- 팔레트 D. Neutral : 배경과 본문 (청록 쪽으로 미세하게 기울임) ---- */
-  --p-neutral-0:   #000000;
-  --p-neutral-4:   #070D0E;
-  --p-neutral-6:   #0B1213;
-  --p-neutral-10:  #131A1B;
-  --p-neutral-12:  #171E1F;
-  --p-neutral-17:  #212829;
-  --p-neutral-20:  #283030;
-  --p-neutral-22:  #2C3435;
-  --p-neutral-24:  #303839;
-  --p-neutral-30:  #3E4647;
-  --p-neutral-40:  #565E5F;
-  --p-neutral-50:  #6F7778;
-  --p-neutral-60:  #889091;
-  --p-neutral-70:  #A2AAAB;
-  --p-neutral-80:  #BDC5C6;
-  --p-neutral-87:  #D2DADB;
-  --p-neutral-90:  #DAE2E3;
-  --p-neutral-92:  #E0E8E9;
-  --p-neutral-94:  #E6EEEF;
-  --p-neutral-95:  #E9F1F2;
-  --p-neutral-96:  #ECF4F5;
-  --p-neutral-98:  #F2FAFB;
-  --p-neutral-99:  #F7FDFE;
-  --p-neutral-100: #FFFFFF;
+  /* Teal — 이 사이트의 강조색 */
+  --c-teal-10:  #d9fbfb;
+  --c-teal-20:  #9ef0f0;
+  --c-teal-30:  #3ddbd9;
+  --c-teal-40:  #08bdba;
+  --c-teal-50:  #009d9a;
+  --c-teal-60:  #007d79;
+  --c-teal-70:  #005d5d;
+  --c-teal-80:  #004144;
+  --c-teal-90:  #022b30;
+  --c-teal-100: #081a1c;
 
-  /* --- 팔레트 E. Neutral Variant : 외곽선 ------------------------------ */
-  --p-nv-10: #101B1D;
-  --p-nv-20: #253032;
-  --p-nv-30: #3C4648;
-  --p-nv-40: #535D5F;
-  --p-nv-50: #6C7679;
-  --p-nv-60: #869093;
-  --p-nv-70: #A0AAAD;
-  --p-nv-80: #BAC4C6;
-  --p-nv-90: #D6E0E2;
-  --p-nv-95: #E4EEF0;
+  /* Orange — 기준을 넘긴 것, 주의를 끌어야 하는 수치에만 */
+  --c-orange-10: #fff2e8;
+  --c-orange-20: #ffd9be;
+  --c-orange-40: #ff832b;
+  --c-orange-50: #eb6200;
+  --c-orange-60: #ba4e00;
+  --c-orange-70: #8a3800;
 
-  /* --- 팔레트 F. Red : 상태(미달·경고) --------------------------------- */
-  --p-red-10: #410E0B;
-  --p-red-20: #601410;
-  --p-red-30: #8C1D18;
-  --p-red-40: #A6362E;
-  --p-red-70: #E39B95;
-  --p-red-80: #F2B8B5;
-  --p-red-90: #F9DEDC;
+  /* Red / Green — 상태 표시 */
+  --c-red-10:   #fff1f1;
+  --c-red-60:   #da1e28;
+  --c-red-70:   #a2191f;
+  --c-green-10: #defbe6;
+  --c-green-60: #198038;
+  --c-green-70: #0e6027;
 
-  /* --- 타이포 원시값 ---------------------------------------------------- */
-  --p-font-sans: "IBM Plex Sans KR", "IBM Plex Sans", -apple-system,
+  /* 타입 — @carbon/type type-scale */
+  --c-type-01: 0.75rem;    /* 12 */
+  --c-type-02: 0.875rem;   /* 14 */
+  --c-type-03: 1rem;       /* 16 */
+  --c-type-04: 1.125rem;   /* 18 */
+  --c-type-05: 1.25rem;    /* 20 */
+  --c-type-06: 1.5rem;     /* 24 */
+  --c-type-07: 1.75rem;    /* 28 */
+  --c-type-08: 2rem;       /* 32 */
+  --c-type-09: 2.25rem;    /* 36 */
+  --c-type-10: 2.625rem;   /* 42 */
+  --c-type-11: 3rem;       /* 48 */
+  --c-type-12: 3.375rem;   /* 54 */
+  --c-type-13: 3.75rem;    /* 60 */
+
+  --c-font-sans: "IBM Plex Sans KR", "IBM Plex Sans", -apple-system,
                  BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo",
                  "Malgun Gothic", sans-serif;
 
-  --p-weight-light:    300;
-  --p-weight-regular:  400;
-  --p-weight-medium:   500;
-  --p-weight-semibold: 600;
-  --p-weight-bold:     700;
+  --c-weight-light:    300;
+  --c-weight-regular:  400;
+  --c-weight-medium:   500;
+  --c-weight-semibold: 600;
 
-  /* --- 간격 원시값 (4px 베이스) ---------------------------------------- */
-  --p-space-1:  4px;
-  --p-space-2:  8px;
-  --p-space-3:  12px;
-  --p-space-4:  16px;
-  --p-space-5:  20px;
-  --p-space-6:  24px;
-  --p-space-8:  32px;
-  --p-space-10: 40px;
-  --p-space-12: 48px;
-  --p-space-16: 64px;
-  --p-space-20: 80px;
-  --p-space-24: 96px;
-  --p-space-32: 128px;
+  /* 간격 — Carbon spacing scale */
+  --c-space-01: 0.125rem;  /* 2  */
+  --c-space-02: 0.25rem;   /* 4  */
+  --c-space-03: 0.5rem;    /* 8  */
+  --c-space-04: 0.75rem;   /* 12 */
+  --c-space-05: 1rem;      /* 16 */
+  --c-space-06: 1.5rem;    /* 24 */
+  --c-space-07: 2rem;      /* 32 */
+  --c-space-08: 2.5rem;    /* 40 */
+  --c-space-09: 3rem;      /* 48 */
+  --c-space-10: 4rem;      /* 64 */
+  --c-space-11: 5rem;      /* 80 */
+  --c-space-12: 6rem;      /* 96 */
+  --c-space-13: 10rem;     /* 160 */
 
-  /* --- 모서리 원시값 (M3 shape scale) ---------------------------------- */
-  --p-radius-none: 0;
-  --p-radius-xs:   4px;
-  --p-radius-sm:   8px;
-  --p-radius-md:   12px;
-  --p-radius-lg:   16px;
-  --p-radius-xl:   28px;
-  --p-radius-full: 999px;
-
-  /* --- 모션 원시값 (M3 easing) ----------------------------------------- */
-  --p-ease-standard:     cubic-bezier(0.2, 0, 0, 1);
-  --p-ease-emphasized:   cubic-bezier(0.2, 0, 0, 1);
-  --p-ease-decelerate:   cubic-bezier(0.05, 0.7, 0.1, 1);
-  --p-duration-short:    150ms;
-  --p-duration-medium:   300ms;
-  --p-duration-long:     500ms;
-  --p-duration-xlong:    900ms;
+  /* 모션 — Carbon motion */
+  --c-ease-productive: cubic-bezier(0.2, 0, 0.38, 0.9);
+  --c-ease-entrance:   cubic-bezier(0, 0, 0.38, 0.9);
+  --c-ease-expressive: cubic-bezier(0.4, 0.14, 0.3, 1);
+  --c-dur-fast:     110ms;
+  --c-dur-moderate: 240ms;
+  --c-dur-slow:     400ms;
+  --c-dur-slower:   700ms;
 }
 
 /* ============================================================================
-   LAYER 2 — 의미 토큰 (M3 color roles) · 라이트
+   LAYER 2 — 의미 토큰 · Carbon White 테마 기준
    ========================================================================== */
 
 :root {
-  --color-primary:              var(--p-petrol-40);
-  --color-on-primary:           var(--p-petrol-100);
-  --color-primary-container:    var(--p-petrol-90);
-  --color-on-primary-container: var(--p-petrol-10);
-  --color-primary-fixed-dim:    var(--p-petrol-80);
+  /* 면 (Carbon 의 layer 개념. 흰 바탕 위에 회색 면을 얹어 깊이를 만든다) */
+  --bg:            var(--c-white);
+  --layer-01:      var(--c-gray-10);
+  --layer-02:      var(--c-white);
+  --layer-accent:  var(--c-coolgray-10);
+  --layer-inverse: var(--c-gray-100);
 
-  --color-secondary:              var(--p-slate-40);
-  --color-on-secondary:           var(--p-petrol-100);
-  --color-secondary-container:    var(--p-slate-90);
-  --color-on-secondary-container: var(--p-slate-10);
+  /* 글자 */
+  --text-primary:    var(--c-gray-100);  /* 흰 배경 대비 17.4:1 */
+  --text-secondary:  var(--c-gray-70);   /* 흰 배경 대비  8.5:1 */
+  --text-helper:     var(--c-gray-60);   /* 흰 배경 대비  5.7:1 */
+  --text-on-color:   var(--c-white);
+  --text-on-accent:  var(--c-white);
+  --text-inverse:    var(--c-gray-10);
 
-  --color-tertiary:              var(--p-copper-40);
-  --color-on-tertiary:           var(--p-petrol-100);
-  --color-tertiary-container:    var(--p-copper-90);
-  --color-on-tertiary-container: var(--p-copper-10);
+  /* 선 */
+  --border-subtle:  var(--c-gray-20);
+  --border-strong:  var(--c-gray-50);
+  --border-heavy:   var(--c-gray-100);
+  --border-accent:  var(--c-teal-70);
 
-  --color-error:              var(--p-red-40);
-  --color-on-error:           var(--p-petrol-100);
-  --color-error-container:    var(--p-red-90);
-  --color-on-error-container: var(--p-red-10);
+  /* 강조 */
+  --accent:            var(--c-teal-70);  /* 흰 배경 대비 7.9:1 */
+  --accent-hover:      var(--c-teal-80);
+  --accent-bright:     var(--c-teal-60);
+  --accent-surface:    var(--c-teal-10);
+  --accent-on-surface: var(--c-teal-80);
 
-  --color-surface:                    var(--p-neutral-98);
-  --color-surface-dim:                var(--p-neutral-87);
-  --color-surface-bright:             var(--p-neutral-98);
-  --color-surface-container-lowest:   var(--p-neutral-100);
-  --color-surface-container-low:      var(--p-neutral-96);
-  --color-surface-container:          var(--p-neutral-94);
-  --color-surface-container-high:     var(--p-neutral-92);
-  --color-surface-container-highest:  var(--p-neutral-90);
+  /* 두 번째 강조 — 기준을 넘긴 것에만 */
+  --highlight:         var(--c-orange-60);  /* 흰 배경 대비 5.9:1 */
+  --highlight-surface: var(--c-orange-10);
+  --highlight-on-surface: var(--c-orange-70);
 
-  --color-on-surface:         var(--p-neutral-10);
-  --color-on-surface-variant: var(--p-nv-30);
+  /* 상태 — 초록을 쓰면 화면에 색이 하나 더 늘어난다.
+     달성 여부는 강조색과 회색의 대비, 그리고 목표선 위치로 충분히 읽힌다. */
+  --status-good:         var(--accent);
+  --status-good-surface: var(--accent-surface);
+  --status-miss:         var(--c-gray-70);
 
-  --color-outline:         var(--p-nv-50);
-  --color-outline-variant: var(--p-nv-90);
+  /* 링크 */
+  --link:       var(--c-teal-70);
+  --link-hover: var(--c-teal-80);
 
-  --color-inverse-surface:    var(--p-neutral-20);
-  --color-inverse-on-surface: var(--p-neutral-95);
-  --color-inverse-primary:    var(--p-petrol-80);
+  /* 데이터 시각화 */
+  --data-primary:  var(--c-teal-70);
+  --data-second:   var(--c-teal-50);
+  --data-muted:    var(--c-gray-40);
+  --data-track:    var(--c-gray-20);
+  --data-accent:   var(--c-orange-60);
+  --data-grid:     var(--c-gray-20);
+  --data-axis:     var(--c-gray-50);
 
-  --color-scrim: rgba(0, 0, 0, 0.32);
-
-  /* 데이터 시각화 전용 역할 */
-  --color-data-track:    var(--p-neutral-90);
-  --color-data-primary:  var(--p-petrol-40);
-  --color-data-muted:    var(--p-slate-70);
-  --color-data-accent:   var(--p-copper-40);
-  --color-data-grid:     var(--p-nv-90);
-  --color-data-baseline: var(--p-nv-60);
-
-  /* M3는 그림자 대신 표면 톤으로 높이를 표현한다. 그림자는 최소로만 쓴다. */
-  --elevation-1: 0 1px 2px rgba(6, 22, 24, 0.06), 0 1px 3px 1px rgba(6, 22, 24, 0.05);
-  --elevation-2: 0 1px 2px rgba(6, 22, 24, 0.08), 0 2px 6px 2px rgba(6, 22, 24, 0.06);
+  /* 포커스 — Carbon 은 2px 실선 링을 쓴다 */
+  --focus-ring: 2px solid var(--c-teal-70);
+  --focus-offset: 2px;
 }
 
 /* ============================================================================
-   LAYER 2 — 의미 토큰 · 다크
-   ========================================================================== */
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --color-primary:              var(--p-petrol-80);
-    --color-on-primary:           var(--p-petrol-20);
-    --color-primary-container:    var(--p-petrol-30);
-    --color-on-primary-container: var(--p-petrol-90);
-    --color-primary-fixed-dim:    var(--p-petrol-80);
-
-    --color-secondary:              var(--p-slate-80);
-    --color-on-secondary:           var(--p-slate-20);
-    --color-secondary-container:    var(--p-slate-30);
-    --color-on-secondary-container: var(--p-slate-90);
-
-    --color-tertiary:              var(--p-copper-80);
-    --color-on-tertiary:           var(--p-copper-20);
-    --color-tertiary-container:    var(--p-copper-30);
-    --color-on-tertiary-container: var(--p-copper-90);
-
-    --color-error:              var(--p-red-80);
-    --color-on-error:           var(--p-red-20);
-    --color-error-container:    var(--p-red-30);
-    --color-on-error-container: var(--p-red-90);
-
-    --color-surface:                    var(--p-neutral-6);
-    --color-surface-dim:                var(--p-neutral-6);
-    --color-surface-bright:             var(--p-neutral-24);
-    --color-surface-container-lowest:   var(--p-neutral-4);
-    --color-surface-container-low:      var(--p-neutral-10);
-    --color-surface-container:          var(--p-neutral-12);
-    --color-surface-container-high:     var(--p-neutral-17);
-    --color-surface-container-highest:  var(--p-neutral-22);
-
-    --color-on-surface:         var(--p-neutral-90);
-    --color-on-surface-variant: var(--p-nv-80);
-
-    --color-outline:         var(--p-nv-60);
-    --color-outline-variant: var(--p-nv-30);
-
-    --color-inverse-surface:    var(--p-neutral-90);
-    --color-inverse-on-surface: var(--p-neutral-20);
-    --color-inverse-primary:    var(--p-petrol-40);
-
-    --color-scrim: rgba(0, 0, 0, 0.6);
-
-    --color-data-track:    var(--p-neutral-22);
-    --color-data-primary:  var(--p-petrol-70);
-    --color-data-muted:    var(--p-slate-50);
-    --color-data-accent:   var(--p-copper-70);
-    --color-data-grid:     var(--p-nv-30);
-    --color-data-baseline: var(--p-nv-50);
-
-    --elevation-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 1px 3px 1px rgba(0, 0, 0, 0.28);
-    --elevation-2: 0 1px 2px rgba(0, 0, 0, 0.45), 0 2px 6px 2px rgba(0, 0, 0, 0.3);
-
-    --stack-a-bg: var(--p-petrol-80);
-    --stack-a-fg: var(--p-petrol-20);
-    --stack-b-bg: var(--p-petrol-60);
-    --stack-b-fg: var(--p-petrol-10);
-    --stack-c-bg: var(--p-petrol-30);
-    --stack-c-fg: var(--p-petrol-90);
-  }
-}
-
-/* 사용자가 토글로 다크를 강제한 경우 (미디어 쿼리와 무관하게 우선) */
-:root[data-theme="dark"] {
-  --color-primary:              var(--p-petrol-80);
-  --color-on-primary:           var(--p-petrol-20);
-  --color-primary-container:    var(--p-petrol-30);
-  --color-on-primary-container: var(--p-petrol-90);
-
-  --color-secondary:              var(--p-slate-80);
-  --color-on-secondary:           var(--p-slate-20);
-  --color-secondary-container:    var(--p-slate-30);
-  --color-on-secondary-container: var(--p-slate-90);
-
-  --color-tertiary:              var(--p-copper-80);
-  --color-on-tertiary:           var(--p-copper-20);
-  --color-tertiary-container:    var(--p-copper-30);
-  --color-on-tertiary-container: var(--p-copper-90);
-
-  --color-error:              var(--p-red-80);
-  --color-on-error:           var(--p-red-20);
-  --color-error-container:    var(--p-red-30);
-  --color-on-error-container: var(--p-red-90);
-
-  --color-surface:                    var(--p-neutral-6);
-  --color-surface-dim:                var(--p-neutral-6);
-  --color-surface-bright:             var(--p-neutral-24);
-  --color-surface-container-lowest:   var(--p-neutral-4);
-  --color-surface-container-low:      var(--p-neutral-10);
-  --color-surface-container:          var(--p-neutral-12);
-  --color-surface-container-high:     var(--p-neutral-17);
-  --color-surface-container-highest:  var(--p-neutral-22);
-
-  --color-on-surface:         var(--p-neutral-90);
-  --color-on-surface-variant: var(--p-nv-80);
-
-  --color-outline:         var(--p-nv-60);
-  --color-outline-variant: var(--p-nv-30);
-
-  --color-inverse-surface:    var(--p-neutral-90);
-  --color-inverse-on-surface: var(--p-neutral-20);
-  --color-inverse-primary:    var(--p-petrol-40);
-
-  --color-scrim: rgba(0, 0, 0, 0.6);
-
-  --color-data-track:    var(--p-neutral-22);
-  --color-data-primary:  var(--p-petrol-70);
-  --color-data-muted:    var(--p-slate-50);
-  --color-data-accent:   var(--p-copper-70);
-  --color-data-grid:     var(--p-nv-30);
-  --color-data-baseline: var(--p-nv-50);
-
-  --elevation-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 1px 3px 1px rgba(0, 0, 0, 0.28);
-  --elevation-2: 0 1px 2px rgba(0, 0, 0, 0.45), 0 2px 6px 2px rgba(0, 0, 0, 0.3);
-
-  --stack-a-bg: var(--p-petrol-80);
-  --stack-a-fg: var(--p-petrol-20);
-  --stack-b-bg: var(--p-petrol-60);
-  --stack-b-fg: var(--p-petrol-10);
-  --stack-c-bg: var(--p-petrol-30);
-  --stack-c-fg: var(--p-petrol-90);
-}
-
-/* ============================================================================
-   LAYER 2 — 타이포그래피 역할 (M3 type scale)
+   LAYER 2 — 타이포그래피 역할 · @carbon/type 정의
+   한글 본문만 행간을 조정했고, 나머지는 Carbon 값 그대로다.
    ========================================================================== */
 
 :root {
-  --type-display-size:    clamp(2.5rem, 1.4rem + 4.4vw, 4.25rem);
-  --type-display-lh:      1.12;
-  --type-display-ls:      -0.03em;
-  --type-display-weight:  var(--p-weight-semibold);
+  /* label-01 : 12 / 1.33 / +0.32px */
+  --t-label-size: var(--c-type-01);
+  --t-label-lh: 1.33333;
+  --t-label-ls: 0.32px;
 
-  --type-headline-size:   clamp(1.6rem, 1.15rem + 1.7vw, 2.25rem);
-  --type-headline-lh:     1.24;
-  --type-headline-ls:     -0.02em;
-  --type-headline-weight: var(--p-weight-semibold);
+  /* helper : 14 / 1.43 / +0.16px */
+  --t-helper-size: var(--c-type-02);
+  --t-helper-lh: 1.5;
+  --t-helper-ls: 0.16px;
 
-  --type-title-lg-size:   1.3125rem;   /* 21px */
-  --type-title-lg-lh:     1.4;
-  --type-title-lg-ls:     -0.012em;
+  /* body-01 : 14 / 1.43 → 한글 1.6 */
+  --t-body-sm-size: var(--c-type-02);
+  --t-body-sm-lh: 1.6;
+  --t-body-sm-ls: 0.16px;
 
-  --type-title-md-size:   1rem;        /* 16px */
-  --type-title-md-lh:     1.5;
-  --type-title-md-ls:     -0.006em;
+  /* body-02 : 16 / 1.5 → 한글 1.62 */
+  --t-body-size: var(--c-type-03);
+  --t-body-lh: 1.62;
+  --t-body-ls: 0;
 
-  --type-body-lg-size:    1.0625rem;   /* 17px */
-  --type-body-lg-lh:      1.72;
-  --type-body-lg-ls:      -0.003em;
+  /* 본문 중 조금 크게 두는 단락 : 18 / 1.6 */
+  --t-body-lg-size: var(--c-type-04);
+  --t-body-lg-lh: 1.62;
+  --t-body-lg-ls: 0;
 
-  --type-body-md-size:    0.9375rem;   /* 15px */
-  --type-body-md-lh:      1.72;
-  --type-body-md-ls:      0;
+  /* heading-01 : 14 / 600 */
+  --t-h6-size: var(--c-type-02);
+  --t-h6-lh: 1.43;
+  --t-h6-ls: 0.16px;
 
-  --type-body-sm-size:    0.8125rem;   /* 13px */
-  --type-body-sm-lh:      1.6;
-  --type-body-sm-ls:      0.004em;
+  /* heading-02 : 16 / 600 */
+  --t-h5-size: var(--c-type-03);
+  --t-h5-lh: 1.5;
+  --t-h5-ls: 0;
 
-  --type-label-size:      0.8125rem;   /* 13px */
-  --type-label-lh:        1.35;
-  --type-label-ls:        0.01em;
-  --type-label-weight:    var(--p-weight-medium);
+  /* heading-03 : 20 / 600 */
+  --t-h4-size: var(--c-type-05);
+  --t-h4-lh: 1.4;
+  --t-h4-ls: 0;
 
-  --type-figure-size:     clamp(1.9rem, 1.3rem + 2.2vw, 2.75rem);
-  --type-figure-lh:       1.02;
-  --type-figure-ls:       -0.035em;
-  --type-figure-weight:   var(--p-weight-semibold);
+  /* heading-04 : 28 / 400 */
+  --t-h3-size: var(--c-type-07);
+  --t-h3-lh: 1.3;
+  --t-h3-ls: -0.01em;
+
+  /* heading-05 : 32 / 400 → 화면 폭에 따라 32~42 */
+  --t-h2-size: clamp(1.75rem, 1.25rem + 1.6vw, 2.625rem);
+  --t-h2-lh: 1.22;
+  --t-h2-ls: -0.015em;
+
+  /* heading-07 / display : 42~60 / 300 */
+  --t-display-size: clamp(2.25rem, 1.2rem + 3.6vw, 3.75rem);
+  --t-display-lh: 1.16;
+  --t-display-ls: -0.022em;
+
+  /* 수치 표시용 */
+  --t-figure-size: clamp(1.75rem, 1.3rem + 1.6vw, 2.25rem);
+  --t-figure-lh: 1.1;
+  --t-figure-ls: -0.02em;
 }
 
 /* ============================================================================
@@ -394,70 +266,32 @@
 
 :root {
   /* 레이아웃 */
-  --layout-max:        1120px;
-  --layout-narrow:     760px;
-  --layout-gutter:     var(--p-space-6);
-  --layout-section-y:  clamp(64px, 8vw, 112px);
+  --layout-max:      1216px;   /* Carbon max grid width */
+  --layout-reading:  68ch;
+  --layout-gutter:   var(--c-space-06);
+  --section-pad:     clamp(64px, 7vw, 112px);
 
-  /* 상단 앱 바 */
-  --appbar-height:      64px;
-  --appbar-bg:          color-mix(in srgb, var(--color-surface) 82%, transparent);
-  --appbar-border:      var(--color-outline-variant);
-  --appbar-link:        var(--color-on-surface-variant);
-  --appbar-link-active: var(--color-on-surface);
+  /* 헤더 */
+  --header-height: 48px;       /* Carbon UI Shell header 높이 */
 
-  /* 카드 — 역할별로 모서리를 다르게 준다 (M3 shape scale) */
-  --card-bg:            var(--color-surface-container-low);
-  --card-bg-quiet:      transparent;
-  --card-border:        var(--color-outline-variant);
-  --card-radius:        var(--p-radius-lg);
-  --card-radius-large:  var(--p-radius-xl);
-  --card-padding:       clamp(20px, 3vw, 32px);
+  /* 카드 — Carbon 은 모서리를 굴리지 않는다.
+     회색 면(layer-01) 위에 놓이므로 카드는 한 단계 위인 흰 면(layer-02)을 쓴다. */
+  --card-bg:            var(--layer-02);
+  --card-border:        var(--border-subtle);
+  --card-border-hover:  var(--accent);
+  --card-pad:           clamp(20px, 2.4vw, 32px);
 
-  /* 케이스 패널 */
-  --panel-bg:        var(--color-surface-container-lowest);
-  --panel-border:    var(--color-outline-variant);
-  --panel-radius:    var(--p-radius-xl);
-  --panel-padding:   clamp(24px, 4vw, 48px);
-
-  /* 칩 */
-  --chip-bg:       var(--color-surface-container-high);
-  --chip-fg:       var(--color-on-surface-variant);
-  --chip-border:   var(--color-outline-variant);
-  --chip-radius:   var(--p-radius-sm);
-  --chip-padding:  6px 12px;
-
-  /* 수치 타일 */
-  --stat-bg:       var(--color-surface-container-low);
-  --stat-border:   var(--color-outline-variant);
-  --stat-radius:   var(--p-radius-md);
-  --stat-figure:   var(--color-on-surface);
-  --stat-label:    var(--color-on-surface-variant);
-
-  /* 예산 스택 바 — 한 색상의 3단 계단.
-     라이트는 진한 쪽에서 옅은 쪽으로, 다크는 그 반대로 간다.
-     두 모드 모두 계단의 방향이 뒤집히지 않도록 별도 토큰으로 둔다. */
-  --stack-a-bg: var(--p-petrol-40);
-  --stack-a-fg: var(--p-petrol-100);
-  --stack-b-bg: var(--p-petrol-60);
-  --stack-b-fg: var(--p-petrol-10);
-  --stack-c-bg: var(--p-petrol-90);
-  --stack-c-fg: var(--p-petrol-10);
+  /* 표 */
+  --table-head-bg:   var(--c-coolgray-10);
+  --table-head-fg:   var(--c-coolgray-90);
+  --table-row-line:  var(--border-subtle);
+  --table-cell-pad:  12px 16px;
 
   /* 차트 */
-  --chart-bar-height:   10px;
-  --chart-bar-radius:   var(--p-radius-full);
-  --chart-track:        var(--color-data-track);
-  --chart-fill:         var(--color-data-primary);
-  --chart-fill-muted:   var(--color-data-muted);
-  --chart-fill-accent:  var(--color-data-accent);
-  --chart-caption:      var(--color-on-surface-variant);
+  --chart-bar-h:  12px;
+  --chart-track:  var(--data-track);
 
-  /* 타임라인 */
-  --timeline-rule:  var(--color-outline-variant);
-  --timeline-dot:   var(--color-primary);
-
-  /* 포커스 링 */
-  --focus-ring: 2px solid var(--color-primary);
-  --focus-offset: 3px;
+  /* 태그 */
+  --tag-bg: var(--c-coolgray-10);
+  --tag-fg: var(--c-coolgray-70);
 }
