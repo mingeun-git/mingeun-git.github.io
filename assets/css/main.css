@@ -199,7 +199,7 @@ button { font: inherit; }
 
 .hero__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(232px, 26vw, 312px);
+  grid-template-columns: minmax(0, 1fr) clamp(176px, 19vw, 236px);
   gap: clamp(32px, 5vw, 72px);
   align-items: center;
 }
@@ -272,7 +272,7 @@ button { font: inherit; }
 .portrait {
   justify-self: end;
   width: 100%;
-  max-width: 312px;
+  max-width: 236px;
 }
 
 .portrait__frame { position: relative; }
@@ -280,7 +280,7 @@ button { font: inherit; }
 .portrait__frame::after {
   content: "";
   position: absolute;
-  inset: 14px -14px -14px 14px;
+  inset: 11px -11px -11px 11px;
   border: 1px solid var(--field-accent);
   z-index: 0;
 }
@@ -303,8 +303,8 @@ button { font: inherit; }
 
 @media (max-width: 840px) {
   .hero__grid { grid-template-columns: minmax(0, 1fr); }
-  .portrait { justify-self: start; max-width: 208px; order: -1; }
-  .portrait__frame::after { inset: 10px -10px -10px 10px; }
+  .portrait { justify-self: start; max-width: 168px; order: -1; }
+  .portrait__frame::after { inset: 8px -8px -8px 8px; }
 }
 
 /* 버튼 */
@@ -338,50 +338,6 @@ button { font: inherit; }
 }
 
 .btn--ghost:hover { border-color: var(--field-accent); color: var(--field-accent); }
-
-/* 히어로 하단 수치 — 상자가 아니라 괘선으로 나눈 줄 */
-.keyfigs {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin-top: clamp(40px, 5vw, 64px);
-  border-top: 1px solid var(--field-line);
-}
-
-.keyfig {
-  padding: var(--c-space-06) var(--c-space-05) 0 0;
-  border-right: 1px solid var(--field-line);
-}
-
-.keyfig:last-child { border-right: 0; }
-.keyfig:not(:first-child) { padding-left: var(--c-space-05); }
-
-.keyfig__num {
-  font-size: var(--t-figure-size);
-  line-height: var(--t-figure-lh);
-  letter-spacing: var(--t-figure-ls);
-  font-weight: var(--c-weight-semibold);
-  font-variant-numeric: tabular-nums;
-  color: var(--field-accent);
-}
-
-.keyfig__cap {
-  margin-top: var(--c-space-04);
-  font-size: var(--t-body-sm-size);
-  line-height: 1.5;
-  color: var(--field-text-2);
-}
-
-@media (max-width: 860px) {
-  .keyfigs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .keyfig:nth-child(2n) { border-right: 0; }
-  .keyfig:nth-child(n+3) { border-top: 1px solid var(--field-line); }
-}
-
-@media (max-width: 460px) {
-  .keyfigs { grid-template-columns: minmax(0, 1fr); }
-  .keyfig { border-right: 0; padding-left: 0 !important; }
-  .keyfig:not(:first-child) { border-top: 1px solid var(--field-line); }
-}
 
 /* ------------------------------------------------- 5. 일하는 방식 (3줄) */
 
@@ -1429,9 +1385,9 @@ a.tile:hover .tile__go { text-decoration: underline; text-underline-offset: 3px;
   body { background: #fff; color: #000; }
   .field, .footer { background: #fff; color: #000; }
   .hero__line, .hero__name, .footer__line { color: #000; }
-  .hero__body, .keyfig__cap, .portrait__cap, .footer__note, .footer__contact dt,
+  .hero__body, .portrait__cap, .footer__note, .footer__contact dt,
   .takeaway__text { color: #333; }
-  .keyfig__num, .takeaway__label, .footer__contact a { color: #000; }
+  .takeaway__label, .footer__contact a { color: #000; }
   .hero__aim, .btn--solid { background: #eee; color: #000; }
   .takeaway { background: #fff; color: #000; border: 1px solid #000; }
   .section { padding-block: 24px; }
