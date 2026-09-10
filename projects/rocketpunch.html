@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>「활성화가 문제다」라는 내 첫 진단을 스스로 기각하기 — 신민근</title>
+<meta name="description" content="채용 플랫폼 로그 1,646만 건으로 성장 정체를 진단하고, 1차 결론을 기각한 뒤 매칭 실패로 문제를 재정의한 기록. 성향점수 매칭과 생존분석으로 레버를 검증했습니다.">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/main.css">
+<script>
+/* 스크롤 등장 효과는 자바스크립트가 살아 있을 때만 켠다.
+   main.js 가 끝내 로드되지 않으면 3초 뒤 숨김을 풀어 내용이 반드시 보이게 한다. */
+document.documentElement.className += " js";
+setTimeout(function () {
+  if (!window.__revealReady) { document.documentElement.classList.remove("js"); }
+}, 3000);
+</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23022b30'/><path d='M4 19h24' stroke='%23ff832b' stroke-width='2' stroke-dasharray='4 3'/><circle cx='10' cy='12' r='2.5' fill='%23ff832b'/><circle cx='21' cy='9' r='2.5' fill='%23ff832b'/><circle cx='16' cy='25' r='2.5' fill='%239ef0f0'/></svg>">
+</head>
+<body>
+
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+
+<header class="header">
+  <div class="header__inner">
+    <a class="header__name" href="../index.html">신민근<em>포트폴리오</em></a>
+    <a class="header__back" href="../index.html#projects">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+        <path d="M7.4 12.6 2.8 8l4.6-4.6.9.9L5.3 7.4H13v1.2H5.3l3 3.1z"/>
+      </svg>
+      프로젝트 목록
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="detail-hero">
+  <div class="wrap">
+    <p class="detail-hero__kicker" data-reveal>데이터 분석 · 02</p>
+    <h1 class="detail-hero__title" data-reveal data-reveal-delay="60">
+      「활성화가 문제다」라는 내 첫 진단을 스스로 기각하기
+    </h1>
+    <p class="detail-hero__lede" data-reveal data-reveal-delay="120">
+      스타트업 채용 플랫폼의 성장 정체 원인을 진단하는 과제였습니다.
+      첫 진단은 <b>활성화 실패</b>였는데, 전환율이 오르는 동안 절대 규모가 무너지는 패턴을 보고
+      그 결론을 기각했습니다. 문제를 <b>살아있는 수요와 살아있는 공고를 연결하지 못하는 매칭 실패</b>로
+      다시 정의한 뒤 해결안과 실험까지 설계했습니다.
+    </p>
+
+    <dl class="factbar" data-reveal data-reveal-delay="180">
+      <div class="fact"><dt>형태</dt><dd>1인 프로젝트 · 전 과정 단독</dd></div>
+      <div class="fact"><dt>데이터</dt><dd>서비스 로그 1,646만 건 · 지원 8.9만 · 공고 13.2만</dd></div>
+      <div class="fact"><dt>도구</dt><dd>MySQL 8.0 · Python</dd></div>
+      <div class="fact"><dt>산출물</dt><dd>전처리 파이프라인 · 데이터 마트 6종 · 실험 설계서</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="narrative">
+
+      <div class="beats">
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">설명되지 않는 신호</h2>
+          <p class="beat__text">
+            1차 진단의 기대효과를 추정하려고 월별 코호트를 분해하던 중 이상한 패턴이 나왔습니다.
+            2년 사이 신규 유저는 <b>93.6%</b> 줄었는데,
+            같은 기간 D+30 지원 전환율은 15.7%에서 <b>53.8%</b>로 올랐습니다.
+            전환율만 보면 서비스가 극적으로 좋아지고 있었습니다.
+            그런데 절대 지원자는 323명에서 71명으로 78% 줄었습니다.
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">분모가 마르면 비율은 저절로 오른다</h2>
+          <p class="beat__text">
+            후기 코호트의 높은 전환율은 개선이 아니라 <b>유입 구성이 바뀐 결과</b>였습니다.
+            지나가다 들어온 유저가 사라지고 목적이 분명한 유저만 남은 것입니다.
+            온보딩 마찰로는 2년에 걸친 93.6% 감소를 설명할 수 없었습니다.
+            1차 진단은 틀린 게 아니라 <b>불충분</b>했고, 질문을 바꿔야 했습니다.
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">시장의 반쪽만 보고 있었다</h2>
+          <p class="beat__text">
+            공급과 수요를 같은 축에 놓자 예상과 다른 그림이 나왔습니다.
+            신규 공고는 월 2,277건에서 278건으로 <b>87.8% 붕괴</b>했지만,
+            지원은 24개월 평균 월 3,731건 수준을 <b>유지</b>했습니다.
+            지원받은 공고당 지원 건수는 1.9건에서 4.1건으로 경쟁이 두 배 과열됐고,
+            지원 시점의 공고 나이는 109일에서 188일로 늘었습니다.
+            <b>구직 수요는 죽지 않았습니다.</b>
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">유저 축과 공고 축의 결론이 달랐다</h2>
+          <p class="beat__text">
+            상식적인 가설부터 검증했습니다. 미전환 유저는 공고에 도달하지 못한다는 가설입니다.
+            유저 단위로 세면 이 가설은 틀렸습니다.
+            3일 이상 반복 방문하면서 전환하지 않는 유저의 <b>79.1%</b>가 공고 상세를 봤습니다.
+            그런데 공고 단위로 세면 <b>41.0%</b>는 아무도 닿지 않은 공고였습니다.
+            문제는 도달의 유무가 아니라 <b>도달의 분포</b>였습니다.
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">없는 것을 다시 만들 뻔했다</h2>
+          <p class="beat__text">
+            해결안의 초안은 기업 페이지에 채용 공고 모듈을 노출하는 것이었습니다.
+            그런데 세션 89만 개를 복원해 화면 전이를 재보니
+            <b>그 모듈은 이미 있었고 절반 이상이 이용 중</b>이었습니다.
+            진짜 공백은 사람·스킬 축이었습니다.
+            타인 프로필 열람은 전이 표본 94.5만 건으로 플랫폼 최대 동선인데,
+            바로 다음이 공고 상세인 경우는 <b>1.2%</b>뿐입니다.
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">상관을 효과로 착각하지 않으려고</h2>
+          <p class="beat__text">
+            북마크 경험자의 지원 전환율은 80.4%, 미경험자는 32.0%였습니다.
+            차이가 48.4%p지만 이건 전부 <b>상관</b>입니다.
+            의지가 강한 유저가 북마크도 하고 지원도 한다면 처방은 효과가 없습니다.
+            그래서 시점을 정렬한 성향점수 매칭으로 편향을 걷어냈고,
+            순효과는 <b>+11.8%p</b>로 줄었습니다(z=3.44, p=0.0006).
+            기대효과에 곱할 값을 80.4%에서 이 값으로 바꿨습니다.
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">리마인더가 이틀 늦게 도착하고 있었다</h2>
+          <p class="beat__text">
+            북마크 10.6만 건을 생존분석으로 봤습니다.
+            지원 전환 확률은 북마크 당일 3.98%인데 다음 날 0.86%로 <b>5분의 1 이하</b>가 됩니다.
+            기존의 D+2 리마인더는 전환 가능성이 <b>87% 소실된 뒤</b>에 도착하고 있었습니다.
+            3일 골든타임이라는 말은 방향은 맞았지만 시점을 이틀 늦게 지목하고 있었습니다.
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">하지 않을 실험을 먼저 정했다</h2>
+          <ul class="beat__list">
+            <li>월 신규 유저가 355명입니다. 온보딩 A/B로 <b>+1%p</b>를 탐지하려면 <b>70개월</b>이 걸립니다.</li>
+            <li>그래서 실험 단위를 유저에서 <b>이벤트 · 세션 · 공고</b>로 옮겼습니다.</li>
+            <li>같은 가설을 북마크 이벤트 단위로는 6주, 세션 단위로는 1~2주 만에 검증할 수 있습니다.</li>
+            <li>온보딩 실험은 실행 불가로 판정하고, 판정 지표를 선행 지표로 바꾼 대안을 함께 남겼습니다.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="viz" data-reveal>
+          <h2 class="viz__title">비율은 개선, 규모는 붕괴</h2>
+          <div class="dtable">
+            <div class="dtable__scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">지표</th>
+                    <th scope="col">첫 달</th>
+                    <th scope="col">마지막 달</th>
+                    <th scope="col">변화</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>신규 유저</td><td>2,053명</td><td>132명</td><td>−93.6%</td></tr>
+                  <tr><td>D+30 지원 전환율</td><td>15.7%</td><td>53.8%</td><td>+38.1%p</td></tr>
+                  <tr class="is-total"><td>절대 지원자 수</td><td>323명</td><td>71명</td><td>−78.0%</td></tr>
+                  <tr class="is-total"><td>절대 북마크 유저</td><td>215명</td><td>19명</td><td>−91.2%</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p class="viz__cap">
+            이 표가 프로젝트의 변곡점입니다.
+            이후 모든 비율 지표는 절대 규모와 반드시 함께 쓰도록 지표 체계에 못 박았습니다.
+          </p>
+        </div>
+
+        <div class="viz" data-reveal>
+          <h2 class="viz__title">공고 3.1만 건의 운명</h2>
+          <div class="stack">
+            <span class="stack__seg stack__seg--a" style="--w:40.4%">40.4%</span>
+            <span class="stack__seg stack__seg--b" style="--w:41.0%">41.0%</span>
+            <span class="stack__seg stack__seg--c" style="--w:18.6%">18.6%</span>
+          </div>
+          <div class="stackkey">
+            <div class="stackkey__row"><span class="stackkey__sw stackkey__sw--a"></span><span>매칭 성공 — 30일 안에 지원 1건 이상</span><span class="stackkey__val">12,672건</span></div>
+            <div class="stackkey__row"><span class="stackkey__sw stackkey__sw--b"></span><span>도달 실패 — 북마크조차 0건</span><span class="stackkey__val">12,872건</span></div>
+            <div class="stackkey__row"><span class="stackkey__sw stackkey__sw--c"></span><span>전환 실패 — 관심은 받았으나 지원 0건</span><span class="stackkey__val">5,859건</span></div>
+          </div>
+          <p class="viz__cap">
+            지원 0건 공고를 북마크 유무로 쪼개면 실패의 원인이 갈립니다.
+            전환 실패 공고에는 이미 확인된 관심인 북마크 10,363건이 묶여 사장돼 있습니다.
+            두 해결안의 책임 구역을 여기서 나눴습니다.
+          </p>
+        </div>
+
+        <div class="viz" data-reveal>
+          <h2 class="viz__title">북마크가 지원이 될 확률은 하루면 사라진다</h2>
+          <div class="bars">
+            <div class="bar bar--accent"><span class="bar__name">북마크 당일</span><span class="bar__track"><b class="bar__fill" style="--w:100%"></b></span><span class="bar__val">3.98%</span></div>
+            <div class="bar"><span class="bar__name">D+1</span><span class="bar__track"><b class="bar__fill" style="--w:21.6%"></b></span><span class="bar__val">0.86%</span></div>
+            <div class="bar"><span class="bar__name">D+2</span><span class="bar__track"><b class="bar__fill" style="--w:12.8%"></b></span><span class="bar__val">0.51%</span></div>
+            <div class="bar"><span class="bar__name">D+3</span><span class="bar__track"><b class="bar__fill" style="--w:9.0%"></b></span><span class="bar__val">0.36%</span></div>
+            <div class="bar"><span class="bar__name">D+7</span><span class="bar__track"><b class="bar__fill" style="--w:6.3%"></b></span><span class="bar__val">0.25%</span></div>
+          </div>
+          <p class="viz__cap">
+            그날까지 지원하지 않고 남아 있는 북마크가 그날 지원으로 바뀔 확률입니다.
+            개입은 북마크 직후 같은 세션 안, 늦어도 다음 날이어야 합니다.
+          </p>
+        </div>
+        <div class="viz" data-reveal>
+          <h2 class="viz__title">편향을 세 번 걷어낸 결과</h2>
+          <div class="dtable">
+            <div class="dtable__scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">추정 방식</th>
+                    <th scope="col">처치군</th>
+                    <th scope="col">대조군</th>
+                    <th scope="col">리프트</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>단순 비교</td><td>80.4%</td><td>32.0%</td><td>2.52배</td></tr>
+                  <tr><td>활동량 5분위 표준화</td><td>67.8%</td><td>37.6%</td><td>1.81배</td></tr>
+                  <tr class="is-total"><td>시점 정렬 성향점수 매칭</td><td>45.6%</td><td>33.7%</td><td>1.35배</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p class="viz__cap">
+            406쌍을 매칭한 결과입니다(z=3.44, p=0.0006).
+            매칭 전 가장 불균형했던 변수는 첫 주 복귀 일수였습니다.
+            다시 돌아오는가가 북마크와 지원을 동시에 끌어올리는 교란 요인이었고, 매칭 후 균형을 맞췄습니다.
+            다만 관측된 변수만 통제하므로 +11.8%p는 상한에 가까운 추정치이고, 하한은 실험으로만 확정됩니다.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="vizfull">
+      <div class="viz" data-reveal>
+        <h2 class="viz__title">실험 단위를 옮기면 기간이 달라진다</h2>
+        <div class="steps">
+          <div class="step">
+            <span class="step__label">유저 단위 — 월 355명</span>
+            <span class="step__val">70개월</span>
+          </div>
+          <p class="step__link">배정 단위를 바꿈</p>
+          <div class="step step--won">
+            <span class="step__label">북마크 이벤트 단위 — 월 3,846건</span>
+            <span class="step__val">6주</span>
+          </div>
+          <p class="step__link">더 흔한 단위로</p>
+          <div class="step step--accent">
+            <span class="step__label">세션 단위 — 월 37,220개</span>
+            <span class="step__val">1~2주</span>
+          </div>
+        </div>
+        <p class="viz__cap">
+          실험 설계에서 가장 흔한 실패는 좋은 가설을 잘못된 단위로 측정해 영원히 유의해지지 않는 것입니다.
+          표본 산정을 먼저 하면 어떤 실험을 하지 않을지가 먼저 정해집니다.
+        </p>
+      </div>
+    </div>
+
+    <div class="takeaway" data-reveal>
+      <p class="takeaway__label">배운 것</p>
+      <p class="takeaway__text">
+        <b>과대 추정한 큰 숫자보다, 방어 가능한 작은 숫자가 실행을 만듭니다.</b>
+        북마크의 효과를 80.4%로 쓰면 기대효과는 다섯 배 커지지만 그 숫자로는 아무도 예산을 승인하지 않습니다.
+        편향을 걷어낸 +11.8%p는 작아 보여도 근거를 물었을 때 답할 수 있습니다.
+        1차 진단을 기각한 것도 같은 이유였습니다.
+      </p>
+    </div>
+  </div>
+</section>
+
+<nav class="pager" aria-label="프로젝트 이동">
+  <a class="pager__item" href="retention.html">
+    <span class="pager__dir">이전 프로젝트</span>
+    <span class="pager__title">이탈률 83.79%의 원인을 찾으려 분석 단위를 바꾼 기록</span>
+  </a>
+  <a class="pager__item pager__item--next" href="ad-grading.html">
+    <span class="pager__dir">다음 프로젝트</span>
+    <span class="pager__title">성과가 쌓이기 전에 사라지는 광고를 첫날 가려내기</span>
+  </a>
+</nav>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <p class="footer__line">숫자가 근거가 되면<br>팀은 멈추지 않습니다</p>
+      <dl class="footer__contact">
+        <dt>이메일</dt>
+        <dd><a href="mailto:alsrms45@gmail.com">alsrms45@gmail.com</a></dd>
+        <dt>깃허브</dt>
+        <dd><a href="https://github.com/mingeun-git">github.com/mingeun-git</a></dd>
+      </dl>
+    </div>
+    <p class="footer__note">
+      수치는 원자료를 재계산해 하나로 통일한 기준표를 따르며, 모든 비율에는 모수와 판정 기준을 함께 적었습니다.
+      A/B 테스트는 설계까지이고 실행하지 않았습니다.
+    </p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

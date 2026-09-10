@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>성과가 쌓이기 전에 사라지는 광고를 첫날 가려내기 — 신민근</title>
+<meta name="description" content="매일 254개가 들어오고 57.6%가 3일 안에 사라지는 리워드 광고 재고를, 문구만 보고 S~D 등급으로 나누는 운영 시스템을 만든 기록.">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/main.css">
+<script>
+/* 스크롤 등장 효과는 자바스크립트가 살아 있을 때만 켠다.
+   main.js 가 끝내 로드되지 않으면 3초 뒤 숨김을 풀어 내용이 반드시 보이게 한다. */
+document.documentElement.className += " js";
+setTimeout(function () {
+  if (!window.__revealReady) { document.documentElement.classList.remove("js"); }
+}, 3000);
+</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23022b30'/><path d='M4 19h24' stroke='%23ff832b' stroke-width='2' stroke-dasharray='4 3'/><circle cx='10' cy='12' r='2.5' fill='%23ff832b'/><circle cx='21' cy='9' r='2.5' fill='%23ff832b'/><circle cx='16' cy='25' r='2.5' fill='%239ef0f0'/></svg>">
+</head>
+<body>
+
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+
+<header class="header">
+  <div class="header__inner">
+    <a class="header__name" href="../index.html">신민근<em>포트폴리오</em></a>
+    <a class="header__back" href="../index.html#projects">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+        <path d="M7.4 12.6 2.8 8l4.6-4.6.9.9L5.3 7.4H13v1.2H5.3l3 3.1z"/>
+      </svg>
+      프로젝트 목록
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="detail-hero">
+  <div class="wrap">
+    <p class="detail-hero__kicker" data-reveal>데이터 분석 · 03</p>
+    <h1 class="detail-hero__title" data-reveal data-reveal-delay="60">
+      성과가 쌓이기 전에 사라지는 광고를 첫날 가려내기
+    </h1>
+    <p class="detail-hero__lede" data-reveal data-reveal-delay="120">
+      리워드 광고 플랫폼에는 매일 <b>254개</b>의 새 광고가 들어오고 그중 <b>57.6%</b>가 3일 안에 사라집니다.
+      성과가 쌓이기를 기다리면 광고가 이미 없고, 기존 분류축은 88.9%가 한 값이라 판단 근거가 되지 못했습니다.
+      남은 정보인 <b>광고 문구</b>만으로 S부터 D까지 등급을 매기는 운영 시스템을 만들었습니다.
+    </p>
+
+    <dl class="factbar" data-reveal data-reveal-delay="180">
+      <div class="fact"><dt>형태</dt><dd>3인 팀 · 3주</dd></div>
+      <div class="fact"><dt>맡은 일</dt><dd>광고 선별·진단 시스템 전체 단독</dd></div>
+      <div class="fact"><dt>데이터</dt><dd>운영 로그 31일치 · 원본 클릭 1,685만 건</dd></div>
+      <div class="fact"><dt>도구</dt><dd>SQL · Python · LightGBM · BigQuery · Airflow · Streamlit</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="narrative">
+
+      <div class="beats">
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">받은 전처리를 그대로 쓰지 않았다</h2>
+          <p class="beat__text">
+            팀이 함께 만든 어뷰징 제거 규칙 여섯 개가 원본 클릭의 <b>80.15%</b>를 지웠습니다.
+            여기까지는 정상적인 정제입니다.
+            그런데 규칙 하나가 유효하지 않은 디바이스라는 이유로 지운 트래픽을
+            다른 문서는 다른 사건으로 부르고 있었습니다.
+            <b>같은 데이터를 두 문서가 다르게 부르면 둘 중 하나는 그 데이터를 이해하지 못한 것입니다.</b>
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">지워진 것은 어뷰징이 아니었다</h2>
+          <p class="beat__text">
+            원본 로그에서 두 조건을 교차시키니 완전히 같은 7,171건이었고,
+            그 금액이 <b>원본 매출의 48.94%, 2억 8,248만 원</b>이었습니다.
+            봇이라면 전환율이 0에 가깝고 며칠 치고 빠져야 하는데,
+            전환율은 평균보다 높은 16.54%였고 31일 내내 균일하게 돌았으며
+            건당 매출 중앙값은 <b>80배</b>였습니다.
+            구매 완료 시 과금되는 고단가 채널이었습니다.
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">규칙을 부정하지 않고 용도를 나눴다</h2>
+          <p class="beat__text">
+            디바이스를 식별할 수 없으니 유저 단위 지표는 왜곡됩니다.
+            그래서 <b>유저·전환 분석에서는 제외하고 매출 집계에서는 복원</b>하도록 용도를 갈랐습니다.
+            하나의 규칙을 모든 목적에 똑같이 적용한 것이 문제였습니다.
+            그리고 모든 매출 수치에 정의와 모수를 병기하도록 규칙으로 남겼습니다.
+            전환율에는 전처리 후라고 붙이면서 매출에는 붙이지 않고 있었습니다.
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">왜 리포트가 아니라 시스템인가</h2>
+          <p class="beat__text">
+            광고 카테고리는 13개 코드 중 하나가 <b>88.9%</b>, 광고 유형은 하나가 <b>94.2%</b>입니다.
+            분류축으로는 광고를 구분할 수 없고, 모든 광고가 같은 칸에 들어갑니다.
+            게다가 광고 수명 중앙값이 3일입니다.
+            <b>광고가 3일 만에 사라지는 시장에서 리포트는 발행되는 순간 이미 늦습니다.</b>
+            매일 자동으로 등급이 붙는 형태여야 했습니다.
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">만든 것</h2>
+          <ul class="beat__list">
+            <li>광고 문구를 <b>15개 축</b>으로 태깅했습니다. 환각을 막으려고 근거 구절을 원문에서 그대로 복사시키고 기계로 대조해 실재율 <b>99.6%</b>를 실측했습니다.</li>
+            <li>태그와 텍스트 피처로 기대 전환율을 예측하고 <b>S~D 등급</b>과 위험 경보를 냅니다.</li>
+            <li>경보마다 사유 문장이 자동으로 붙어, 운영자가 광고주에게 그대로 보낼 수 있는 형태로 나옵니다.</li>
+            <li>같은 브랜드가 학습과 평가에 동시에 들어가지 않도록 분리했습니다. 이게 없으면 성능은 거짓말이 됩니다.</li>
+          </ul>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">클릭을 독립 시행으로 보면 안 된다</h2>
+          <p class="beat__text">
+            같은 광고 안의 클릭은 서로 강하게 상관돼 있습니다.
+            한 광고의 전환율이 낮으면 그 광고의 클릭 14만 건이 전부 낮은 값을 냅니다.
+            실질 표본은 클릭 수가 아니라 광고 수에 가깝습니다.
+            그래서 <b>광고를 클러스터로 두고 다시 검정</b>했고, 보정 후에도 z=53.61로 유의했습니다.
+            다만 A와 S 사이는 다른 구간보다 약해, 상위 등급 간 변별력이 낮다는 점은 한계로 적었습니다.
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">내 결론 두 건을 스스로 폐기했다</h2>
+          <p class="beat__text">
+            표본이 1,680만 건이면 어떤 차이든 p&lt;0.001이 나옵니다. <b>p값만으로는 아무 말도 못 합니다.</b>
+            그래서 효과 크기를 함께 계산했고, 어떤 항목은 상대 위험이 5.5배인데도
+            효과 크기가 0.019로 매우 작았습니다.
+            보고서에 있던 결론 두 건을 광고 단위 부트스트랩으로 재검정해 폐기했습니다.
+            유의하다는 말 대신 상대 위험 몇 배라고 쓰고, 교란 가능성 때문에 인과로 읽지 않는다고 함께 적었습니다.
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">못 한 것</h2>
+          <p class="beat__text">
+            A/B 테스트는 <b>설계안이고 실행하지 않았습니다.</b>
+            등급과 성과의 연관을 확인한 것이지, 등급을 올리면 전환율이 오른다는 인과를 확인한 것이 아닙니다.
+            D등급 노출을 차단하는 실험은 매출 손실이 커서 <b>실행 불가로 판정</b>했고,
+            그 판정 자체를 결과로 남겼습니다.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <div class="viz" data-reveal>
+          <h2 class="viz__title">학습에 쓰지 않은 신생 광고 2,298건에서</h2>
+          <div class="bars">
+            <div class="bar bar--lead"><span class="bar__name">S등급</span><span class="bar__track"><b class="bar__fill" style="--w:100%"></b></span><span class="bar__val">76.8%</span></div>
+            <div class="bar"><span class="bar__name">A등급</span><span class="bar__track"><b class="bar__fill" style="--w:96.9%"></b></span><span class="bar__val">74.4%</span></div>
+            <div class="bar"><span class="bar__name">B등급</span><span class="bar__track"><b class="bar__fill" style="--w:90.5%"></b></span><span class="bar__val">69.5%</span></div>
+            <div class="bar"><span class="bar__name">C등급</span><span class="bar__track"><b class="bar__fill" style="--w:71.6%"></b></span><span class="bar__val">55.0%</span></div>
+            <div class="bar bar--accent"><span class="bar__name">D등급</span><span class="bar__track"><b class="bar__fill" style="--w:24.2%"></b></span><span class="bar__val">18.6%</span></div>
+          </div>
+          <p class="viz__cap">
+            첫날 문구만 보고 매긴 등급이 실제 전환율과 <b>4.13배</b> 벌어집니다.
+            브랜드가 겹치지 않는 신생 광고만 남긴 평가라, 이름을 외워서 맞힌 것이 아닙니다.
+          </p>
+        </div>
+
+        <div class="viz" data-reveal>
+          <h2 class="viz__title">같은 전환 하나를 만드는 비용</h2>
+          <div class="compare">
+            <div class="compare__cell compare__cell--after">
+              <p class="compare__label">S등급 전환 단가</p>
+              <p class="compare__num">86원</p>
+              <p class="compare__delta">지면 6.7%로 전환 12.5%를 만듦</p>
+            </div>
+            <div class="compare__cell">
+              <p class="compare__label">D등급 전환 단가</p>
+              <p class="compare__num">1,416원</p>
+              <p class="compare__delta">지면 10.7%를 쓰고 전환 1.4%</p>
+            </div>
+          </div>
+          <p class="viz__cap">
+            전체 평균은 200원입니다. D등급은 평균의 7.1배, S등급의 16.5배가 듭니다.
+            전환율만으로는 사업 담당자에게 전달되지 않아 단가로 환산했습니다.
+          </p>
+        </div>
+
+        <div class="viz" data-reveal>
+          <h2 class="viz__title">첫날 잡을 수 있었던 광고</h2>
+          <div class="steps">
+            <div class="step step--accent">
+              <span class="step__label">지면을 내준 매체</span>
+              <span class="step__val">14곳</span>
+            </div>
+            <div class="step step--accent">
+              <span class="step__label">누적 클릭</span>
+              <span class="step__val">15,450회</span>
+            </div>
+            <div class="step">
+              <span class="step__label">전환</span>
+              <span class="step__val">0건</span>
+            </div>
+            <p class="step__link">문구만 보고 내린 판정</p>
+            <div class="step step--won">
+              <span class="step__label">시스템 판정</span>
+              <span class="step__val">D등급</span>
+            </div>
+          </div>
+          <p class="viz__cap">
+            마찰 조건이 네 개 붙은 광고였습니다.
+            전환 0건인 광고가 1,027개, 이들이 쓴 클릭이 32,002건입니다.
+          </p>
+        </div>
+        <div class="viz" data-reveal>
+          <h2 class="viz__title">지워진 트래픽이 어뷰징인지 확인한 다섯 가지</h2>
+          <div class="dtable">
+            <div class="dtable__scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">검증 지표</th>
+                    <th scope="col">지워진 트래픽</th>
+                    <th scope="col">나머지 전체</th>
+                    <th scope="col">어뷰징이라면</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>전환율</td><td>16.54%</td><td>8.72%</td><td>0%에 가까워야 함</td></tr>
+                  <tr><td>건당 매출 중앙값</td><td>14,344원</td><td>180원</td><td>특별할 이유 없음</td></tr>
+                  <tr><td>활동 일수</td><td>31일 전 기간</td><td>31일</td><td>치고 빠지는 단기 패턴</td></tr>
+                  <tr><td>클릭에서 전환까지</td><td>79초</td><td>81초</td><td>수 초 이내</td></tr>
+                  <tr><td>광고 · 매체 수</td><td>67 · 10개</td><td>9,450 · 174개</td><td>무차별 다수</td></tr>
+                  <tr class="is-total"><td>원본 매출 대비 비중</td><td>48.94%</td><td>51.06%</td><td>—</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p class="viz__cap">
+            다섯 항목 모두 어뷰징 패턴과 반대 방향이었습니다.
+            규칙을 만든 것도 우리 팀이었고 그 부작용을 찾은 것도 같은 팀 안에서였다는 점이 이 건의 핵심입니다.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="vizfull">
+      <div class="viz" data-reveal>
+        <h2 class="viz__title">마찰 조건 하나가 만드는 차이</h2>
+        <div class="dtable">
+          <div class="dtable__scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">구분</th>
+                  <th scope="col">광고</th>
+                  <th scope="col">클릭</th>
+                  <th scope="col">전환</th>
+                  <th scope="col">전환율</th>
+                  <th scope="col">전환 단가</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>금전 지출이 필요 없음</td><td>8,957개</td><td>3,202,238</td><td>1,423,344</td><td>44.45%</td><td>196원</td></tr>
+                <tr class="is-total"><td>금전 지출이 필요함</td><td>412개</td><td>144,026</td><td>705</td><td>0.49%</td><td>6,530원</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="viz__cap">
+          전환 단가가 33배입니다. 이 태그가 붙은 광고는 지면의 4.3%를 쓰고 전환은 705건을 만듭니다.
+          태그를 예측이 아니라 설명을 위해 남긴 이유가 여기서 회수됩니다.
+        </p>
+      </div>
+    </div>
+
+    <div class="takeaway" data-reveal>
+      <p class="takeaway__label">배운 것</p>
+      <p class="takeaway__text">
+        <b>분석가가 가장 자주 저지르는 실수는 정제된 데이터를 사실로 받아들이는 것입니다.</b>
+        이 건은 금액이 2억 8,248만 원, 매출의 절반이었습니다.
+        모델을 잘 만드는 것보다 그 앞에서 한 번 되짚는 것이 결과를 더 크게 바꿨습니다.
+        그리고 도구를 쓰는 것과 도구의 출력을 검증하는 것은 다른 일입니다.
+      </p>
+    </div>
+  </div>
+</section>
+
+<nav class="pager" aria-label="프로젝트 이동">
+  <a class="pager__item" href="rocketpunch.html">
+    <span class="pager__dir">이전 프로젝트</span>
+    <span class="pager__title">「활성화가 문제다」라는 내 첫 진단을 스스로 기각하기</span>
+  </a>
+  <a class="pager__item pager__item--next" href="../index.html#projects">
+    <span class="pager__dir">목록</span>
+    <span class="pager__title">프로젝트 전체 보기</span>
+  </a>
+</nav>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <p class="footer__line">숫자가 근거가 되면<br>팀은 멈추지 않습니다</p>
+      <dl class="footer__contact">
+        <dt>이메일</dt>
+        <dd><a href="mailto:alsrms45@gmail.com">alsrms45@gmail.com</a></dd>
+        <dt>깃허브</dt>
+        <dd><a href="https://github.com/mingeun-git">github.com/mingeun-git</a></dd>
+      </dl>
+    </div>
+    <p class="footer__note">
+      전처리 규칙과 데이터 마트는 3인이 공동 설계했고, 광고 선별·진단 시스템은 단독으로 맡았습니다.
+      매출과 전환율 수치에는 각각 어떤 정의와 모수를 쓴 값인지 병기했습니다.
+      A/B 테스트는 설계까지이고 실행하지 않았습니다.
+    </p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>
