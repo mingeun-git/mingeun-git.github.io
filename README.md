@@ -12,8 +12,12 @@
 | 마케팅 | https://mingeun-git.github.io/marketing/ | `marketing/` |
 | 데이터 분석 | https://mingeun-git.github.io/data/ | `data/` |
 
-루트만 영업 공고 분석에 맞춰 손봤고, 나머지 두 벌은 아직 뼈대만 같은 상태입니다.
-각 사본 `index.html` 맨 위 주석에 고쳐야 할 자리를 번호로 적어 뒀습니다.
+루트와 `marketing/`은 각 직무의 채용공고를 분석해 홈 문구를 따로 썼습니다.
+`data/`는 아직 영업용 뼈대 그대로이고, 맨 위 주석에 고쳐야 할 자리를 번호로 적어 뒀습니다.
+
+세 벌이 갈리는 자리는 홈(`index.html`)의 hero 문구, 「일하는 방식」 원칙 3장,
+「핵심 역량」 4장, 「공고 대조」 표, 프로젝트 그룹명과 타일 태그, 「다루는 도구」 순서입니다.
+프로젝트 상세 7건은 직무와 무관하게 세 벌이 같은 내용을 씁니다.
 
 세 폴더는 `assets/`와 `projects/`를 각자 복사해 갖고 있습니다. 한 벌을 고쳐도 다른 벌이
 따라 바뀌지 않습니다. 직무별로 따로 굴리려고 일부러 이렇게 뒀습니다. 공통 CSS를 고쳤다면
@@ -23,9 +27,9 @@
 
 ```
 .
-├─ index.html                     영업용 홈. 소개 · 영업 사이클 · 역량 · 공고 대조 · 프로젝트 · 이력
-├─ marketing/                     마케팅용 사본 (index.html · projects/ · assets/)
-├─ data/                          데이터 분석용 사본 (index.html · projects/ · assets/)
+├─ index.html                     영업용 홈. 소개 · 일하는 방식 · 역량 · 공고 대조 · 프로젝트 · 이력
+├─ marketing/                     마케팅용 사본. 마케팅 공고 기준으로 문구를 다시 씀
+├─ data/                          데이터 분석용 사본. 아직 영업용 문구 그대로
 ├─ projects/
 │  ├─ lms-ad-sales.html           LMS 광고 지면 사업화
 │  ├─ etacrew.html                대학 커뮤니티 홍보단 확대
