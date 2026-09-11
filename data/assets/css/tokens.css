@@ -1,0 +1,339 @@
+/* ============================================================================
+   신민근 포트폴리오 — 디자인 토큰
+   ----------------------------------------------------------------------------
+   기반 시스템 : IBM Carbon Design System v11
+   팔레트      : @carbon/colors 원본 hex 값 그대로 사용
+   타입 스케일 : @carbon/type 의 type-scale / heading / body 정의 그대로 사용
+   간격        : Carbon spacing scale (2px 배수 그리드)
+
+   Carbon 을 고른 이유
+   - 수치와 표가 많은 화면을 위해 만들어진 시스템이라 위계가 촘촘하다.
+   - 회색 램프의 대비가 강해 본문과 보조 텍스트가 확실히 구분된다.
+   - 이미 쓰던 IBM Plex 와 같은 계열이라 타입이 시스템과 어긋나지 않는다.
+
+   이 프로젝트에서 손댄 곳 (의도적 변경, 아래에 이유를 남김)
+   1. 강조색을 IBM Blue 60 이 아니라 Teal 70 으로 바꿨다.
+      → 파랑을 쓰면 IBM 제품 화면처럼 읽힌다. Teal 70 은 Carbon 정품 색이면서
+        흰 배경 대비 7.9:1 로 충분히 진하다.
+   2. 본문 행간을 Carbon 기본값보다 약간 넓혔고, 타입 스케일의 아래쪽 단을
+      한 단계씩 올렸다. (12→13, 14→15, 16→17, 18→19)
+      → Carbon 의 값은 라틴 문자와 밀집한 업무 화면 기준이다. 한글은 글자 밀도가
+        높아 같은 값에서 답답하고, 읽고 지나가는 페이지에서는 작다.
+   3. 다크 테마를 넣지 않는 대신, 첫 화면과 마지막 화면만 짙은 청록 면으로 뒤집었다.
+      → 흰 바탕이 처음부터 끝까지 이어지면 어디가 시작인지 남지 않는다.
+        색을 여러 군데 조금씩 뿌리는 대신 한 면에 몰아 쓰고 나머지를 조용하게 뒀다.
+
+   구조: 원시(primitive) → 의미(semantic) → 컴포넌트(component)
+   컴포넌트 CSS 에서는 원시 토큰이나 raw hex 를 직접 쓰지 않는다.
+   ========================================================================== */
+
+/* ============================================================================
+   LAYER 1 — 원시 토큰 · @carbon/colors 원본값
+   ========================================================================== */
+
+:root {
+  --c-white: #ffffff;
+  --c-black: #000000;
+
+  /* Gray — 배경과 텍스트의 기준 램프 */
+  --c-gray-10:  #f4f4f4;
+  --c-gray-20:  #e0e0e0;
+  --c-gray-30:  #c6c6c6;
+  --c-gray-40:  #a8a8a8;
+  --c-gray-50:  #8d8d8d;
+  --c-gray-60:  #6f6f6f;
+  --c-gray-70:  #525252;
+  --c-gray-80:  #393939;
+  --c-gray-90:  #262626;
+  --c-gray-100: #161616;
+
+  /* Cool Gray — 표 머리와 한 단계 눌러야 하는 면에 사용 */
+  --c-coolgray-10:  #f2f4f8;
+  --c-coolgray-20:  #dde1e6;
+  --c-coolgray-30:  #c1c7cd;
+  --c-coolgray-60:  #697077;
+  --c-coolgray-70:  #4d5358;
+  --c-coolgray-90:  #21272a;
+  --c-coolgray-100: #121619;
+
+  /* Teal — 이 사이트의 강조색 */
+  --c-teal-10:  #d9fbfb;
+  --c-teal-20:  #9ef0f0;
+  --c-teal-30:  #3ddbd9;
+  --c-teal-40:  #08bdba;
+  --c-teal-50:  #009d9a;
+  --c-teal-60:  #007d79;
+  --c-teal-70:  #005d5d;
+  --c-teal-80:  #004144;
+  --c-teal-90:  #022b30;
+  --c-teal-100: #081a1c;
+
+  /* Orange — 기준을 넘긴 것, 주의를 끌어야 하는 수치에만 */
+  --c-orange-10: #fff2e8;
+  --c-orange-20: #ffd9be;
+  --c-orange-40: #ff832b;
+  --c-orange-50: #eb6200;
+  --c-orange-60: #ba4e00;
+  --c-orange-70: #8a3800;
+
+  /* Red / Green — 상태 표시 */
+  --c-red-10:   #fff1f1;
+  --c-red-60:   #da1e28;
+  --c-red-70:   #a2191f;
+  --c-green-10: #defbe6;
+  --c-green-60: #198038;
+  --c-green-70: #0e6027;
+
+  /* Carbon 데이터 시각화 categorical palette 1.
+     서로 다른 항목을 구분해야 할 때만 쓴다. 장식으로는 쓰지 않는다. */
+  --c-purple-70:  #6929c4;
+  --c-purple-30:  #d4bbff;
+  --c-purple-10:  #f6f2ff;
+  --c-cyan-50:    #1192e8;
+  --c-cyan-30:    #82cfff;
+  --c-cyan-10:    #e5f6ff;
+  --c-cyan-90:    #012749;
+  --c-magenta-70: #9f1853;
+  --c-magenta-30: #ffafd2;
+  --c-magenta-10: #fff0f7;
+
+  /* 타입 — @carbon/type type-scale */
+  --c-type-01: 0.75rem;    /* 12 */
+  --c-type-02: 0.875rem;   /* 14 */
+  --c-type-03: 1rem;       /* 16 */
+  --c-type-04: 1.125rem;   /* 18 */
+  --c-type-05: 1.25rem;    /* 20 */
+  --c-type-06: 1.5rem;     /* 24 */
+  --c-type-07: 1.75rem;    /* 28 */
+  --c-type-08: 2rem;       /* 32 */
+  --c-type-09: 2.25rem;    /* 36 */
+  --c-type-10: 2.625rem;   /* 42 */
+  --c-type-11: 3rem;       /* 48 */
+  --c-type-12: 3.375rem;   /* 54 */
+  --c-type-13: 3.75rem;    /* 60 */
+
+  --c-font-sans: "IBM Plex Sans KR", "IBM Plex Sans", -apple-system,
+                 BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo",
+                 "Malgun Gothic", sans-serif;
+
+  --c-weight-light:    300;
+  --c-weight-regular:  400;
+  --c-weight-medium:   500;
+  --c-weight-semibold: 600;
+
+  /* 간격 — Carbon spacing scale */
+  --c-space-01: 0.125rem;  /* 2  */
+  --c-space-02: 0.25rem;   /* 4  */
+  --c-space-03: 0.5rem;    /* 8  */
+  --c-space-04: 0.75rem;   /* 12 */
+  --c-space-05: 1rem;      /* 16 */
+  --c-space-06: 1.5rem;    /* 24 */
+  --c-space-07: 2rem;      /* 32 */
+  --c-space-08: 2.5rem;    /* 40 */
+  --c-space-09: 3rem;      /* 48 */
+  --c-space-10: 4rem;      /* 64 */
+  --c-space-11: 5rem;      /* 80 */
+  --c-space-12: 6rem;      /* 96 */
+  --c-space-13: 10rem;     /* 160 */
+
+  /* 모션 — Carbon motion */
+  --c-ease-productive: cubic-bezier(0.2, 0, 0.38, 0.9);
+  --c-ease-entrance:   cubic-bezier(0, 0, 0.38, 0.9);
+  --c-ease-expressive: cubic-bezier(0.4, 0.14, 0.3, 1);
+  --c-dur-fast:     110ms;
+  --c-dur-moderate: 240ms;
+  --c-dur-slow:     400ms;
+  --c-dur-slower:   700ms;
+}
+
+/* ============================================================================
+   LAYER 2 — 의미 토큰 · Carbon White 테마 기준
+   ========================================================================== */
+
+:root {
+  /* 면 (Carbon 의 layer 개념. 흰 바탕 위에 회색 면을 얹어 깊이를 만든다) */
+  --bg:            var(--c-white);
+  --layer-01:      var(--c-gray-10);
+  --layer-02:      var(--c-white);
+  --layer-accent:  var(--c-coolgray-10);
+  --layer-inverse: var(--c-gray-100);
+
+  /* 글자 */
+  --text-primary:    var(--c-gray-100);  /* 흰 배경 대비 17.4:1 */
+  --text-secondary:  var(--c-gray-70);   /* 흰 배경 대비  8.5:1 */
+  --text-helper:     var(--c-gray-60);   /* 흰 배경 대비  5.7:1 */
+  --text-on-color:   var(--c-white);
+  --text-on-accent:  var(--c-white);
+  --text-inverse:    var(--c-gray-10);
+
+  /* 선 */
+  --border-subtle:  var(--c-gray-20);
+  --border-strong:  var(--c-gray-50);
+  --border-heavy:   var(--c-gray-100);
+  --border-accent:  var(--c-teal-70);
+
+  /* 강조 */
+  --accent:            var(--c-teal-70);  /* 흰 배경 대비 7.9:1 */
+  --accent-hover:      var(--c-teal-80);
+  --accent-bright:     var(--c-teal-60);
+  --accent-surface:    var(--c-teal-10);
+  --accent-on-surface: var(--c-teal-80);
+
+  /* 두 번째 강조 — 기준을 넘긴 것에만 */
+  --highlight:         var(--c-orange-60);  /* 흰 배경 대비 5.9:1 */
+  --highlight-surface: var(--c-orange-10);
+  --highlight-on-surface: var(--c-orange-70);
+
+  /* 상태 — 초록을 쓰면 화면에 색이 하나 더 늘어난다.
+     달성 여부는 강조색과 회색의 대비, 그리고 목표선 위치로 충분히 읽힌다. */
+  --status-good:         var(--accent);
+  --status-good-surface: var(--accent-surface);
+  --status-miss:         var(--c-gray-70);
+
+  /* 링크 */
+  --link:       var(--c-teal-70);
+  --link-hover: var(--c-teal-80);
+
+  /* 데이터 시각화 */
+  --data-primary:  var(--c-teal-70);
+  --data-second:   var(--c-teal-50);
+  --data-muted:    var(--c-gray-40);
+  --data-track:    var(--c-gray-20);
+  --data-accent:   var(--c-orange-60);
+  --data-grid:     var(--c-gray-20);
+  --data-axis:     var(--c-gray-50);
+
+  /* 서로 다른 갈래를 구분할 때 쓰는 네 색. Carbon categorical 에서 가져왔다. */
+  --cat-1:  var(--c-teal-70);
+  --cat-2:  var(--c-cyan-50);
+  --cat-3:  var(--c-purple-70);
+  --cat-4:  var(--c-magenta-70);
+  --cat-1-surface: var(--c-teal-10);
+  --cat-2-surface: var(--c-cyan-10);
+  --cat-3-surface: var(--c-purple-10);
+  --cat-4-surface: var(--c-magenta-10);
+
+  /* 짙은 면 — 첫 화면과 마지막 화면.
+     흰 바탕 위에서 쓰던 강조색이 여기서는 배경이 되므로 짝을 따로 잡는다. */
+  --field:             var(--c-teal-90);   /* #022b30 */
+  --field-line:        #0a4750;
+  --field-text:        var(--c-white);
+  --field-text-2:      #a7c4c7;            /* field 대비 6.4:1 */
+  --field-accent:      var(--c-teal-20);   /* 밝은 청록. field 대비 12.6:1 */
+  --field-highlight:   var(--c-orange-40); /* field 대비 6.6:1 */
+
+  /* 포커스 — Carbon 은 2px 실선 링을 쓴다 */
+  --focus-ring: 2px solid var(--c-teal-70);
+  --focus-offset: 2px;
+}
+
+/* ============================================================================
+   LAYER 2 — 타이포그래피 역할 · @carbon/type 정의
+   한글 본문만 행간을 조정했고, 나머지는 Carbon 값 그대로다.
+   ========================================================================== */
+
+:root {
+  /* Carbon 값에서 한 단씩 올린 크기. 왼쪽 주석이 Carbon 원본이다. */
+  --c-step-13: 0.8125rem;
+  --c-step-15: 0.9375rem;
+  --c-step-17: 1.0625rem;
+  --c-step-19: 1.1875rem;
+  --c-step-21: 1.3125rem;
+
+  /* label-01 : 12 → 13 / 1.4 / +0.32px */
+  --t-label-size: var(--c-step-13);
+  --t-label-lh: 1.4;
+  --t-label-ls: 0.32px;
+
+  /* helper : 14 → 15 */
+  --t-helper-size: var(--c-step-15);
+  --t-helper-lh: 1.55;
+  --t-helper-ls: 0.16px;
+
+  /* body-01 : 14 → 15 / 한글 1.62 */
+  --t-body-sm-size: var(--c-step-15);
+  --t-body-sm-lh: 1.62;
+  --t-body-sm-ls: 0.1px;
+
+  /* body-02 : 16 → 17 / 한글 1.68 */
+  --t-body-size: var(--c-step-17);
+  --t-body-lh: 1.68;
+  --t-body-ls: 0;
+
+  /* 본문 중 조금 크게 두는 단락 : 18 → 19 */
+  --t-body-lg-size: var(--c-step-19);
+  --t-body-lg-lh: 1.66;
+  --t-body-lg-ls: 0;
+
+  /* heading-01 : 14 → 15 / 600 */
+  --t-h6-size: var(--c-step-15);
+  --t-h6-lh: 1.45;
+  --t-h6-ls: 0.16px;
+
+  /* heading-02 : 16 → 17 / 600 */
+  --t-h5-size: var(--c-step-17);
+  --t-h5-lh: 1.5;
+  --t-h5-ls: 0;
+
+  /* heading-03 : 20 → 21 / 600 */
+  --t-h4-size: var(--c-step-21);
+  --t-h4-lh: 1.42;
+  --t-h4-ls: -0.005em;
+
+  /* heading-04 : 28 / 400 */
+  --t-h3-size: var(--c-type-07);
+  --t-h3-lh: 1.3;
+  --t-h3-ls: -0.01em;
+
+  /* heading-05 : 32 / 400 → 화면 폭에 따라 32~42 */
+  --t-h2-size: clamp(1.75rem, 1.25rem + 1.6vw, 2.625rem);
+  --t-h2-lh: 1.22;
+  --t-h2-ls: -0.015em;
+
+  /* heading-07 / display : 42~60 / 300 */
+  --t-display-size: clamp(2.25rem, 1.2rem + 3.6vw, 3.75rem);
+  --t-display-lh: 1.16;
+  --t-display-ls: -0.022em;
+
+  /* 수치 표시용 */
+  --t-figure-size: clamp(1.75rem, 1.3rem + 1.6vw, 2.25rem);
+  --t-figure-lh: 1.1;
+  --t-figure-ls: -0.02em;
+}
+
+/* ============================================================================
+   LAYER 3 — 컴포넌트 토큰
+   ========================================================================== */
+
+:root {
+  /* 레이아웃 */
+  --layout-max:      1216px;   /* Carbon max grid width */
+  --layout-reading:  68ch;
+  --layout-gutter:   var(--c-space-06);
+  --section-pad:     clamp(64px, 7vw, 112px);
+
+  /* 헤더 — Carbon UI Shell 은 48px 이지만, 링크 글자를 15px 로 올렸으므로
+     터치 영역이 좁아지지 않도록 56px 로 둔다. */
+  --header-height: 56px;
+
+  /* 카드 — Carbon 은 모서리를 굴리지 않는다.
+     회색 면(layer-01) 위에 놓이므로 카드는 한 단계 위인 흰 면(layer-02)을 쓴다. */
+  --card-bg:            var(--layer-02);
+  --card-border:        var(--border-subtle);
+  --card-border-hover:  var(--accent);
+  --card-pad:           clamp(20px, 2.4vw, 32px);
+
+  /* 표 */
+  --table-head-bg:   var(--c-coolgray-10);
+  --table-head-fg:   var(--c-coolgray-90);
+  --table-row-line:  var(--border-subtle);
+  --table-cell-pad:  12px 16px;
+
+  /* 차트 */
+  --chart-bar-h:  12px;
+  --chart-track:  var(--data-track);
+
+  /* 태그 */
+  --tag-bg: var(--c-coolgray-10);
+  --tag-fg: var(--c-coolgray-70);
+}

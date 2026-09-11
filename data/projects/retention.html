@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이탈률 83.79%의 원인을 찾으려 분석 단위를 바꾼 기록 — 신민근</title>
+<meta name="description" content="플랜끼리 비교해서는 보이지 않던 차이를 플랜 내부 집단 비교로 찾아내고, 결제 후 3~5주차를 겨냥한 A/B 테스트를 설계한 기록.">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/main.css">
+<script>
+/* 스크롤 등장 효과는 자바스크립트가 살아 있을 때만 켠다.
+   main.js 가 끝내 로드되지 않으면 3초 뒤 숨김을 풀어 내용이 반드시 보이게 한다. */
+document.documentElement.className += " js";
+setTimeout(function () {
+  if (!window.__revealReady) { document.documentElement.classList.remove("js"); }
+}, 3000);
+</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23022b30'/><path d='M4 19h24' stroke='%23ff832b' stroke-width='2' stroke-dasharray='4 3'/><circle cx='10' cy='12' r='2.5' fill='%23ff832b'/><circle cx='21' cy='9' r='2.5' fill='%23ff832b'/><circle cx='16' cy='25' r='2.5' fill='%239ef0f0'/></svg>">
+</head>
+<body>
+
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+
+<header class="header">
+  <div class="header__inner">
+    <a class="header__name" href="../index.html">신민근<em>포트폴리오</em></a>
+    <a class="header__back" href="../index.html#projects">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+        <path d="M7.4 12.6 2.8 8l4.6-4.6.9.9L5.3 7.4H13v1.2H5.3l3 3.1z"/>
+      </svg>
+      프로젝트 목록
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="detail-hero">
+  <div class="wrap">
+    <p class="detail-hero__kicker" data-reveal>데이터 분석 · 01</p>
+    <h1 class="detail-hero__title" data-reveal data-reveal-delay="60">
+      이탈률 83.79%의 원인을 찾으려 분석 단위를 바꾼 기록
+    </h1>
+    <p class="detail-hero__lede" data-reveal data-reveal-delay="120">
+      온라인 교육 구독 서비스의 6개월 플랜은 출시 후 신규 구독자와 매출이 역대 최고를 찍었지만,
+      첫 만료 시점 이탈률이 <b>83.79%</b>로 전 플랜 중 가장 높았습니다.
+      플랜끼리 비교해서는 원인을 설명할 지표가 나오지 않아, 같은 플랜 안에서
+      <b>유지 집단과 이탈 집단</b>을 다시 나눠 비교했습니다.
+    </p>
+
+    <dl class="factbar" data-reveal data-reveal-delay="180">
+      <div class="fact"><dt>형태</dt><dd>팀 프로젝트 5인 · 3주</dd></div>
+      <div class="fact"><dt>맡은 일</dt><dd>쿼리 · 전처리 · 세그먼트 설계 · 대시보드 · 발표</dd></div>
+      <div class="fact"><dt>데이터</dt><dd>이벤트 로그 22개 테이블 3,375만 건</dd></div>
+      <div class="fact"><dt>도구</dt><dd>MySQL · Python · Tableau</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="narrative">
+
+      <div class="beats">
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">표면적으로는 성공이었다</h2>
+          <p class="beat__text">
+            6개월 플랜은 출시 직후 두 달 동안 전체 매출의 <b>88.2%와 91.7%</b>를 차지했습니다.
+            그 두 달 매출만 <b>2억 6,821만 원</b>입니다.
+            그런데 반년 뒤 활성 구독자는 6,459명에서 4,286명으로 줄었고,
+            6개월 플랜만 보면 3,366명에서 <b>380명</b>으로 두 달 만에 88.7%가 사라졌습니다.
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">왜 성공이라고 결론 내리지 않았나</h2>
+          <p class="beat__text">
+            구독 매출은 <b>신규 × 객단가 + 활성 × 갱신율 × 객단가</b>입니다.
+            결제월 매출만 보면 첫 항만 보입니다.
+            그래서 월환산 매출과 첫 만료 후 행동까지 따라갔습니다.
+            정기갱신 3.07%, 재구독 13.14%, 이탈 83.79%.
+            구독 상품이 아니라 연말 할인으로 파는 일회성 상품처럼 작동하고 있었습니다.
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">막힌 지점</h2>
+          <p class="beat__text">
+            이탈률만 압도적으로 높은데 <b>왜 높은지를 설명할 지표를 찾지 못했습니다.</b>
+            첫 학습까지 걸린 시간, 결제까지 걸린 시간, 레슨 완료율, 활동 유지율을 플랜끼리 비교하면
+            6개월 유저는 다른 플랜과 행동이 거의 같았습니다.
+            플랜 단위 비교로는 설명 변수가 나오지 않는 상태였습니다.
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">분석 단위를 바꾸자고 제안했다</h2>
+          <p class="beat__text">
+            비교군을 바꾸면 설명 변수가 나올 수 있다는 가설로,
+            프로모션 두 달간의 6개월 신규 구독자 <b>3,181명</b>을 코호트로 고정하고
+            유지 <b>573명</b>과 이탈 <b>2,608명</b>을 직접 비교하자고 회의에서 제안했습니다.
+            평균이 가리고 있는 두 집단의 분기점을 찾기 위해서였습니다.
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">안 쓴 게 아니라 못 이어간 것이었다</h2>
+          <p class="beat__text">
+            이탈 집단의 <b>79.98%</b>도 레슨 완료 경험이 있었습니다. 유지 집단은 86.34%입니다.
+            둘 다 전체 구독자 평균을 크게 웃돕니다.
+            도달 지표로는 갈리지 않으니 지속 지표를 봐야 했고,
+            활동률 격차는 2주차부터 열려 <b>5주차에 6.93%p로 최대</b>가 됐습니다(z=3.35, p&lt;0.001).
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">탐색은 같고 실행에서 갈렸다</h2>
+          <p class="beat__text">
+            콘텐츠 페이지까지 들어오는 비율은 두 집단이 93.51%와 91.91%로 차이가 없었습니다(유의하지 않음).
+            그런데 <b>실제로 수강을 시작한 비율은 92.81%와 85.77%</b>로 갈렸습니다(+7.03%p, z=4.53).
+            이탈 집단 기준 약 160명이 상세 페이지까지 와서 시작 버튼을 누르지 않았습니다.
+            콘텐츠 매력이나 마케팅이 아니라 시작까지의 마찰 문제로 좁혔습니다.
+          </p>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">왜 유지율이 아니라 활동률로 판정하나</h2>
+          <ul class="beat__list">
+            <li>첫 만료 유지율로 <b>+3%p</b>를 탐지하려면 그룹당 <b>2,623명</b>과 6개월이 필요합니다.</li>
+            <li>선행 지표인 5주차 활동률로 <b>+5%p</b>를 보면 <b>1,258명</b>, <b>6주</b>면 판정할 수 있습니다.</li>
+            <li>그래서 활동률로 6주 안에 판정하고 유지율은 2차로 확인하도록 설계했습니다.</li>
+            <li>원 기획안의 목표치는 표본 474명에서 역산된 값이라 폐기하고 기준선을 다시 잡았습니다.</li>
+          </ul>
+        </div>
+
+        <div class="beat" data-reveal>
+          <h2 class="beat__label">내 결론을 다시 깎은 부분</h2>
+          <p class="beat__text">
+            정리 단계에서 코호트를 월별로 나눠 보니, 유지 집단의 재구독 463명 대부분이
+            <b>1년 뒤 연말 프로모션에 다시 산 사람</b>이었습니다.
+            앞 코호트 재구독률 29.69%, 뒤 코호트 1.96%로 z=22.07입니다.
+            루틴이 아니라 시즌 재구매였습니다.
+            다만 정기갱신율은 두 코호트가 3.3~3.7%로 같고 활동률 격차도 두 코호트 모두 같은 방향이라,
+            분기점 결론은 유지하고 재구독의 시즌성은 별도 레버로 분리했습니다.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <div class="viz" data-reveal>
+          <h2 class="viz__title">플랜별 첫 만료 이탈률</h2>
+          <div class="bars">
+            <div class="bar"><span class="bar__name">1개월</span><span class="bar__track"><b class="bar__fill" style="--w:61.4%"></b></span><span class="bar__val">51.46%</span></div>
+            <div class="bar"><span class="bar__name">3개월</span><span class="bar__track"><b class="bar__fill" style="--w:67.0%"></b></span><span class="bar__val">56.18%</span></div>
+            <div class="bar bar--accent"><span class="bar__name">6개월</span><span class="bar__track"><b class="bar__fill" style="--w:100%"></b></span><span class="bar__val">83.79%</span></div>
+            <div class="bar"><span class="bar__name">12개월</span><span class="bar__track"><b class="bar__fill" style="--w:64.6%"></b></span><span class="bar__val">54.11%</span></div>
+          </div>
+          <p class="viz__cap">
+            6개월 플랜만 30%p 가까이 높습니다. 정기갱신율도 3.07%로, 12개월 플랜 40.55%의 13분의 1입니다.
+          </p>
+        </div>
+
+        <div class="viz" data-reveal>
+          <h2 class="viz__title">분석 단위를 바꾼 순서</h2>
+          <div class="steps">
+            <div class="step">
+              <span class="step__label">1차. 플랜끼리 비교</span>
+              <span class="step__val">설명 변수 없음</span>
+            </div>
+            <p class="step__link">비교군을 안쪽으로</p>
+            <div class="step step--won">
+              <span class="step__label">2차. 6개월 플랜 안에서 유지 · 이탈 비교</span>
+              <span class="step__val">3~5주차 분기</span>
+            </div>
+            <p class="step__link">격차 구간을 겨냥</p>
+            <div class="step step--accent">
+              <span class="step__label">3차. 결제 후 28일 개입 A/B 설계</span>
+              <span class="step__val">6주 판정</span>
+            </div>
+          </div>
+          <p class="viz__cap">
+            같은 데이터라도 비교 단위를 바꾸면 평균이 가리고 있던 차이가 드러납니다.
+          </p>
+        </div>
+
+        <div class="viz" data-reveal>
+          <h2 class="viz__title">두 집단의 주차별 활동률</h2>
+          <svg class="quad" viewBox="0 0 540 330" role="img"
+               aria-label="결제 후 주차별 활동률 선 그래프. 0주차와 1주차에는 두 집단이 거의 같지만, 2주차부터 격차가 열려 5주차에 6.93퍼센트포인트로 최대가 됩니다.">
+            <line class="quad__grid" x1="60" y1="40"  x2="500" y2="40"></line>
+            <line class="quad__grid" x1="60" y1="79"  x2="500" y2="79"></line>
+            <line class="quad__grid" x1="60" y1="118" x2="500" y2="118"></line>
+            <line class="quad__grid" x1="60" y1="157" x2="500" y2="157"></line>
+            <line class="quad__grid" x1="60" y1="196" x2="500" y2="196"></line>
+            <line class="quad__axis" x1="60" y1="235" x2="500" y2="235"></line>
+            <line class="quad__axis" x1="60" y1="40"  x2="60"  y2="235"></line>
+
+            <text class="quad__tick" x="52" y="44"  text-anchor="end">70%</text>
+            <text class="quad__tick" x="52" y="83"  text-anchor="end">60%</text>
+            <text class="quad__tick" x="52" y="122" text-anchor="end">50%</text>
+            <text class="quad__tick" x="52" y="161" text-anchor="end">40%</text>
+            <text class="quad__tick" x="52" y="200" text-anchor="end">30%</text>
+            <text class="quad__tick" x="52" y="239" text-anchor="end">20%</text>
+
+            <text class="quad__tick" x="60"  y="257" text-anchor="middle">0주</text>
+            <text class="quad__tick" x="148" y="257" text-anchor="middle">1주</text>
+            <text class="quad__tick" x="236" y="257" text-anchor="middle">2주</text>
+            <text class="quad__tick" x="324" y="257" text-anchor="middle">3주</text>
+            <text class="quad__tick" x="412" y="257" text-anchor="middle">4주</text>
+            <text class="quad__tick" x="500" y="257" text-anchor="middle">5주</text>
+            <text class="quad__tick" x="280" y="281" text-anchor="middle">결제 후 경과 주차</text>
+            <text class="quad__tick" x="20"  y="28">활동률</text>
+
+            <!-- 격차가 유의해지는 구간 -->
+            <rect x="236" y="40" width="264" height="195" fill="#ba4e00" fill-opacity="0.06"></rect>
+            <line x1="236" y1="40" x2="236" y2="235" stroke="#ba4e00" stroke-width="1.5" stroke-dasharray="5 4"></line>
+            <text x="246" y="58" fill="#8a3800" font-size="14" font-weight="600" font-family="'IBM Plex Sans KR', sans-serif">2주차부터 격차가 유의해짐</text>
+
+            <!-- 유지 집단 -->
+            <polyline points="60,57 148,116 236,134 324,153 412,168 500,181"
+                      fill="none" stroke="#005d5d" stroke-width="2.5"></polyline>
+            <circle cx="60"  cy="57"  r="4.5" fill="#005d5d"></circle>
+            <circle cx="148" cy="116" r="4.5" fill="#005d5d"></circle>
+            <circle cx="236" cy="134" r="4.5" fill="#005d5d"></circle>
+            <circle cx="324" cy="153" r="4.5" fill="#005d5d"></circle>
+            <circle cx="412" cy="168" r="4.5" fill="#005d5d"></circle>
+            <circle cx="500" cy="181" r="4.5" fill="#005d5d"></circle>
+            <text class="quad__name" x="500" y="171" text-anchor="end">유지 33.97%</text>
+
+            <!-- 이탈 집단 -->
+            <polyline points="60,63 148,123 236,156 324,174 412,191 500,208"
+                      fill="none" stroke="#8d8d8d" stroke-width="2.5" stroke-dasharray="6 4"></polyline>
+            <circle cx="60"  cy="63"  r="4.5" fill="#8d8d8d"></circle>
+            <circle cx="148" cy="123" r="4.5" fill="#8d8d8d"></circle>
+            <circle cx="236" cy="156" r="4.5" fill="#8d8d8d"></circle>
+            <circle cx="324" cy="174" r="4.5" fill="#8d8d8d"></circle>
+            <circle cx="412" cy="191" r="4.5" fill="#8d8d8d"></circle>
+            <circle cx="500" cy="208" r="4.5" fill="#8d8d8d"></circle>
+            <text class="quad__name" x="500" y="228" text-anchor="end">이탈 27.03%</text>
+
+            <text class="quad__tick" x="500" y="316" text-anchor="end">유지 n=580 · 이탈 n=2,608</text>
+          </svg>
+          <p class="viz__cap">
+            0~1주차는 같습니다. 2주차부터 벌어져 5주차에 6.93%p로 최대가 되고(z=3.35),
+            그래서 개입 시점을 격차가 최대가 되기 직전인 결제 후 28일로 잡았습니다.
+          </p>
+        </div>
+
+        <div class="viz" data-reveal>
+          <h2 class="viz__title">실험 지표와 표본</h2>
+          <div class="dtable">
+            <div class="dtable__scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">층위</th>
+                    <th scope="col">지표</th>
+                    <th scope="col">기준선</th>
+                    <th scope="col">필요 표본</th>
+                    <th scope="col">판정까지</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="is-total"><td>1차 판정</td><td>5주차 활동률</td><td>27.03%</td><td>1,258명</td><td>6주</td></tr>
+                  <tr><td>2차 확인</td><td>첫 만료 유지율</td><td>18.01%</td><td>2,623명</td><td>6개월</td></tr>
+                  <tr><td>보조</td><td>7일 내 콘텐츠 시작률</td><td>—</td><td>—</td><td>—</td></tr>
+                  <tr><td>가드레일</td><td>푸시 수신 거부율 · 탈퇴율</td><td>—</td><td>—</td><td>—</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p class="viz__cap">
+            유의수준 5%, 검정력 80%, 양측 기준입니다.
+            리텐션을 올리려다 알림 피로도를 키우는 것을 막기 위해 가드레일을 함께 뒀습니다.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="vizfull">
+      <div class="viz" data-reveal>
+        <h2 class="viz__title">진입은 같고, 시작에서 갈린다</h2>
+        <div class="compare">
+          <div class="compare__cell">
+            <p class="compare__label">콘텐츠 페이지 진입 — 유지 vs 이탈</p>
+            <p class="compare__num">93.51% · 91.91%</p>
+            <p class="compare__delta">+1.60%p · z=1.29 · 유의하지 않음</p>
+          </div>
+          <div class="compare__cell compare__cell--after">
+            <p class="compare__label">콘텐츠 실제 시작 — 유지 vs 이탈</p>
+            <p class="compare__num">92.81% · 85.77%</p>
+            <p class="compare__delta">+7.03%p · z=4.53 · p&lt;0.001</p>
+          </div>
+        </div>
+        <p class="viz__cap">
+          유지 집단은 진입에서 시작까지 0.7%p만 새는데 이탈 집단은 6.1%p가 샙니다.
+          상세 페이지에서 시작까지의 마찰이 가장 가까운 원인이고, 구현 비용이 낮아 퀵윈으로 채택했습니다.
+        </p>
+      </div>
+    </div>
+
+    <div class="takeaway" data-reveal>
+      <p class="takeaway__label">배운 것</p>
+      <p class="takeaway__text">
+        <b>분석의 목적은 원인을 완벽히 설명하는 것이 아니라, 제한된 시간 안에서 다음 행동을 정하는 것입니다.</b>
+        앞뒤가 맞지 않는 지표를 붙잡고 있으면 팀이 멈춥니다.
+        확인된 것과 확인되지 않은 것을 갈라 놓고, 확인된 범위 안에서 판정 지표와 표본까지 정해 두면
+        결과가 어느 쪽으로 나오든 다음에 무엇을 할지가 남습니다.
+      </p>
+    </div>
+  </div>
+</section>
+
+<nav class="pager" aria-label="프로젝트 이동">
+  <a class="pager__item" href="dayton-superb.html">
+    <span class="pager__dir">이전 프로젝트</span>
+    <span class="pager__title">같은 실행으로 110%와 67%가 갈린 두 행사</span>
+  </a>
+  <a class="pager__item pager__item--next" href="rocketpunch.html">
+    <span class="pager__dir">다음 프로젝트</span>
+    <span class="pager__title">「활성화가 문제다」라는 내 첫 진단을 스스로 기각하기</span>
+  </a>
+</nav>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <p class="footer__line">숫자가 근거가 되면<br>팀은 멈추지 않습니다</p>
+      <dl class="footer__contact">
+        <dt>이메일</dt>
+        <dd><a href="mailto:alsrms45@gmail.com">alsrms45@gmail.com</a></dd>
+        <dt>깃허브</dt>
+        <dd><a href="https://github.com/mingeun-git">github.com/mingeun-git</a></dd>
+      </dl>
+    </div>
+    <p class="footer__note">
+      수치는 원자료를 재계산해 하나로 통일한 기준표를 따릅니다.
+      표에 따라 유지 집단 모수가 570~580으로 다른 것은 행동 로그 관찰 기준 차이이며 비율 해석에는 영향이 없습니다.
+      A/B 테스트는 설계까지이고 실행하지 않았습니다.
+    </p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

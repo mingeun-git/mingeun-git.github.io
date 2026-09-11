@@ -2,13 +2,30 @@
 
 정적 웹사이트입니다. 빌드 도구나 설치 과정이 없고, `index.html`을 브라우저로 열면 그대로 동작합니다.
 
-배포 주소: https://mingeun-git.github.io/
+## 세 벌을 따로 둔 이유
+
+직무마다 다른 주소를 내려고 같은 뼈대를 세 벌 둡니다. 제출할 때 링크만 갈아 끼웁니다.
+
+| 지원 직무 | 주소 | 폴더 |
+| --- | --- | --- |
+| 영업 · 영업관리 · 영업기획 | https://mingeun-git.github.io/ | 루트 |
+| 마케팅 | https://mingeun-git.github.io/marketing/ | `marketing/` |
+| 데이터 분석 | https://mingeun-git.github.io/data/ | `data/` |
+
+루트만 영업 공고 분석에 맞춰 손봤고, 나머지 두 벌은 아직 뼈대만 같은 상태입니다.
+각 사본 `index.html` 맨 위 주석에 고쳐야 할 자리를 번호로 적어 뒀습니다.
+
+세 폴더는 `assets/`와 `projects/`를 각자 복사해 갖고 있습니다. 한 벌을 고쳐도 다른 벌이
+따라 바뀌지 않습니다. 직무별로 따로 굴리려고 일부러 이렇게 뒀습니다. 공통 CSS를 고쳤다면
+세 곳에 모두 반영해야 합니다.
 
 ## 파일 구조
 
 ```
 .
-├─ index.html                     홈. 소개 · 일하는 방식 · 핵심 역량 · 프로젝트 · 이력
+├─ index.html                     영업용 홈. 소개 · 영업 사이클 · 역량 · 공고 대조 · 프로젝트 · 이력
+├─ marketing/                     마케팅용 사본 (index.html · projects/ · assets/)
+├─ data/                          데이터 분석용 사본 (index.html · projects/ · assets/)
 ├─ projects/
 │  ├─ lms-ad-sales.html           LMS 광고 지면 사업화
 │  ├─ etacrew.html                대학 커뮤니티 홍보단 확대
@@ -84,6 +101,7 @@ git push
 | `.dtable` | 수치 표 | 없음 |
 | `.cutplot` | 분포와 커트라인 | SVG 좌표 |
 | `.quad` | 산점도, 선 그래프 | SVG 좌표 |
+| `.match` | 공고의 요구와 내 경험을 한 줄씩 맞대기 (홈 전용) | 없음 |
 
 ## 수치의 출처
 
