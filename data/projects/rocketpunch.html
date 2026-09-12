@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>「활성화가 문제다」라는 내 첫 진단을 스스로 기각하기 — 신민근</title>
-<meta name="description" content="채용 플랫폼 로그 1,646만 건으로 성장 정체를 진단하고, 1차 결론을 기각한 뒤 매칭 실패로 문제를 재정의한 기록. 성향점수 매칭과 생존분석으로 레버를 검증했습니다.">
+<meta name="description" content="채용 플랫폼 로그 1,646만 건으로 성장 정체를 진단하고, 1차 결론을 기각한 뒤 매칭 실패로 문제를 재정의한 기록. 성향점수 매칭과 생존분석으로 개선 후보를 평가했습니다.">
 <meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,6 +58,7 @@ setTimeout(function () {
       <div class="fact"><dt>도구</dt><dd>MySQL 8.0 · Python</dd></div>
       <div class="fact"><dt>산출물</dt><dd>전처리 파이프라인 · 데이터 마트 6종 · 실험 설계서</dd></div>
     </dl>
+    <p class="viz__cap">2022~2023년 로그 기반 개인 분석 과제입니다. 구현 범위는 전처리·분석 마트·실험 설계까지이며 서비스 개선안과 A/B 테스트는 미실행입니다. 근거: 「로켓펀치_마스터_포트폴리오」(2026.09 통합), §4·6·7·9.</p>
   </div>
 </section>
 
@@ -70,7 +71,7 @@ setTimeout(function () {
           <h2 class="beat__label">설명되지 않는 신호</h2>
           <p class="beat__text">
             1차 진단의 기대효과를 추정하려고 월별 코호트를 분해하던 중 이상한 패턴이 나왔습니다.
-            2년 사이 신규 유저는 <b>93.6%</b> 줄었는데,
+            2년 사이 로그 관측 신규 유저는 <b>93.6%</b> 줄었는데,
             같은 기간 D+30 지원 전환율은 15.7%에서 <b>53.8%</b>로 올랐습니다.
             전환율만 보면 서비스가 극적으로 좋아지고 있었습니다.
             그런데 절대 지원자는 323명에서 71명으로 78% 줄었습니다.
@@ -78,10 +79,10 @@ setTimeout(function () {
         </div>
 
         <div class="beat" data-reveal>
-          <h2 class="beat__label">분모가 마르면 비율은 저절로 오른다</h2>
+          <h2 class="beat__label">비율 상승을 규모 변화와 함께 읽었다</h2>
           <p class="beat__text">
-            후기 코호트의 높은 전환율은 개선이 아니라 <b>유입 구성이 바뀐 결과</b>였습니다.
-            지나가다 들어온 유저가 사라지고 목적이 분명한 유저만 남은 것입니다.
+            후기 코호트의 높은 전환율에는 <b>유입 구성 변화가 섞였을 가능성</b>이 있습니다.
+            실제 가입일이 없어 로그 최초 관측일로 코호트를 만들었으므로, 가입자 감소나 구직 의지 변화로 단정하지 않았습니다.
             온보딩 마찰로는 2년에 걸친 93.6% 감소를 설명할 수 없었습니다.
             1차 진단은 틀린 게 아니라 <b>불충분</b>했고, 질문을 바꿔야 했습니다.
           </p>
@@ -105,7 +106,7 @@ setTimeout(function () {
             상식적인 가설부터 검증했습니다. 미전환 유저는 공고에 도달하지 못한다는 가설입니다.
             유저 단위로 세면 이 가설은 틀렸습니다.
             3일 이상 반복 방문하면서 전환하지 않는 유저의 <b>79.1%</b>가 공고 상세를 봤습니다.
-            그런데 공고 단위로 세면 <b>41.0%</b>는 아무도 닿지 않은 공고였습니다.
+            그런데 공고 단위로 세면 <b>41.0%</b>는 지원과 북마크가 모두 없는 공고였습니다. 조회 여부까지 확인한 값은 아닙니다.
             문제는 도달의 유무가 아니라 <b>도달의 분포</b>였습니다.
           </p>
         </div>
@@ -128,18 +129,18 @@ setTimeout(function () {
             북마크 경험자의 지원 전환율은 80.4%, 미경험자는 32.0%였습니다.
             차이가 48.4%p지만 이건 전부 <b>상관</b>입니다.
             의지가 강한 유저가 북마크도 하고 지원도 한다면 처방은 효과가 없습니다.
-            그래서 시점을 정렬한 성향점수 매칭으로 편향을 걷어냈고,
-            순효과는 <b>+11.8%p</b>로 줄었습니다(z=3.44, p=0.0006).
+            그래서 시점을 정렬한 성향점수 매칭으로 관측된 변수의 불균형을 줄였고,
+            매칭 후 지원율 차이는 <b>+11.8%p</b>로 줄었습니다(z=3.44, p=0.0006).
             기대효과에 곱할 값을 80.4%에서 이 값으로 바꿨습니다.
           </p>
         </div>
 
         <div class="beat" data-reveal>
-          <h2 class="beat__label">리마인더가 이틀 늦게 도착하고 있었다</h2>
+          <h2 class="beat__label">리마인더 제안 시점을 앞당겼다</h2>
           <p class="beat__text">
             북마크 10.6만 건을 생존분석으로 봤습니다.
             지원 전환 확률은 북마크 당일 3.98%인데 다음 날 0.86%로 <b>5분의 1 이하</b>가 됩니다.
-            기존의 D+2 리마인더는 전환 가능성이 <b>87% 소실된 뒤</b>에 도착하고 있었습니다.
+            초안의 D+2 리마인더 시점에는 일별 조건부 지원 확률이 당일 대비 <b>약 87% 낮았습니다.</b> 누적 지원 가능성이 그만큼 사라졌다는 뜻은 아닙니다.
             3일 골든타임이라는 말은 방향은 맞았지만 시점을 이틀 늦게 지목하고 있었습니다.
           </p>
         </div>
@@ -147,9 +148,9 @@ setTimeout(function () {
         <div class="beat" data-reveal>
           <h2 class="beat__label">하지 않을 실험을 먼저 정했다</h2>
           <ul class="beat__list">
-            <li>월 신규 유저가 355명입니다. 온보딩 A/B로 <b>+1%p</b>를 탐지하려면 <b>70개월</b>이 걸립니다.</li>
-            <li>그래서 실험 단위를 유저에서 <b>이벤트 · 세션 · 공고</b>로 옮겼습니다.</li>
-            <li>같은 가설을 북마크 이벤트 단위로는 6주, 세션 단위로는 1~2주 만에 검증할 수 있습니다.</li>
+            <li>월 로그 관측 신규 유저가 355명입니다. 온보딩 A/B로 <b>+1%p</b>를 탐지하려면 <b>70개월</b>이 걸립니다.</li>
+            <li>그래서 <b>이벤트 · 세션 · 공고 지표</b>로 대안을 설계했습니다. 같은 유저의 반복 행동을 독립 표본으로 세지 않도록 유저 단위 배정과 군집 보정이 필요합니다.</li>
+            <li>북마크 후 지원은 약 6주, 프로필에서 공고로의 전이는 1~2주로 추산했습니다. 서로 다른 지표·목표 개선폭의 설계이며 군집 보정 전 참고 기간입니다.</li>
             <li>온보딩 실험은 실행 불가로 판정하고, 판정 지표를 선행 지표로 바꾼 대안을 함께 남겼습니다.</li>
           </ul>
         </div>
@@ -164,13 +165,13 @@ setTimeout(function () {
                 <thead>
                   <tr>
                     <th scope="col">지표</th>
-                    <th scope="col">첫 달</th>
-                    <th scope="col">마지막 달</th>
+                    <th scope="col">2022.02</th>
+                    <th scope="col">2023.12</th>
                     <th scope="col">변화</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>신규 유저</td><td>2,053명</td><td>132명</td><td>−93.6%</td></tr>
+                  <tr><td>로그 관측 신규 유저</td><td>2,053명</td><td>132명</td><td>−93.6%</td></tr>
                   <tr><td>D+30 지원 전환율</td><td>15.7%</td><td>53.8%</td><td>+38.1%p</td></tr>
                   <tr class="is-total"><td>절대 지원자 수</td><td>323명</td><td>71명</td><td>−78.0%</td></tr>
                   <tr class="is-total"><td>절대 북마크 유저</td><td>215명</td><td>19명</td><td>−91.2%</td></tr>
@@ -179,7 +180,7 @@ setTimeout(function () {
             </div>
           </div>
           <p class="viz__cap">
-            이 표가 프로젝트의 변곡점입니다.
+            출처: 로켓펀치 마스터 §4.1. 로그 최초 관측월 코호트별 D+30 지표입니다. 가입일 기준이 아니며 마지막 코호트는 관측 종료에 따른 절단 영향을 고려해야 합니다.
             이후 모든 비율 지표는 절대 규모와 반드시 함께 쓰도록 지표 체계에 못 박았습니다.
           </p>
         </div>
@@ -193,18 +194,18 @@ setTimeout(function () {
           </div>
           <div class="stackkey">
             <div class="stackkey__row"><span class="stackkey__sw stackkey__sw--a"></span><span>매칭 성공 — 30일 안에 지원 1건 이상</span><span class="stackkey__val">12,672건</span></div>
-            <div class="stackkey__row"><span class="stackkey__sw stackkey__sw--b"></span><span>도달 실패 — 북마크조차 0건</span><span class="stackkey__val">12,872건</span></div>
+            <div class="stackkey__row"><span class="stackkey__sw stackkey__sw--b"></span><span>관심 미관측 — 지원·북마크 0건</span><span class="stackkey__val">12,872건</span></div>
             <div class="stackkey__row"><span class="stackkey__sw stackkey__sw--c"></span><span>전환 실패 — 관심은 받았으나 지원 0건</span><span class="stackkey__val">5,859건</span></div>
           </div>
           <p class="viz__cap">
-            지원 0건 공고를 북마크 유무로 쪼개면 실패의 원인이 갈립니다.
+            출처: 로켓펀치 마스터 §6.2. 2022.01~2023.11 등록 공고 31,403건, 등록 후 30일 기준입니다. 북마크 유무는 관심의 관측 흔적이며 실패 원인을 확정하지 않습니다.
             전환 실패 공고에는 이미 확인된 관심인 북마크 10,363건이 묶여 사장돼 있습니다.
             두 해결안의 책임 구역을 여기서 나눴습니다.
           </p>
         </div>
 
         <div class="viz" data-reveal>
-          <h2 class="viz__title">북마크가 지원이 될 확률은 하루면 사라진다</h2>
+          <h2 class="viz__title">북마크 다음 날부터 일별 지원 확률이 낮아진다</h2>
           <div class="bars">
             <div class="bar bar--accent"><span class="bar__name">북마크 당일</span><span class="bar__track"><b class="bar__fill" style="--w:100%"></b></span><span class="bar__val">3.98%</span></div>
             <div class="bar"><span class="bar__name">D+1</span><span class="bar__track"><b class="bar__fill" style="--w:21.6%"></b></span><span class="bar__val">0.86%</span></div>
@@ -213,12 +214,12 @@ setTimeout(function () {
             <div class="bar"><span class="bar__name">D+7</span><span class="bar__track"><b class="bar__fill" style="--w:6.3%"></b></span><span class="bar__val">0.25%</span></div>
           </div>
           <p class="viz__cap">
-            그날까지 지원하지 않고 남아 있는 북마크가 그날 지원으로 바뀔 확률입니다.
-            개입은 북마크 직후 같은 세션 안, 늦어도 다음 날이어야 합니다.
+            출처: 로켓펀치 마스터 §7.4. 지원이 앞선 612건을 제외한 유저×공고 북마크 106,121건, 관측 종료 2023.12.31. 그날까지 미지원인 북마크의 당일 지원 확률입니다.
+            당일·다음 날 개입을 우선 실험안으로 제안했습니다.
           </p>
         </div>
         <div class="viz" data-reveal>
-          <h2 class="viz__title">편향을 세 번 걷어낸 결과</h2>
+          <h2 class="viz__title">보정 방법에 따른 지원율 차이</h2>
           <div class="dtable">
             <div class="dtable__scroll">
               <table>
@@ -239,10 +240,10 @@ setTimeout(function () {
             </div>
           </div>
           <p class="viz__cap">
-            406쌍을 매칭한 결과입니다(z=3.44, p=0.0006).
+            출처: 로켓펀치 마스터 §7.2. 406쌍 매칭 후 차이 +11.8%p(95% 신뢰구간 5.1~18.5%p, z=3.44, p=0.0006)입니다.
             매칭 전 가장 불균형했던 변수는 첫 주 복귀 일수였습니다.
             다시 돌아오는가가 북마크와 지원을 동시에 끌어올리는 교란 요인이었고, 매칭 후 균형을 맞췄습니다.
-            다만 관측된 변수만 통제하므로 +11.8%p는 상한에 가까운 추정치이고, 하한은 실험으로만 확정됩니다.
+            구직 의지 등 미관측 교란은 남아 있어 +11.8%p를 확정된 인과효과나 보장된 개선폭으로 쓰지 않습니다. 실제 개입 효과는 무작위 실험이 필요합니다.
           </p>
         </div>
       </div>
@@ -251,26 +252,25 @@ setTimeout(function () {
 
     <div class="vizfull">
       <div class="viz" data-reveal>
-        <h2 class="viz__title">실험 단위를 옮기면 기간이 달라진다</h2>
+        <h2 class="viz__title">지표별 실험 소요 기간 추정</h2>
         <div class="steps">
           <div class="step">
             <span class="step__label">유저 단위 — 월 355명</span>
             <span class="step__val">70개월</span>
           </div>
-          <p class="step__link">배정 단위를 바꿈</p>
+          <p class="step__link">북마크 후 지원 지표 검토</p>
           <div class="step step--won">
-            <span class="step__label">북마크 이벤트 단위 — 월 3,846건</span>
+            <span class="step__label">북마크 지표 — 월 3,846건</span>
             <span class="step__val">6주</span>
           </div>
-          <p class="step__link">더 흔한 단위로</p>
+          <p class="step__link">공고 상세 전이 지표 검토</p>
           <div class="step step--accent">
-            <span class="step__label">세션 단위 — 월 37,220개</span>
+            <span class="step__label">프로필 세션 — 월 14,813개</span>
             <span class="step__val">1~2주</span>
           </div>
         </div>
         <p class="viz__cap">
-          실험 설계에서 가장 흔한 실패는 좋은 가설을 잘못된 단위로 측정해 영원히 유의해지지 않는 것입니다.
-          표본 산정을 먼저 하면 어떤 실험을 하지 않을지가 먼저 정해집니다.
+          출처: 로켓펀치 마스터 §9. 온보딩 7.3→8.3%(그룹당 12,471명), 북마크 후 D+3 지원 5.6→7.6%(2,403건), 프로필→공고 전이 1.2→2.4%(1,926건)를 각각 가정했습니다. 북마크는 2군 기준이며 3군이면 약 9주입니다. 유저 군집 보정·모집 속도에 따라 기간은 늘 수 있습니다.
         </p>
       </div>
     </div>
@@ -279,8 +279,8 @@ setTimeout(function () {
       <p class="takeaway__label">배운 것</p>
       <p class="takeaway__text">
         <b>과대 추정한 큰 숫자보다, 방어 가능한 작은 숫자가 실행을 만듭니다.</b>
-        북마크의 효과를 80.4%로 쓰면 기대효과는 다섯 배 커지지만 그 숫자로는 아무도 예산을 승인하지 않습니다.
-        편향을 걷어낸 +11.8%p는 작아 보여도 근거를 물었을 때 답할 수 있습니다.
+        북마크 경험자의 지원율 80.4%를 개입 효과로 적용하면 기대 지원 수를 과대 추정할 수 있습니다.
+        매칭 후 차이 +11.8%p와 남은 교란 요인을 함께 제시하고, 예산 판단은 실험 결과로 갱신하도록 설계했습니다.
         1차 진단을 기각한 것도 같은 이유였습니다.
       </p>
     </div>
