@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>신민근 서비스 기획 · PM 포트폴리오</title><meta content="BDAI 프로젝트 운영과 데이터 분석을 문제 정의·우선순위·실험 설계 관점으로 구성한 신민근의 기획·PM 포트폴리오." name="description"/><meta content="#022b30" name="theme-color"/><meta content="profile" property="og:type"/><meta content="신민근 서비스 기획 · PM 포트폴리오" property="og:title"/><meta content="문제를 올바르게 정의하고 팀이 실행할 수 있는 흐름을 만듭니다." property="og:description"/><meta content="ko_KR" property="og:locale"/><meta content="https://mingeun-git.github.io/planning/" property="og:url"/><meta content="https://mingeun-git.github.io/planning/assets/og.jpg" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="신민근 서비스 기획·PM 포트폴리오 첫 화면" property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'&gt;&lt;rect width='32' height='32' fill='%23022b30'/&gt;&lt;path d='M4 19h24' stroke='%23ff832b' stroke-width='2' stroke-dasharray='4 3'/&gt;&lt;circle cx='10' cy='12' r='2.5' fill='%23ff832b'/&gt;&lt;circle cx='21' cy='9' r='2.5' fill='%23ff832b'/&gt;&lt;circle cx='16' cy='25' r='2.5' fill='%239ef0f0'/&gt;&lt;/svg&gt;" rel="icon"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&amp;family=Noto+Serif+KR:wght@400;500&amp;display=swap" rel="stylesheet"/><style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"IBM Plex Sans KR","Malgun Gothic",sans-serif;word-break:keep-all;overflow-wrap:anywhere;background:var(--paper);color:var(--ink);line-height:1.6}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}h1,h2,h3,p,figure,dl,dd,ul{margin:0}ul{padding:0;list-style:none}img{max-width:100%;display:block}
+::selection{background:var(--accent);color:var(--paper)}:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.wrap{max-width:1600px;margin:auto;padding-left:5.2vw;padding-right:5.2vw}
+.nav{display:flex;align-items:center;justify-content:space-between;padding-top:24px;padding-bottom:24px;gap:20px;font-size:13px}
+.brand{font-weight:600;letter-spacing:-.03em;font-size:20px;white-space:nowrap}.brand small{font-size:11px;letter-spacing:.12em;margin-left:14px;font-weight:400}
+.nav nav{display:flex;gap:28px}.nav nav a:hover{color:var(--accent)}
+.eyebrow{font-family:Arial,sans-serif;font-size:11px;letter-spacing:.13em;text-transform:uppercase}
+.intro-line{font-weight:500}.intro-line em{font-style:normal}
+.intro-copy{font-size:16px;line-height:1.85;max-width:600px}
+.arrow-link{display:inline-flex;gap:22px;align-items:center;white-space:nowrap;padding-bottom:8px;border-bottom:1px solid;font-size:14px}.arrow-link span{font-size:22px}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;padding:24px 0 28px;border-top:1px solid var(--line)}
+.facts>div{display:flex;flex-direction:column;gap:6px;min-width:0}
+.facts dt{font-family:Arial,"IBM Plex Sans KR",sans-serif;font-size:10px;letter-spacing:.14em;color:var(--muted)}
+.facts dd{font-size:15px;font-weight:500;line-height:1.45}.facts dd small{display:block;font-size:12px;font-weight:400;color:var(--muted);margin-top:4px}
+.work{padding-top:72px}
+.work-head{display:flex;justify-content:space-between;align-items:end;gap:20px 32px;flex-wrap:wrap}
+.work-head h2{font-size:clamp(30px,3.2vw,44px);font-weight:500;letter-spacing:-.05em;line-height:1.2;margin-top:8px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border:1px solid var(--line);border-radius:40px;font-size:15px;font-weight:500;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.tab small{font-family:Arial,sans-serif;font-size:11px;opacity:.65}.tab:hover{border-color:var(--ink)}
+.tab[aria-selected=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chapter{scroll-margin-top:16px}
+.chapter-head{display:flex;justify-content:space-between;align-items:end;gap:30px;padding:40px 0 30px;border-top:1px solid var(--line);margin-top:28px;margin-bottom:64px}
+.chapter-head h2{font-size:clamp(34px,4.4vw,64px);font-weight:500;line-height:1.1;letter-spacing:-.06em}
+.chapter-head h2 small{font-family:Arial,sans-serif;font-size:13px;vertical-align:top;letter-spacing:0;margin-left:12px;font-weight:400}
+.chapter-head p{font-size:13px;max-width:420px;color:var(--muted);line-height:1.8}
+.chapter-no{display:block;margin-bottom:14px;font:11px Arial,sans-serif;letter-spacing:.12em}
+.case{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:clamp(32px,5.5vw,96px);align-items:center;padding-bottom:104px}
+.case:nth-of-type(even) .case-visual{order:2}
+.case-visual{min-width:0}.case-visual figcaption{margin-top:10px;font-size:11px;color:var(--muted)}
+.case-copy{min-width:0;max-width:580px}
+.case-top{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;margin-bottom:16px;font-size:12px;color:var(--muted)}
+.badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:6px;background:var(--badge-bg);color:var(--badge-ink);font-weight:600;font-size:12px}
+.case-no{margin-left:auto;font:11px Arial,sans-serif;letter-spacing:.1em}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}.tags li{font-size:11px;padding:4px 11px;border:1px solid var(--line);border-radius:30px}
+.case h3{font-size:clamp(24px,2.3vw,34px);font-weight:600;letter-spacing:-.045em;line-height:1.36}
+.case-desc{margin-top:14px;color:var(--muted);font-size:15px;line-height:1.85}
+.metrics{display:flex;flex-wrap:wrap;gap:14px 44px;margin:28px 0 14px}
+.metric strong{display:block;font-family:var(--num-font);font-weight:var(--num-weight,400);font-size:clamp(30px,3vw,44px);line-height:1.1;letter-spacing:-.03em;white-space:nowrap}
+.metric strong small{font-family:"IBM Plex Sans KR",sans-serif;font-style:normal;font-weight:500;font-size:.42em;letter-spacing:0;margin-left:3px}
+.metric strong small.pre{margin:0 5px 0 0}.metric strong .to{font-family:Arial,sans-serif;font-weight:400;margin:0 .12em;opacity:.55}
+.metric>span{display:block;font-size:12px;margin-top:6px;color:var(--muted)}
+.scope{font-size:12px;margin:0 0 24px;color:var(--muted);line-height:1.75}
+.case-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.case-button,.case-ghost{display:inline-flex;align-items:center;gap:10px;padding:11px 20px;border-radius:40px;font-size:13px;font-weight:500;border:1px solid var(--ink);cursor:pointer;line-height:1.2;transition:background .2s,color .2s,border-color .2s}
+.case-button{background:var(--ink);color:var(--paper)}.case-ghost{background:transparent}
+.case-button:hover{background:var(--accent);border-color:var(--accent);color:#fff}.case-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.detail-link{font-size:12px;text-decoration:underline;text-underline-offset:5px}
+
+/* 프로젝트 이미지: 너비 기준 단위(cqw)로 배치해 이미지처럼 비율째 줄어든다 */
+.case[data-art]{--art-bg:#e8e9e4;--art-ink:#1f2124;--art-muted:#6b6d70;--art-soft:#c9ccd2;--art-mid:#868b94;--art-line:#1f21241f;--art-accent:var(--accent);--art-on-accent:#fff}
+.case[data-art=recruit]{--art-bg:#dde3fb}.case[data-art=etacrew]{--art-bg:#e4ebd5}.case[data-art=lms]{--art-bg:#e1e7ef}
+.case[data-art=dayton]{--art-bg:#101c24;--art-ink:#eef3f3;--art-muted:#9fb2b5;--art-accent:#6fdcc0}
+.case[data-art=retention]{--art-bg:#eceee8}.case[data-art=rocket]{--art-bg:#f0eae1}.case[data-art=grading]{--art-bg:#e5ebe1}
+.art{position:relative;aspect-ratio:5/4;overflow:hidden;border-radius:var(--art-radius,14px);container-type:inline-size;background:var(--art-bg);color:var(--art-ink)}
+.art img{position:absolute;display:block;max-width:none}
+.art-label{position:absolute;left:6cqw;top:5.5cqw;z-index:3;font:600 max(2.3cqw,10px)/1.2 Arial,"IBM Plex Sans KR",sans-serif;letter-spacing:.04em;opacity:.8}
+.art-stats{position:absolute;left:6cqw;top:13cqw;z-index:3;display:grid;gap:1.8cqw}
+.art-stats li{display:flex;align-items:baseline;gap:1.6cqw;font-size:max(2.6cqw,10px)}
+.art-stats b{font:700 7.4cqw/1 var(--num-font);letter-spacing:-.04em;min-width:10cqw}
+.chip{position:absolute;z-index:5;background:#fff;color:#16181d;border-radius:2cqw;padding:2.8cqw 3.2cqw;box-shadow:0 1.8cqw 4.5cqw #0a102a2e;font-size:max(2.4cqw,10px);line-height:1.5}
+.chip small{display:block;font-size:max(2.1cqw,9px);color:#6b6f78;margin-bottom:.6cqw}
+.chip b{display:block;font:700 max(5.2cqw,17px)/1.15 var(--num-font);letter-spacing:-.04em}
+.chip>span{display:block;color:#454850;margin-top:.8cqw}
+.art .poster{width:30cqw;aspect-ratio:4/5;object-fit:cover;border-radius:1.4cqw;box-shadow:0 2.4cqw 5cqw #0d1a5a45}
+.art--recruit .p1{left:40cqw;top:19cqw;transform:rotate(-9deg)}
+.art--recruit .p2{left:53cqw;top:10cqw;width:33cqw;z-index:2}
+.art--recruit .p3{left:65cqw;top:21cqw;transform:rotate(8deg);z-index:1}
+.art--recruit .rule{left:6cqw;bottom:6cqw;width:46cqw}
+.art--etacrew .sq{width:40cqw;aspect-ratio:1;object-fit:cover;border-radius:1.4cqw;box-shadow:0 2cqw 5cqw #24361c3a}
+.art--etacrew .s1{left:40cqw;top:6cqw;transform:rotate(-5deg);z-index:1}
+.art--etacrew .s2{left:54cqw;top:29cqw;transform:rotate(6deg);z-index:2}
+.art--etacrew .schools{left:6cqw;bottom:6cqw;width:52cqw}
+.dots{display:flex;gap:1.2cqw;margin:1.8cqw 0 .6cqw}.dots i{display:block;width:3.4cqw;aspect-ratio:1;border-radius:50%;border:.4cqw solid #3d7a36}.dots i.on{background:#3d7a36}
+.art--lms .page{border-radius:1cqw;box-shadow:0 2cqw 5cqw #1b2a4630;background:#fff}
+.art--lms .pg1{left:6cqw;top:6cqw;width:60cqw;transform:rotate(-2deg)}
+.art--lms .pg2{right:5cqw;top:27cqw;width:58cqw;transform:rotate(2.5deg);z-index:1}
+.art--lms .ctr{left:6cqw;bottom:6cqw;width:50cqw}
+.hbar{display:grid;grid-template-columns:13cqw 1fr 9cqw;align-items:center;gap:1.6cqw;margin-top:1.4cqw}
+.hbar span{font-size:max(2.3cqw,9px);color:#454850}.hbar i{display:block;height:2.2cqw;background:#e8eaef;border-radius:1cqw;overflow:hidden}
+.hbar em{display:block;height:100%;background:var(--art-accent)}.chip .hbar b{font-size:max(3.2cqw,11px);text-align:right}
+.art--dayton{display:flex;justify-content:space-between;padding:6% 7% 0}
+.art--dayton .ev{width:40cqw}.art--dayton .ev img{position:static;width:100%;aspect-ratio:.74;object-fit:cover;object-position:top;border-radius:1cqw;box-shadow:0 2cqw 5cqw #0007}
+.goal{margin-top:2.6cqw}.goal p{display:flex;justify-content:space-between;align-items:baseline;gap:2cqw;font-size:max(2.4cqw,9px)}
+.goal p b{font:700 max(4.6cqw,15px)/1 var(--num-font);letter-spacing:-.03em;color:var(--art-accent);white-space:nowrap}.goal p span{white-space:nowrap}
+.goal i{display:block;position:relative;height:1.6cqw;background:#ffffff26;border-radius:1cqw;margin-top:1.4cqw}
+.goal em{display:block;height:100%;background:var(--art-accent);border-radius:1cqw}
+.goal u{position:absolute;top:-1cqw;bottom:-1cqw;width:.4cqw;background:var(--art-ink)}
+@container (max-width:460px){.art-stats{top:12cqw;gap:.6cqw}.art-stats b{font-size:6.4cqw}.art--recruit .rule{width:50cqw;padding:2.4cqw 2.8cqw}.art--etacrew .schools{width:58cqw}.art--lms .ctr{width:56cqw}}
+.art svg{position:absolute;inset:0;width:100%;height:100%;font-family:"IBM Plex Sans KR","Malgun Gothic",sans-serif}
+.art svg text{fill:var(--art-ink)}
+.t-label{font-size:16px;font-weight:600;letter-spacing:-.02em}.t-small{font-size:14px}.t-note{font-size:12px;fill:var(--art-muted)!important}
+.t-strong{font-weight:700;fill:var(--art-accent)!important}.t-accent{fill:var(--art-accent)!important;font-weight:600}
+.t-seg{font-size:16px;font-weight:700}.t-on{fill:var(--art-on-accent)!important}.t-on-mid{fill:#fff!important}
+.t-grade{font-size:24px;font-weight:600;font-family:var(--num-font)}
+.f-accent{fill:var(--art-accent)}.f-soft{fill:var(--art-soft)}.f-mid{fill:var(--art-mid)}.f-band{fill:var(--art-accent);opacity:.1}
+.s-line{stroke:var(--art-line);stroke-width:1}.s-accent{stroke:var(--art-accent);fill:none;stroke-width:3}
+.s-muted{stroke:var(--art-mid);fill:none;stroke-width:2.5;stroke-dasharray:6 5}.s-gap{stroke:var(--art-soft);stroke-width:3}
+.dot-open{fill:var(--art-bg);stroke:var(--art-ink);stroke-width:2}
+
+.source-content{padding-top:80px;padding-bottom:70px}.source-content .wrap{padding:0}
+.source-content .section{padding:55px 0;border-top:1px solid var(--line)}
+.source-content .shead{max-width:700px;margin-bottom:35px}.source-content .section-label{font:11px Arial,sans-serif;letter-spacing:.13em;color:var(--muted);margin-bottom:12px}
+.source-content .shead__title{font-size:clamp(30px,4vw,50px);line-height:1.3;font-weight:500;letter-spacing:-.04em}
+.source-content .shead__lede{font-size:15px;color:var(--muted);margin-top:18px}
+.source-content .role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:35px}
+.source-content .role-grid article{border-top:1px solid var(--line);padding-top:20px}
+.source-content .role-number{font:11px Arial,sans-serif;letter-spacing:.1em;color:var(--muted)}
+.source-content .role-grid h3{font-size:21px;line-height:1.5;margin:16px 0}
+.source-content .role-grid p{font-size:14px;line-height:1.9;color:var(--muted);margin-bottom:15px}
+.source-content .textlink{font-size:12px;text-decoration:underline;text-underline-offset:5px}
+.source-content .evidence-note{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:22px;margin-top:40px}
+.source-content .evidence-note p{margin-top:8px;line-height:1.8}
+.source-content .twocol{display:grid;grid-template-columns:1.2fr 1fr;gap:8vw}
+.source-content .blockhead{font-size:18px;border-bottom:1px solid var(--line);padding-bottom:14px;margin:30px 0 20px}
+.source-content .record{display:grid;grid-template-columns:120px 1fr;gap:22px;padding:18px 0;border-bottom:1px solid var(--line)}
+.source-content .record__when{font-size:11px;color:var(--muted)}.source-content .record__role{font-weight:500;font-size:15px}
+.source-content .record__org,.source-content .record__note{font-size:12px;line-height:1.9;color:var(--muted);margin-top:7px}
+.source-content .skillrow{font-size:13px;margin:20px 0}.source-content .skillrow__items{list-style:none;display:flex;flex-wrap:wrap;gap:6px;padding:0;margin-top:8px}
+.source-content .skillrow__items li{padding:3px 8px;border:1px solid var(--line);font-size:11px}
+.footer{padding:60px 0 28px;border-top:1px solid var(--line)}
+.footer h2{font-size:clamp(34px,6vw,86px);font-weight:400;letter-spacing:-.06em;line-height:1.2;margin:20px 0 45px}
+.footer-bottom{display:flex;justify-content:space-between;gap:20px;font-size:11px;color:var(--muted)}
+
+.skip{position:fixed;left:20px;top:-80px;padding:12px;background:white;color:black;z-index:50}.skip:focus{top:10px}
+dialog{max-width:640px;width:calc(100% - 32px);background:var(--paper);color:var(--ink);border:1px solid var(--line);padding:40px;max-height:85vh;overflow:auto}
+dialog::backdrop{background:#0009;backdrop-filter:blur(6px)}dialog h2{font-size:26px;line-height:1.45;margin:16px 0;letter-spacing:-.03em}
+dialog p{color:var(--muted);line-height:1.9;margin:18px 0}dialog .close{float:right;background:none;border:0;font-size:25px;cursor:pointer;padding:0 6px}
+dialog .detail-link{display:inline-block;margin-top:10px}
+@media(max-width:760px){
+.wrap{padding-left:6vw;padding-right:6vw}.brand small{display:none}.nav{padding-top:18px;padding-bottom:18px}.nav nav{gap:16px;font-size:12px}
+.intro-copy{font-size:14px}.facts{grid-template-columns:1fr 1fr;gap:18px 16px}.facts dd{font-size:13px}.facts dd small{font-size:11px}
+.work{padding-top:48px}.tab{padding:10px 16px;font-size:14px}
+.chapter-head{flex-direction:column;align-items:start;gap:12px;padding:28px 0 22px;margin-bottom:36px}
+.case{grid-template-columns:1fr;gap:22px;padding-bottom:68px}.case:nth-of-type(even) .case-visual{order:0}
+.case h3{font-size:24px}.case-desc{font-size:14px}.metrics{gap:12px 30px}.metric strong{font-size:32px}
+.source-content .role-grid,.source-content .twocol{grid-template-columns:1fr}.source-content .record{grid-template-columns:90px 1fr;gap:15px}
+.source-content{padding-top:30px}.source-content .section{padding:35px 0}.footer-bottom{flex-direction:column;gap:10px}
+dialog{padding:25px}.footer{padding-bottom:70px}}
+@media(prefers-reduced-motion:no-preference){.art img{transition:transform .4s}.case-visual:hover .p1{transform:rotate(-12deg) translateX(-2cqw)}.case-visual:hover .p3{transform:rotate(11deg) translateX(2cqw)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+:root{--paper:#f8f8f5;--ink:#20201e;--muted:#65655f;--line:#d4d4cc;--accent:#4f6a3f;--num-font:Arial,Helvetica,sans-serif;--badge-bg:#20201e;--badge-ink:#f8f8f5;--art-radius:4px}
+.editorial .hero{padding-top:36px}
+.editorial .hero-top{display:flex;justify-content:space-between;gap:24px}
+.editorial .intro-line{font-size:clamp(40px,6.5vw,104px);line-height:1.16;letter-spacing:-.075em;margin:26px 0 38px}
+.editorial .intro-line em{color:#8a8c82}
+.editorial .hero-bottom{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.4fr) auto;gap:40px;align-items:end;padding-bottom:40px}
+.editorial .intro-name{font-size:18px;font-weight:600;letter-spacing:-.03em}.editorial .intro-name small{display:block;font:11px Arial,sans-serif;letter-spacing:.14em;color:var(--muted);margin-top:4px}
+.editorial .chapter-head h2{font-family:Arial,"IBM Plex Sans KR",sans-serif;font-weight:400;letter-spacing:-.05em}
+.editorial .badge{border-radius:3px}
+.editorial .case{border-bottom:1px solid var(--line);margin-bottom:72px;padding-bottom:72px}.editorial .case:last-child{border-bottom:0;margin-bottom:0}
+.editorial .data-chapter .chapter-head{border-top-color:var(--line)}
+@media(max-width:760px){.editorial .hero-top .eyebrow:last-child{display:none}.editorial .intro-line{font-size:9.6vw;margin:18px 0 24px}.editorial .hero-bottom{grid-template-columns:1fr;gap:16px;padding-bottom:28px}.editorial .case{margin-bottom:48px;padding-bottom:48px}}
+
+/* ===== 첫 화면: 사진 옆 세로 이름 ===== */
+.hx img{display:block;max-width:100%}
+.hx-actions{display:flex;flex-wrap:wrap;gap:10px}
+.hx-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 20px;border-radius:40px;font-size:14px;font-weight:500;border:1px solid var(--ink);background:var(--ink);color:var(--paper);line-height:1.2;white-space:nowrap;transition:background .2s,border-color .2s,color .2s}
+.hx-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.hx-btn--ghost{background:transparent;color:var(--ink)}.hx-btn--ghost:hover{background:transparent;color:var(--accent)}
+.hx-label{font:11px/1.4 Arial,"IBM Plex Sans KR",sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.hx-word{border-bottom:1px solid var(--line)}
+.hx-word__top{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:clamp(24px,4vw,72px);align-items:stretch;padding-top:clamp(40px,9vh,112px);padding-bottom:clamp(44px,9vh,112px)}
+.hx-word__meta{display:flex;flex-direction:column;justify-content:space-between;gap:28px}
+.hx-word__focus{font-size:13px;margin-top:8px}
+.hx-word__meta ul{display:grid;gap:10px;font-size:13px;line-height:1.45}
+.hx-word__meta small{display:block;font-size:11px;color:var(--muted)}
+.hx-word__figure{--pw:clamp(150px,15vw,230px);display:flex;align-items:flex-end;gap:clamp(8px,.9vw,14px);align-self:end}
+.hx-word__figure img{width:var(--pw);height:auto;aspect-ratio:680/820;object-fit:cover}
+.hx-word__name{flex:none;display:block;height:calc(var(--pw) * 820 / 680);width:calc(var(--pw) * 820 / 680 * .11);overflow:visible}
+.hx-word__name text{font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:150px;fill:var(--ink)}
+.hx-word__intro{align-self:end}
+.hx-word__intro h1{font-size:clamp(22px,2.1vw,32px);font-weight:600;line-height:1.38;letter-spacing:-.045em}
+.hx-word__intro h1 em{font-style:normal;color:var(--muted)}
+.hx-word__intro p{margin:14px 0 22px;font-size:14px;line-height:1.85;color:var(--muted);max-width:460px}
+@media(max-width:1000px){.hx-word__top{grid-template-columns:auto minmax(0,1fr)}.hx-word__meta{grid-column:1/-1;flex-direction:row;flex-wrap:wrap}.hx-word__meta ul{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 24px;flex:1 1 360px}.hx-word__figure{grid-row:2}.hx-word__intro{grid-row:2}}
+@media(max-width:600px){.hx-word__top{grid-template-columns:1fr;gap:32px}.hx-word__figure{--pw:150px;grid-row:auto}.hx-word__intro{grid-row:auto}.hx-word__meta{order:3}.hx-word__meta ul{grid-template-columns:1fr}}
+
+/* ===== 프로젝트 묶음 카드 ===== */
+.work-lede{font-size:14px;line-height:1.75;color:var(--muted);max-width:470px}
+.groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:32px}
+.group{border:1px solid var(--line);border-radius:16px;padding:22px 24px 20px;transition:border-color .2s,background-color .2s}
+.group.is-active{border-color:var(--ink);background:#fff}
+.group:not(.is-active):hover{border-color:#9a9a92}
+.group__tab{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:16px;cursor:pointer}
+.group__kicker{grid-column:1;font:11px/1.4 Arial,"IBM Plex Sans KR",sans-serif;letter-spacing:.08em;color:var(--muted)}
+.group__name{grid-column:1;font-size:clamp(19px,1.8vw,26px);font-weight:500;letter-spacing:-.04em;line-height:1.3;margin-top:6px}
+.group__count{grid-column:2;grid-row:1/4;align-self:start;font:400 clamp(36px,3.4vw,54px)/1 Arial,sans-serif;letter-spacing:-.04em}
+.group__count small{font:500 13px "IBM Plex Sans KR",sans-serif;margin-left:3px;letter-spacing:0}
+.group__state{grid-column:1;margin-top:10px;font-size:12px}
+.group__state .on{display:none}.group__state .off{color:var(--muted)}
+.group__state .on::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-right:7px;vertical-align:2px}
+.group.is-active .group__state .on{display:inline}.group.is-active .group__state .off{display:none}
+.group:not(.is-active) .group__tab:hover .off{color:var(--ink)}
+.group__list{list-style:none;margin:16px 0 0;padding:14px 0 0;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 20px}
+.group__list a{display:flex;gap:8px;font-size:13px;line-height:1.5;color:var(--muted);transition:color .2s}
+.group__list a:hover,.group.is-active .group__list a{color:var(--ink)}
+.group__list a:hover .t{text-decoration:underline;text-underline-offset:4px}
+.group__list b,.pnav__links b,.pnav__drop b,.next-group li b{font:400 11px/1.9 Arial,sans-serif;color:#a3a39b;flex:none}
+.chapter{scroll-margin-top:57px}.case{scroll-margin-top:88px}
+@media(max-width:1000px){.group__list{grid-template-columns:1fr}}
+@media(max-width:760px){.groups{grid-template-columns:1fr;margin-top:24px}.group{padding:20px 20px 16px}.work-lede{max-width:none}}
+
+/* ===== 스크롤 중 위에 붙는 탭 · 목차 ===== */
+.pnav{position:fixed;left:0;right:0;top:0;z-index:40;background:rgba(248,248,245,.96);border-bottom:1px solid var(--line);transform:translateY(-101%);visibility:hidden;transition:transform .28s ease,visibility 0s linear .28s}
+@supports ((backdrop-filter:blur(8px)) or (-webkit-backdrop-filter:blur(8px))){.pnav{background:rgba(248,248,245,.86);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}}
+.pnav.is-on{transform:none;visibility:visible;transition:transform .28s ease}
+.pnav [hidden]{display:none!important}
+.pnav__inner{display:flex;align-items:center;gap:24px;min-height:56px}
+.pnav__switch{display:inline-flex;flex:none;gap:2px;padding:3px;border:1px solid var(--line);border-radius:40px;background:#fff}
+.pnav__switch button{border:0;background:none;font:inherit;font-size:13px;padding:6px 13px;border-radius:40px;color:var(--muted);cursor:pointer;white-space:nowrap}
+.pnav__switch button small{font:11px Arial,sans-serif;margin-left:5px;opacity:.75}
+.pnav__switch button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.pnav__switch .sm{display:none}
+.pnav__links{flex:1;min-width:0;overflow-x:auto;scrollbar-width:none}.pnav__links::-webkit-scrollbar{display:none}
+.pnav__links ol{list-style:none;margin:0;padding:0;display:flex;gap:26px}
+.pnav__links a{display:flex;white-space:nowrap;font-size:13px;color:var(--muted);padding:17px 0 15px;border-bottom:2px solid transparent;transition:color .2s}
+.pnav__links a:hover{color:var(--ink)}
+.pnav__links a[aria-current=true]{color:var(--ink);border-bottom-color:var(--ink)}
+.pnav__links b,.pnav__drop b{margin-right:7px;line-height:inherit}
+.pnav__toc{display:none}
+@media(max-width:900px){
+.pnav__inner{gap:12px;min-height:52px}.pnav__links{display:none}
+.pnav__switch .lg{display:none}.pnav__switch .sm{display:inline}.pnav__switch button{padding:6px 11px}
+.pnav__toc{display:block;flex:1;min-width:0}
+.pnav__toc summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;font-size:13px;padding:12px 0}
+.pnav__toc summary::-webkit-details-marker{display:none}
+.pnav__now{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pnav__toc summary i{flex:none;width:8px;height:8px;border-right:1.5px solid;border-bottom:1.5px solid;transform:translateY(-2px) rotate(45deg);transition:transform .2s}
+.pnav__toc[open] summary i{transform:translateY(2px) rotate(-135deg)}
+.pnav__drop{position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 14px 28px rgba(0,0,0,.06);padding:4px 6vw 10px}
+.pnav__drop ol{list-style:none;margin:0;padding:0}
+.pnav__drop a{display:flex;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--line);font-size:14px}
+.pnav__drop li:last-child a{border-bottom:0}
+.pnav__drop a[aria-current=true]{font-weight:600}
+}
+@media(prefers-reduced-motion:reduce){.pnav,.pnav.is-on{transition:none}}
+
+/* ===== 묶음 끝: 다른 묶음 안내 ===== */
+.next-group{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr) auto;gap:20px 48px;align-items:center;padding:30px 32px;border:1px solid var(--ink);border-radius:16px;background:#fff}
+.next-group h3{font-size:clamp(22px,2vw,30px);font-weight:500;letter-spacing:-.04em;line-height:1.3;margin-top:8px}
+.next-group h3 span{font:400 .55em Arial,"IBM Plex Sans KR",sans-serif;color:var(--muted);margin-left:10px;letter-spacing:0}
+.next-group ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.next-group li a{display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;transition:color .2s}
+.next-group li a:hover{color:var(--accent)}
+.next-group li .m{font:13px Arial,"IBM Plex Sans KR",sans-serif;color:var(--muted);white-space:nowrap}
+@media(max-width:900px){.next-group{grid-template-columns:1fr;padding:24px 20px}.next-group .case-button{justify-self:start}}
+@media(max-width:460px){.next-group li a{grid-template-columns:22px minmax(0,1fr)}.next-group li .m{grid-column:2;white-space:normal}}
+
+/* ===== 숫자와 범위를 한 덩어리로 ===== */
+.metric{max-width:250px}
+.metric-note{display:flex;gap:6px;align-items:baseline;margin-top:8px;padding-top:8px;border-top:1px solid var(--line);font-size:11.5px;line-height:1.5;color:var(--muted)}
+.metric-note b,.scope b,.plan b{flex:none;font-weight:500;font-size:10.5px;line-height:1.55;padding:0 6px;border:1px solid var(--line);border-radius:4px;color:var(--ink);white-space:nowrap}
+.metrics-note{font-size:11.5px;line-height:1.6;color:var(--muted);margin:-4px 0 14px}
+.scope,.plan{display:flex;gap:7px;align-items:baseline}
+.scope b{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.scope--plan{margin-bottom:6px}
+.plan{font-size:12px;line-height:1.75;color:var(--muted);margin:0 0 24px}
+.plan b{border-style:dashed;border-color:#8a8c82}
+@media(max-width:560px){.metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.metric-note{flex-direction:column;gap:4px}.metric-note b{align-self:flex-start}}
+</style></head><body class="editorial"><a class="skip" href="#main">본문으로 이동</a><header class="nav wrap"><a class="brand" href="#main">신민근<small>PLANNING</small></a><nav aria-label="페이지 이동"><a href="#work">프로젝트</a><a href="#about">이력</a><a href="mailto:alsrms45@gmail.com">연락 ↗</a></nav></header><main id="main"><section aria-label="소개" class="hx hx-word"><div class="wrap hx-word__top"><div class="hx-word__meta"><div><p class="hx-label">SHIN MINGEUN / PRODUCT PLANNING PORTFOLIO</p><p class="hx-word__focus">서비스 기획 · PM · 데이터 기반 운영</p></div><ul><li>BDAI 8기 마케팅팀<small>LMS · 모집 · 행사 운영 · 2026.02–08</small></li><li>코드잇 데이터 분석가 부트캠프<small>문제 정의 · 실험 설계 · 2026.08 수료</small></li><li>ADsP 데이터분석 준전문가<small>SQL · Python · GA4 · Excel</small></li><li>인천대 전기공학 · 미디어커뮤니케이션<small>복수전공 · 2027.02 졸업 예정</small></li></ul></div><figure class="hx-word__figure"><svg aria-hidden="true" class="hx-word__name" focusable="false" viewbox="0 0 110 1000"><text lengthadjust="spacingAndGlyphs" textlength="1000" transform="rotate(-90)" x="-1000" y="107">SHIN MINGEUN</text></svg><img alt="신민근 프로필 사진" height="820" src="assets/img/portrait-gray.jpg" width="680"/></figure><div class="hx-word__intro"><h1>문제를 올바르게 정의하고,<br/><em>팀이 실행할 수 있는 흐름을 만듭니다.</em></h1><p>사용자 행동과 운영 조건을 함께 보며, 팀이 무엇부터 바꿀지 정리하는 일을 좋아합니다. BDAI에서는 LMS·모집·행사를 운영하며 여러 팀과 기업의 요구를 조율했고, 데이터 분석 프로젝트에서는 처음 세운 진단을 검증해 실험과 운영 기준으로 구체화했습니다. 확인한 사실과 가설을 구분해 선택의 이유를 설명합니다.</p><div class="hx-actions"><a class="hx-btn" href="#work">프로젝트 7개 보기 <span aria-hidden="true">↘</span></a><a class="hx-btn hx-btn--ghost" href="mailto:alsrms45@gmail.com">연락하기</a></div></div></div></section><section aria-label="프로젝트" class="work" id="work"><div class="wrap work-head"><div><span class="eyebrow">SELECTED WORK · 7</span><h2>프로젝트</h2></div><p class="work-lede">BDAI에서 운영한 프로젝트 4개와 데이터 분석 프로젝트 3개를, 문제 정의에서 실행·검증으로 이어지는 기획 관점으로 정리했습니다.</p></div><div class="wrap"><div class="groups"><div class="group is-active" data-group="bdai"><a aria-selected="true" class="group__tab" data-tab="bdai" href="#bdai" id="tab-bdai"><span class="group__kicker">01 · 학회 · 실무 캠페인</span><span class="group__name">BDAI 8기 마케팅팀</span><span class="group__count">4<small>개</small></span><span class="group__state"><span class="on">지금 보는 묶음</span><span class="off">이 묶음 보기 →</span></span></a><ol class="group__list"><li><a data-label="01 LMS 서비스·광고 운영" href="#case-lms-ad-sales"><b>01</b><span class="t">LMS 서비스·광고 운영</span></a></li><li><a data-label="02 에타크루 홍보단 운영" href="#case-etacrew"><b>02</b><span class="t">에타크루 홍보단 운영</span></a></li><li><a data-label="03 학회원 모집 운영" href="#case-recruit-content"><b>03</b><span class="t">학회원 모집 운영</span></a></li><li><a data-label="04 공모전·해커톤 운영" href="#case-dayton-superb"><b>04</b><span class="t">공모전·해커톤 운영</span></a></li></ol></div><div class="group" data-group="data"><a aria-selected="false" class="group__tab" data-tab="data" href="#data" id="tab-data"><span class="group__kicker">02 · 부트캠프 · 데이터 분석</span><span class="group__name">데이터 분석 프로젝트</span><span class="group__count">3<small>개</small></span><span class="group__state"><span class="on">지금 보는 묶음</span><span class="off">이 묶음 보기 →</span></span></a><ol class="group__list"><li><a data-label="01 구독 리텐션 분석" href="#case-retention"><b>01</b><span class="t">구독 리텐션 분석</span></a></li><li><a data-label="02 채용 플랫폼 매칭 분석" href="#case-rocketpunch"><b>02</b><span class="t">채용 플랫폼 매칭 분석</span></a></li><li><a data-label="03 신규 광고 등급 체계" href="#case-ad-grading"><b>03</b><span class="t">신규 광고 등급 체계</span></a></li></ol></div></div></div><nav aria-label="프로젝트 바로가기" class="pnav"><div class="wrap pnav__inner"><div class="pnav__switch"><button aria-pressed="true" data-switch="bdai" type="button"><span class="lg">BDAI 마케팅팀</span><span class="sm">BDAI</span><small>4</small></button><button aria-pressed="false" data-switch="data" type="button"><span class="lg">데이터 분석</span><span class="sm">데이터</span><small>3</small></button></div><div class="pnav__links"><ol data-group="bdai"><li><a data-label="01 LMS 서비스·광고 운영" href="#case-lms-ad-sales"><b>01</b><span class="t">LMS 서비스·광고 운영</span></a></li><li><a data-label="02 에타크루 홍보단 운영" href="#case-etacrew"><b>02</b><span class="t">에타크루 홍보단 운영</span></a></li><li><a data-label="03 학회원 모집 운영" href="#case-recruit-content"><b>03</b><span class="t">학회원 모집 운영</span></a></li><li><a data-label="04 공모전·해커톤 운영" href="#case-dayton-superb"><b>04</b><span class="t">공모전·해커톤 운영</span></a></li></ol><ol data-group="data" hidden=""><li><a data-label="01 구독 리텐션 분석" href="#case-retention"><b>01</b><span class="t">구독 리텐션 분석</span></a></li><li><a data-label="02 채용 플랫폼 매칭 분석" href="#case-rocketpunch"><b>02</b><span class="t">채용 플랫폼 매칭 분석</span></a></li><li><a data-label="03 신규 광고 등급 체계" href="#case-ad-grading"><b>03</b><span class="t">신규 광고 등급 체계</span></a></li></ol></div><details class="pnav__toc"><summary><span class="pnav__now">목차</span><i aria-hidden="true"></i></summary><div class="pnav__drop"><ol data-group="bdai"><li><a data-label="01 LMS 서비스·광고 운영" href="#case-lms-ad-sales"><b>01</b><span class="t">LMS 서비스·광고 운영</span></a></li><li><a data-label="02 에타크루 홍보단 운영" href="#case-etacrew"><b>02</b><span class="t">에타크루 홍보단 운영</span></a></li><li><a data-label="03 학회원 모집 운영" href="#case-recruit-content"><b>03</b><span class="t">학회원 모집 운영</span></a></li><li><a data-label="04 공모전·해커톤 운영" href="#case-dayton-superb"><b>04</b><span class="t">공모전·해커톤 운영</span></a></li></ol><ol data-group="data" hidden=""><li><a data-label="01 구독 리텐션 분석" href="#case-retention"><b>01</b><span class="t">구독 리텐션 분석</span></a></li><li><a data-label="02 채용 플랫폼 매칭 분석" href="#case-rocketpunch"><b>02</b><span class="t">채용 플랫폼 매칭 분석</span></a></li><li><a data-label="03 신규 광고 등급 체계" href="#case-ad-grading"><b>03</b><span class="t">신규 광고 등급 체계</span></a></li></ol></div></details></div></nav><section class="chapter" id="bdai"><div class="wrap"><div class="chapter-head"><div><span class="chapter-no">01 / IN PRACTICE</span><h2>BDAI 8기 마케팅팀<small>(04)</small></h2></div><p>데이터·AI 대학생 학회에서 직접 운영한 캠페인입니다. 수치는 개인 실적이 아니라 캠페인 단위 결과입니다. · 2026.02–08</p></div><article class="case" data-art="lms" id="case-lms-ad-sales"><figure class="case-visual"><div class="art art--lms">
+<img alt="광고 제안서의 웰컴 배너 소개 페이지" class="page pg1" loading="lazy" src="assets/cases/lms-welcome.jpg"/>
+<img alt="광고 제안서의 제휴 탭 소개 페이지" class="page pg2" loading="lazy" src="assets/cases/lms-partner.jpg"/>
+<div class="chip ctr"><small>배너 클릭률 · LMS 전체 기준</small>
+<div class="hbar"><span>제휴 탭</span><i><em style="width:100%"></em></i><b>14.7%</b></div>
+<div class="hbar"><span>웰컴 배너</span><i><em style="width:11.6%"></em></i><b>1.7%</b></div></div>
+</div><figcaption>BDAI LMS 광고 제안서의 지면 소개 페이지 · 클릭률은 LMS 전체 배너 기준</figcaption></figure><div class="case-copy"><p class="case-top"><span class="badge">BDAI</span><span>LMS 광고 지면</span><span class="case-no">01</span></p><ul class="tags"><li>서비스 운영</li><li>기능 제안</li><li>이해관계자 조율</li></ul><h3>사이트 이용 흐름을 기능 제안과 광고 운영으로 연결하기</h3><p class="case-desc">새 LMS의 사용 가이드와 기능을 제안하고, 지면별 이용과 광고 반응을 구분해 기업 제안과 실제 집행 운영으로 연결했습니다.</p><div class="metrics"><div class="metric"><strong>16<small>개사</small></strong><span>광고주</span><p class="metric-note"><b>운영 결과</b><span>무료 게재 포함</span></p></div><div class="metric"><strong>25<small>건</small></strong><span>누적 집행</span><p class="metric-note"><b>운영 결과</b><span>유료 매출 실적과 구분</span></p></div></div><p class="scope"><b>기획 기여</b><span>사용 가이드 · 기능 제안 · 지면 검토 · 기업/개발팀 조율</span></p><div class="case-actions"><a class="case-button" href="projects/lms-ad-sales.html">자세히 보기 <span aria-hidden="true">↗</span></a><button class="case-ghost" data-case="lms-ad-sales" type="button">요약 보기</button></div></div></article><article class="case" data-art="etacrew" id="case-etacrew"><figure class="case-visual"><div class="art art--etacrew">
+<span class="art-label">에브리타임 crew 8기</span>
+<img alt="에브리타임 crew 8기 지원자 모집 카드뉴스" class="sq s1" loading="lazy" src="assets/cases/etacrew-main.jpg"/>
+<img alt="에브리타임 crew 8기 지원자 추가 모집 카드뉴스" class="sq s2" loading="lazy" src="assets/cases/etacrew-extra.jpg"/>
+<div class="chip schools"><small>추가 모집에 집중할 학교</small><b>10 → 7개교</b><div aria-hidden="true" class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div><span>기존 UTM 유입과 학회원 수로 미확보 우선순위 10개교 중 7개교 선별</span></div>
+</div><figcaption>에브리타임 crew 8기 모집 제작물 · 학교 수는 도식</figcaption></figure><div class="case-copy"><p class="case-top"><span class="badge">BDAI</span><span>대학 커뮤니티 홍보단 · 3개월 운영</span><span class="case-no">02</span></p><ul class="tags"><li>우선순위</li><li>모집 설계</li><li>운영 관리</li></ul><h3>학교별 상황을 바탕으로 추가 모집의 우선순위 정하기</h3><p class="case-desc">과거 유입과 현재 학회원 규모를 함께 살펴 집중 학교를 정하고, 모집 대상·공지·참여 혜택을 조정해 3개월 운영까지 이어갔습니다.</p><div class="metrics"><div class="metric"><strong>7<small>개교</small></strong><span>집중 모집 대상</span><p class="metric-note"><b>의사결정</b><span>미확보 우선순위 10개교 중</span></p></div><div class="metric"><strong>3<small>개월</small></strong><span>크루 운영</span><p class="metric-note"><b>수행 범위</b><span>선발 후 활동 관리</span></p></div></div><p class="scope"><b>기획 기여</b><span>대상 학교 선정 · 모집 방식 조정 · 크루 관리</span></p><div class="case-actions"><a class="case-button" href="projects/etacrew.html">자세히 보기 <span aria-hidden="true">↗</span></a><button class="case-ghost" data-case="etacrew" type="button">요약 보기</button></div></div></article><article class="case" data-art="recruit" id="case-recruit-content"><figure class="case-visual"><div class="art art--recruit">
+<span class="art-label">13기 정규 학회원 모집</span>
+<ul class="art-stats"><li><b>15</b>콘텐츠</li><li><b>9</b>채널</li><li><b>45</b>일</li></ul>
+<img alt="13기 학회원 모집 티저 콘텐츠" class="poster p1" loading="lazy" src="assets/cases/recruit-teaser.jpg"/>
+<img alt="13기 커리큘럼 소개 카드뉴스" class="poster p3" loading="lazy" src="assets/cases/recruit-curriculum.jpg"/>
+<img alt="13기 정규 학회원 모집 메인 콘텐츠" class="poster p2" loading="lazy" src="assets/cases/recruit-main.jpg"/>
+<div class="chip rule"><small>광고 집행 커트라인</small><b>3일 · 98회</b><span>업로드 후 3일 안에 프로필 방문이 98회 이상인 콘텐츠에만 집행</span></div>
+</div><figcaption>13기 정규 학회원 모집 제작물 · 집행 기준은 BDAI 마케팅 성과정리 7번</figcaption></figure><div class="case-copy"><p class="case-top"><span class="badge">BDAI</span><span>정규 학회원 모집 · 45일</span><span class="case-no">03</span></p><ul class="tags"><li>일정 관리</li><li>판단 기준</li><li>협업 운영</li></ul><h3>여러 팀의 제작 일정과 광고 판단을 하나의 모집 운영으로 묶기</h3><p class="case-desc">데이터·운영관리·교육기획팀의 준비 사항을 맞추고, 15개 콘텐츠와 9개 채널의 일정 및 광고 집행 판단을 관리했습니다.</p><div class="metrics"><div class="metric"><strong>45<small>일</small></strong><span>운영 기간</span><p class="metric-note"><b>수행 범위</b><span>콘텐츠·채널 일정 관리</span></p></div><div class="metric"><strong>1,021<small>명</small></strong><span>최종 모집</span><p class="metric-note"><b>전체 결과</b><span>모든 유입 경로 합계</span></p></div></div><p class="scope"><b>기획 기여</b><span>제작 일정 · 광고 집행 판단 · CRM 운영 협업</span></p><div class="case-actions"><a class="case-button" href="projects/recruit-content.html">자세히 보기 <span aria-hidden="true">↗</span></a><button class="case-ghost" data-case="recruit-content" type="button">요약 보기</button></div></div></article><article class="case" data-art="dayton" id="case-dayton-superb"><figure class="case-visual"><div class="art art--dayton"><div class="ev"><img alt="제5회 BDAI 채용 연계 데이터 분석 공모전 포스터" loading="lazy" src="assets/cases/dayton-poster.jpg"/><div class="goal"><p><span>공모전 33 / 목표 30팀</span><b>110%</b></p><i><em style="width:91.7%"></em><u style="left:83.3%"></u></i></div></div><div class="ev"><img alt="Superb AI × BDAI Vision AI 해커톤 포스터" loading="lazy" src="assets/cases/superb-poster.jpg"/><div class="goal"><p><span>해커톤 202 / 목표 300명</span><b>67.3%</b></p><i><em style="width:56.1%"></em><u style="left:83.3%"></u></i></div></div></div><figcaption>데이톤 공모전 · 슈퍼브 해커톤 포스터 · 두 행사는 대상과 목표 단위가 다름</figcaption></figure><div class="case-copy"><p class="case-top"><span class="badge">BDAI</span><span>공모전 · 해커톤 홍보</span><span class="case-no">04</span></p><ul class="tags"><li>행사 기획</li><li>일정 조율</li><li>결과 회고</li></ul><h3>참가자 조건과 기업 일정을 함께 보며 두 행사를 운영하기</h3><p class="case-desc">공모전·해커톤의 랜딩페이지와 홍보물을 만들고, 참가자의 시험 일정과 기업 요구를 조율하며 모집 진행과 결과를 관리했습니다.</p><div class="metrics"><div class="metric"><strong>33<small>팀</small></strong><span>데이톤 모집</span><p class="metric-note"><b>전체 결과</b><span>목표 30팀</span></p></div><div class="metric"><strong>202<small>명</small></strong><span>슈퍼브 참여</span><p class="metric-note"><b>전체 결과</b><span>목표 300명</span></p></div></div><p class="metrics-note">두 행사는 대상과 목표 단위가 달라 직접 비교하지 않음</p><p class="scope"><b>기획 기여</b><span>랜딩페이지/홍보물 · 진행 공유 · 일정 조율 · 결과 검토</span></p><div class="case-actions"><a class="case-button" href="projects/dayton-superb.html">자세히 보기 <span aria-hidden="true">↗</span></a><button class="case-ghost" data-case="dayton-superb" type="button">요약 보기</button></div></div></article><aside aria-label="다른 묶음 안내" class="next-group"><div><p class="hx-label">다른 묶음도 있습니다</p><h3>데이터 분석 프로젝트<span>3개</span></h3></div><ol><li><a data-label="01 구독 리텐션 분석" href="#case-retention"><b>01</b><span class="t">구독 리텐션 분석</span><span class="m">83.79% 첫 만료 이탈률</span></a></li><li><a data-label="02 채용 플랫폼 매칭 분석" href="#case-rocketpunch"><b>02</b><span class="t">채용 플랫폼 매칭 분석</span><span class="m">40.4% 매칭 커버리지</span></a></li><li><a data-label="03 신규 광고 등급 체계" href="#case-ad-grading"><b>03</b><span class="t">신규 광고 등급 체계</span><span class="m">4.13배 S/D 전환율 비</span></a></li></ol><a class="case-button" data-switch="data" href="#data">데이터 분석 보기 <span aria-hidden="true">→</span></a></aside></div></section><section class="chapter data-chapter" id="data"><div class="wrap"><div class="chapter-head"><div><span class="chapter-no">02 / IN ANALYSIS</span><h2>데이터 분석 프로젝트<small>(03)</small></h2></div><p>코드잇 데이터 분석가 부트캠프에서 수행한 분석과 실험 설계입니다. 실제 서비스 개선 성과와 구분했고, A/B 테스트는 실행하지 않았습니다. · 2026.02–08</p></div><article class="case" data-art="retention" id="case-retention"><figure class="case-visual"><div class="art art--chart"><svg aria-label="플랜별 첫 만료 이탈률 막대와, 6개월 플랜 안 유지·이탈 집단의 주차별 활동률 선 그래프" role="img" viewbox="0 0 500 400"><text class="t-label" x="28" y="34">① 플랜끼리 비교 · 첫 만료 이탈률</text><text class="t-small" x="28" y="61">1개월</text><rect class="f-soft" height="14" rx="2" width="154.4" x="86" y="50"></rect><text class="t-small" x="248.4" y="61">51.46%</text><text class="t-small" x="28" y="84">3개월</text><rect class="f-soft" height="14" rx="2" width="168.5" x="86" y="73"></rect><text class="t-small" x="262.5" y="84">56.18%</text><text class="t-small" x="28" y="107">6개월</text><rect class="f-accent" height="14" rx="2" width="251.4" x="86" y="96"></rect><text class="t-small t-strong" x="345.4" y="107">83.79%</text><text class="t-small" x="28" y="130">12개월</text><rect class="f-soft" height="14" rx="2" width="162.3" x="86" y="119"></rect><text class="t-small" x="256.3" y="130">54.11%</text><line class="s-line" x1="28" x2="472" y1="156" y2="156"></line><text class="t-label" x="28" y="184">② 6개월 플랜 안에서 · 결제 후 주차별 활동률</text><line class="s-line" x1="64" x2="392" y1="234.0" y2="234.0"></line><text class="t-note" text-anchor="end" x="56" y="238.0">60%</text><line class="s-line" x1="64" x2="392" y1="290.0" y2="290.0"></line><text class="t-note" text-anchor="end" x="56" y="294.0">40%</text><line class="s-line" x1="64" x2="392" y1="346.0" y2="346.0"></line><text class="t-note" text-anchor="end" x="56" y="350.0">20%</text><rect class="f-band" height="140" width="196.8" x="195.2" y="206"></rect><text class="t-note t-accent" x="203.2" y="222">2주차부터 격차 · 5주차 6.93%p</text><polyline class="s-muted" points="64.0,222.5 129.6,265.6 195.2,289.3 260.8,302.2 326.4,314.4 392.0,326.6"></polyline><polyline class="s-accent" points="64.0,218.2 129.6,260.6 195.2,273.5 260.8,287.1 326.4,297.9 392.0,307.2"></polyline><circle class="f-mid" cx="64.0" cy="222.5" r="3"></circle><circle class="f-mid" cx="129.6" cy="265.6" r="3"></circle><circle class="f-mid" cx="195.2" cy="289.3" r="3"></circle><circle class="f-mid" cx="260.8" cy="302.2" r="3"></circle><circle class="f-mid" cx="326.4" cy="314.4" r="3"></circle><circle class="f-mid" cx="392.0" cy="326.6" r="3"></circle><circle class="f-accent" cx="64.0" cy="218.2" r="3.5"></circle><circle class="f-accent" cx="129.6" cy="260.6" r="3.5"></circle><circle class="f-accent" cx="195.2" cy="273.5" r="3.5"></circle><circle class="f-accent" cx="260.8" cy="287.1" r="3.5"></circle><circle class="f-accent" cx="326.4" cy="297.9" r="3.5"></circle><circle class="f-accent" cx="392.0" cy="307.2" r="3.5"></circle><text class="t-small t-strong" x="402" y="311.2">유지 33.97%</text><text class="t-small" x="402" y="330.6">이탈 27.03%</text><text class="t-note" text-anchor="middle" x="64.0" y="364">0주</text><text class="t-note" text-anchor="middle" x="129.6" y="364">1주</text><text class="t-note" text-anchor="middle" x="195.2" y="364">2주</text><text class="t-note" text-anchor="middle" x="260.8" y="364">3주</text><text class="t-note" text-anchor="middle" x="326.4" y="364">4주</text><text class="t-note" text-anchor="middle" x="392.0" y="364">5주</text><text class="t-note" x="28" y="390">2022.12~2023.01 결제 코호트 · 유지 580명 · 이탈 2,608명</text></svg></div><figcaption>상세 페이지의 차트를 요약해 다시 그림 · 코드잇 마스터 §4.7·§6.3</figcaption></figure><div class="case-copy"><p class="case-top"><span class="badge">구독 서비스</span><span>팀 프로젝트 5인 · 3주</span><span class="case-no">05</span></p><ul class="tags"><li>문제 재정의</li><li>코호트</li><li>실험 설계</li></ul><h3>플랜 비교를 멈추고 개입 시점이 보이는 분석 단위로 바꾸기</h3><p class="case-desc">플랜별 비교에서 설명 변수가 나오지 않자 6개월 플랜 내부의 유지·이탈 집단으로 비교 단위를 바꾸고, 결제 후 28일 개입 실험을 설계했습니다.</p><div class="metrics"><div class="metric"><strong>83.79%</strong><span>첫 만료 이탈률</span><p class="metric-note"><b>관측</b><span>6개월 플랜 · 전 기간 첫 만료자 기준</span></p></div><div class="metric"><strong>3~5<small>주차</small></strong><span>관측 차이 확대</span><p class="metric-note"><b>관측</b><span>유지·이탈 집단 활동률 격차 · 5주차 최대 6.93%p</span></p></div></div><p class="scope scope--plan"><b>기획 기여</b><span>비교 단위 전환 · 핵심 구간 탐색 · A/B 테스트 설계</span></p><p class="plan"><b>설계 · 미실행</b><span>결제 후 28일 개입 A/B 테스트</span></p><div class="case-actions"><a class="case-button" href="projects/retention.html">자세히 보기 <span aria-hidden="true">↗</span></a><button class="case-ghost" data-case="retention" type="button">요약 보기</button></div></div></article><article class="case" data-art="rocket" id="case-rocketpunch"><figure class="case-visual"><div class="art art--chart"><svg aria-label="공고 3.1만 건의 30일 결과 구성 막대와, 성향점수 매칭 전후 지원율 차이 비교" role="img" viewbox="0 0 500 400"><text class="t-label" x="28" y="34">등록 공고 31,403건 · 등록 후 30일의 결과</text><rect class="f-accent" height="46" width="179.2" x="28.0" y="50"></rect><text class="t-seg t-on" text-anchor="middle" x="117.6" y="79">40.4%</text><rect class="f-accent" height="11" width="11" x="28" y="112"></rect><text class="t-small" x="46" y="122">매칭 성공</text><text class="t-note" x="46" y="140">12,672건</text><rect class="f-soft" height="46" width="181.9" x="207.2" y="50"></rect><text class="t-seg" text-anchor="middle" x="298.1" y="79">41.0%</text><rect class="f-soft" height="11" width="11" x="178" y="112"></rect><text class="t-small" x="196" y="122">관심 미관측</text><text class="t-note" x="196" y="140">12,872건</text><rect class="f-mid" height="46" width="82.9" x="389.1" y="50"></rect><text class="t-seg t-on-mid" text-anchor="middle" x="430.5" y="79">18.7%</text><rect class="f-mid" height="11" width="11" x="328" y="112"></rect><text class="t-small" x="346" y="122">전환 실패</text><text class="t-note" x="346" y="140">5,859건</text><text class="t-note" x="28" y="162">매칭 성공 = 등록 후 30일 안에 지원을 1건 이상 받은 공고</text><line class="s-line" x1="28" x2="472" y1="180" y2="180"></line><text class="t-label" x="28" y="206">북마크 경험 유무별 지원율 · 보정 전후</text><line class="s-line" x1="150.0" x2="150.0" y1="224" y2="300"></line><text class="t-note" text-anchor="middle" x="150.0" y="318">0%</text><line class="s-line" x1="270.0" x2="270.0" y1="224" y2="300"></line><text class="t-note" text-anchor="middle" x="270.0" y="318">50%</text><line class="s-line" x1="390.0" x2="390.0" y1="224" y2="300"></line><text class="t-note" text-anchor="middle" x="390.0" y="318">100%</text><text class="t-small" x="28" y="253">단순 비교</text><line class="s-gap" x1="226.8" x2="343.0" y1="248" y2="248"></line><circle class="dot-open" cx="226.8" cy="248" r="6"></circle><circle class="f-accent" cx="343.0" cy="248" r="6"></circle><text class="t-note" text-anchor="middle" x="226.8" y="236">32.0</text><text class="t-note" text-anchor="middle" x="343.0" y="236">80.4</text><text class="t-small" x="404" y="253">+48.4%p</text><text class="t-small" x="28" y="293">성향점수 매칭</text><line class="s-accent" x1="230.9" x2="259.4" y1="288" y2="288"></line><circle class="dot-open" cx="230.9" cy="288" r="6"></circle><circle class="f-accent" cx="259.4" cy="288" r="6"></circle><text class="t-note" text-anchor="end" x="221.9" y="276">33.7</text><text class="t-note" x="264.4" y="276">45.6</text><text class="t-small t-strong" x="404" y="293">+11.8%p</text><circle class="dot-open" cx="34" cy="342" r="5"></circle><text class="t-note" x="46" y="346">북마크 미경험</text><circle class="f-accent" cx="140" cy="342" r="5"></circle><text class="t-note" x="152" y="346">북마크 경험</text><text class="t-note" x="28" y="372">매칭 후 차이는 관측 데이터 보정 추정치(95% CI 5.1~18.5%p)</text><text class="t-note" x="28" y="390">미관측 교란이 남아 인과효과로 확정하지 않음</text></svg></div><figcaption>상세 페이지의 차트를 요약해 다시 그림 · 로켓펀치 마스터 §6.2·§7.2</figcaption></figure><div class="case-copy"><p class="case-top"><span class="badge">채용 플랫폼</span><span>1인 프로젝트 · 전 과정 단독</span><span class="case-no">06</span></p><ul class="tags"><li>문제 재정의</li><li>양면시장</li><li>우선순위</li></ul><h3>전환율 상승에 가려진 연결 기회의 감소로 문제를 다시 정의하기</h3><p class="case-desc">활성화 실패라는 첫 진단을 기각하고, 살아 있는 구직 수요와 공고가 연결되지 않는 구조로 문제를 바꾼 뒤 개선안과 검증 계획을 설계했습니다.</p><div class="metrics"><div class="metric"><strong>40.4%</strong><span>매칭 커버리지</span><p class="metric-note"><b>관측</b><span>등록 공고 31,403건 중 30일 안에 지원을 받은 비율</span></p></div><div class="metric"><strong>+11.8%p</strong><span>보정 후 지원율 차이</span><p class="metric-note"><b>보정 추정</b><span>성향점수 매칭 후 차이 · 인과효과로 확정하지 않음</span></p></div></div><p class="scope scope--plan"><b>기획 기여</b><span>첫 진단 검증 · 공급/수요 구조 분석 · 개선 실험 설계</span></p><p class="plan"><b>설계 · 미실행</b><span>실험 설계서까지 작성 · A/B 테스트는 실행하지 않음</span></p><div class="case-actions"><a class="case-button" href="projects/rocketpunch.html">자세히 보기 <span aria-hidden="true">↗</span></a><button class="case-ghost" data-case="rocketpunch" type="button">요약 보기</button></div></div></article><article class="case" data-art="grading" id="case-ad-grading"><figure class="case-visual"><div class="art art--chart"><svg aria-label="홀드아웃 광고 2,298건의 S부터 D등급까지 실제 전환율 막대 그래프" role="img" viewbox="0 0 500 400"><text class="t-label" x="28" y="34">홀드아웃 광고 2,298건 · 등급별 실제 전환율</text><line class="s-line" x1="28" x2="472" y1="318" y2="318"></line><rect class="f-accent" height="220.8" rx="2" width="58" x="44" y="97.2"></rect><text class="t-small t-strong" text-anchor="middle" x="73" y="87.2">76.8%</text><text class="t-grade" text-anchor="middle" x="73" y="350">S</text><rect class="f-soft" height="213.9" rx="2" width="58" x="130" y="104.1"></rect><text class="t-small" text-anchor="middle" x="159" y="94.1">74.4%</text><text class="t-grade" text-anchor="middle" x="159" y="350">A</text><rect class="f-soft" height="199.8" rx="2" width="58" x="216" y="118.2"></rect><text class="t-small" text-anchor="middle" x="245" y="108.2">69.5%</text><text class="t-grade" text-anchor="middle" x="245" y="350">B</text><rect class="f-soft" height="158.1" rx="2" width="58" x="302" y="159.9"></rect><text class="t-small" text-anchor="middle" x="331" y="149.9">55.0%</text><text class="t-grade" text-anchor="middle" x="331" y="350">C</text><rect class="f-mid" height="53.5" rx="2" width="58" x="388" y="264.5"></rect><text class="t-small t-strong" text-anchor="middle" x="417" y="254.5">18.6%</text><text class="t-grade" text-anchor="middle" x="417" y="350">D</text><text class="t-note" x="28" y="374">S등급 76.8% ÷ D등급 18.6% = 4.13배 · 전처리 후 클릭 10~49건 광고</text><text class="t-note" x="28" y="392">학습 브랜드와 겹치지 않는 광고의 후향 평가 · 실제 운영 성과 아님</text></svg></div><figcaption>상세 페이지의 차트를 요약해 다시 그림 · ive광고 마스터 §5.2</figcaption></figure><div class="case-copy"><p class="case-top"><span class="badge">리워드 광고</span><span>3인 팀 · 선별 시스템 단독</span><span class="case-no">07</span></p><ul class="tags"><li>운영 문제</li><li>정책 설계</li><li>검증 체계</li></ul><h3>매일 들어오는 신규 광고의 검토 우선순위를 등급 체계로 만들기</h3><p class="case-desc">성과가 쌓이기 전에 사라지는 광고를 모두 같은 순서로 검토하기 어려워, 문구 기반 등급과 경보를 만들고 후향 평가했습니다.</p><div class="metrics"><div class="metric"><strong>4.13<small>배</small></strong><span>S/D 전환율 비</span><p class="metric-note"><b>후향 평가</b><span>홀드아웃 광고 2,298건 기준</span></p></div><div class="metric"><strong>16.5<small>배</small></strong><span>D/S 전환 단가 비</span><p class="metric-note"><b>관측</b><span>전체 광고 9,369건 기준 · 4.13배와 모집단 다름</span></p></div></div><p class="scope scope--plan"><b>기획 기여</b><span>운영 문제 정의 · 등급 정책 · 검증 및 적용 실험 설계</span></p><p class="plan"><b>설계 · 미실행</b><span>A/B 테스트는 설계까지 · 실제 운영 적용 아님</span></p><div class="case-actions"><a class="case-button" href="projects/ad-grading.html">자세히 보기 <span aria-hidden="true">↗</span></a><button class="case-ghost" data-case="ad-grading" type="button">요약 보기</button></div></div></article><aside aria-label="다른 묶음 안내" class="next-group"><div><p class="hx-label">다른 묶음도 있습니다</p><h3>BDAI 8기 마케팅팀<span>4개</span></h3></div><ol><li><a data-label="01 LMS 서비스·광고 운영" href="#case-lms-ad-sales"><b>01</b><span class="t">LMS 서비스·광고 운영</span><span class="m">16개사 유치 광고주</span></a></li><li><a data-label="02 에타크루 홍보단 운영" href="#case-etacrew"><b>02</b><span class="t">에타크루 홍보단 운영</span><span class="m">42 → 55 확보 학교</span></a></li><li><a data-label="03 학회원 모집 운영" href="#case-recruit-content"><b>03</b><span class="t">학회원 모집 운영</span><span class="m">1,021명 모집 인원</span></a></li><li><a data-label="04 공모전·해커톤 운영" href="#case-dayton-superb"><b>04</b><span class="t">공모전·해커톤 운영</span><span class="m">110% 공모전 달성률</span></a></li></ol><a class="case-button" data-switch="bdai" href="#bdai">BDAI 마케팅팀 보기 <span aria-hidden="true">→</span></a></aside></div></section></section><div class="source-content wrap" id="about"><section class="section" id="skills"><div class="wrap">
+<div class="shead"><p class="section-label">EXPERIENCE → ROLE</p><h2 class="shead__title">기획에서 반복해서 지킨 판단 기준</h2><p class="shead__lede">프로젝트마다 결과 수치보다 어떤 문제를 정의했고, 무엇을 다음 행동으로 바꿨는지 먼저 보여줍니다.</p></div>
+<div class="role-grid">
+<article><span class="role-number">01</span><h3>문제 정의를 반대 증거로 다시 검토합니다</h3><p>채용 플랫폼 프로젝트에서는 전환율 상승만 보고 활성화가 개선됐다고 결론 내리지 않았습니다. 절대 지원자와 신규 공고 감소를 함께 보고 문제를 연결 기회의 부족으로 바꿨습니다.</p><a class="textlink" href="projects/rocketpunch.html">문제 재정의 과정 ↗</a></article>
+<article><span class="role-number">02</span><h3>분석을 팀이 선택할 수 있는 기준으로 바꿉니다</h3><p>학회원 모집에서는 광고 판단 기준을, 광고 프로젝트에서는 검토 우선순위 등급을 만들었습니다. 숫자를 설명에 머물게 하지 않고 다음 행동의 조건으로 정리했습니다.</p><a class="textlink" href="projects/ad-grading.html">운영 기준 설계 ↗</a></article>
+<article><span class="role-number">03</span><h3>실행에 필요한 사람과 조건을 함께 맞춥니다</h3><p>LMS에서는 개발팀과 기업 사이의 기능·소재·일정을, 행사에서는 참가자의 시험 일정과 기업 요구를 조율했습니다. 기획 이후 실제 운영까지 이어지는 조건을 챙겼습니다.</p><a class="textlink" href="projects/lms-ad-sales.html">서비스 운영과 조율 ↗</a></article>
+</div>
+<aside class="evidence-note"><strong>성과를 읽는 기준</strong><p>BDAI 수치는 팀 단위 캠페인 결과와 개인 담당 범위를 구분했습니다. 데이터 분석 프로젝트의 개선안과 A/B 테스트는 설계 단계이며 실제 서비스 적용 성과로 제시하지 않았습니다. 관측 결과, 가설, 실행 결과를 각각 표시했습니다.</p></aside>
+</div></section>
+<section class="section" id="record">
+<div class="wrap">
+<div class="shead" data-reveal="">
+<h2 class="shead__title">이력</h2>
+<p class="shead__lede">학회에서 여러 팀과 기업이 참여하는 프로젝트를 운영했고, 데이터 분석 프로젝트에서는 문제를 다시 정의하고 실험과 운영 기준으로 구체화했습니다.</p>
+</div>
+<div class="twocol">
+<!-- 활동 -->
+<div data-reveal="">
+<h3 class="blockhead">활동</h3>
+<div class="tl">
+<div class="record">
+<p class="record__when">2026.02 ~ 2026.08</p>
+<div class="record__what">
+<p class="record__role">BDAI 8기 마케팅팀</p>
+<p class="record__org">데이터·AI 대학생 학회</p>
+<p class="record__note">LMS 사용 가이드와 기능 제안, 광고 지면 운영, 학회원 모집, 대학 홍보단, 기업 공모전·해커톤을 진행했습니다. 개발·데이터·운영팀과 외부 기업의 일정과 준비 사항을 조율했습니다.</p>
+</div>
+</div>
+<div class="record">
+<p class="record__when">2026.02 ~ 2026.08</p>
+<div class="record__what">
+<p class="record__role">코드잇 데이터 분석가 부트캠프</p>
+<p class="record__org">스프린트 14기</p>
+<p class="record__note">구독 이탈, 채용 플랫폼 매칭, 신규 광고 검토 문제를 분석하고 개선안과 검증 계획으로 정리했습니다.</p>
+</div>
+</div>
+<div class="record">
+<p class="record__when">2025.07</p>
+<div class="record__what">
+<p class="record__role">웹예능 「잠깐만」 촬영감독</p>
+<p class="record__org">외부 제작</p>
+<p class="record__note">지방 촬영 대관이 무산될 뻔한 상황에서 사전 허가와 현장 운영 계획을 정리해 설득하고 촬영을 마쳤습니다</p>
+</div>
+</div>
+<div class="record">
+<p class="record__when">2025.03</p>
+<div class="record__what">
+<p class="record__role">홍보팀</p>
+<p class="record__org">우바미디어네트워크</p>
+<p class="record__note">스케치 코미디 촬영과 메이킹 필름 제작</p>
+</div>
+</div>
+<div class="record">
+<p class="record__when">2025.02</p>
+<div class="record__what">
+<p class="record__role">홍보팀</p>
+<p class="record__org">인천대학교 축구부 인프런트</p>
+<p class="record__note">기존 콘텐츠의 반응을 비교해 선수 인터뷰 대신 경기 하이라이트와 밈 재해석으로 방향을 바꿨습니다</p>
+</div>
+</div>
+<div class="record">
+<p class="record__when">2023.12</p>
+<div class="record__what">
+<p class="record__role">에디터</p>
+<p class="record__org">독립영화 잡지 「메이폴」 3호</p>
+<p class="record__note">비평글 작성과 영화사 진진 인터뷰 진행</p>
+</div>
+</div>
+<div class="record">
+<p class="record__when">2023.08 참여 · 2024.02 팀장</p>
+<div class="record__what">
+<p class="record__role">대본팀장</p>
+<p class="record__org">영화 콘텐츠 크루 온더플로어</p>
+<p class="record__note">비평글과 팟캐스트 대본 약 10회 작성. 영화관 두 곳에 협업을 제안해 홍보 콘텐츠와 티켓 지원을 받았습니다</p>
+</div>
+</div>
+</div>
+</div>
+<!-- 학력 · 수상 · 도구 -->
+<div data-reveal="" data-reveal-delay="80">
+<h3 class="blockhead">학력</h3>
+<div class="tl">
+<div class="record record--now">
+<p class="record__when">2024.03 ~ 2027.02 졸업 예정</p>
+<div class="record__what">
+<p class="record__role">미디어커뮤니케이션학과</p>
+<p class="record__org">인천대학교 · 복수전공</p>
+<p class="record__note">AI를 활용한 댓글 분석 캡스톤 수행</p>
+</div>
+</div>
+<div class="record record--now">
+<p class="record__when">2020.03 ~ 2027.02 졸업 예정</p>
+<div class="record__what">
+<p class="record__role">전기공학과</p>
+<p class="record__org">인천대학교 · 주전공</p>
+<p class="record__note">졸업 과제로 자동화 식물 케어 서비스를 기획하고 직접 구현</p>
+</div>
+</div>
+</div>
+<h3 class="blockhead">수상</h3>
+<div class="tl">
+<div class="record">
+<p class="record__when">2025.03</p>
+<div class="record__what">
+<p class="record__role">영상 공모전 장려상</p>
+<p class="record__org">퀴즈노스</p>
+</div>
+</div>
+<div class="record">
+<p class="record__when">2024.09</p>
+<div class="record__what">
+<p class="record__role">정주대학 프로그램 우수상</p>
+<p class="record__org">인천대학교</p>
+</div>
+</div>
+</div>
+<h3 class="blockhead">기획 산출물과 도구</h3>
+
+
+
+
+
+<div class="skillrow"><p class="skillrow__name">문제와 정책</p><ul class="skillrow__items"><li>Problem Definition</li><li>Priority</li><li>Policy</li></ul></div><div class="skillrow"><p class="skillrow__name">실험과 측정</p><ul class="skillrow__items"><li>Metric Definition</li><li>A/B Test Design</li><li>GA4 · UTM</li></ul></div><div class="skillrow"><p class="skillrow__name">분석과 협업</p><ul class="skillrow__items"><li>SQL</li><li>Python</li><li>Tableau</li><li>Excel</li><li>PowerPoint</li></ul></div></div>
+</div>
+</div>
+</section>
+</div></main><footer class="wrap" id="contact"><div class="footer"><span class="eyebrow">CONTACT</span><h2><a href="mailto:alsrms45@gmail.com">문제와 선택의 근거를<br/>더 자세히 말씀드리겠습니다. ↗</a></h2><div class="footer-bottom"><a href="mailto:alsrms45@gmail.com">alsrms45@gmail.com</a><span>SHIN MINGEUN · PRODUCT PLANNING PORTFOLIO · 2026</span><a href="#main">맨 위로 ↑</a></div></div></footer><dialog aria-labelledby="dialog-title"><button aria-label="닫기" class="close">×</button><div class="dialog-content"></div></dialog><template id="brief-lms-ad-sales"><span class="eyebrow">BDAI · LMS 광고 지면</span><h2 id="dialog-title">사이트 이용 흐름을 기능 제안과 광고 운영으로 연결하기</h2><p>노션에서 자체 LMS로 전환한 뒤 사용 가이드를 만들고 VOD와 현직자 소통 기능을 제안했습니다. 이용량과 체류가 높은 지면, 실제 광고 클릭이 높은 지면을 구분해 검토하고 기업 제안부터 소재·일정 조율, 게재까지 운영했습니다. 16개사·25건은 무료 게재를 포함한 기록입니다.</p><a class="detail-link" href="projects/lms-ad-sales.html">전체 분석과 근거 보기 ↗</a></template><template id="brief-etacrew"><span class="eyebrow">BDAI · 대학 커뮤니티 홍보단 · 3개월 운영</span><h2 id="dialog-title">학교별 상황을 바탕으로 추가 모집의 우선순위 정하기</h2><p>대학 커뮤니티에서 학회를 알릴 홍보단을 모집·운영했습니다. 과거 유입과 현재 학회원 수를 살펴 미확보 우선순위 10개교 중 7개교에 집중했고, 공지에 학교명을 넣고 예비 학회원까지 모집 대상을 넓혔습니다. 전체 확보 학교 42→55개교는 팀 전체 결과이며 개별 조치의 기여도와 구분합니다.</p><a class="detail-link" href="projects/etacrew.html">전체 분석과 근거 보기 ↗</a></template><template id="brief-recruit-content"><span class="eyebrow">BDAI · 정규 학회원 모집 · 45일</span><h2 id="dialog-title">여러 팀의 제작 일정과 광고 판단을 하나의 모집 운영으로 묶기</h2><p>45일 동안 데이터팀·운영관리팀·교육기획팀과 콘텐츠 준비 일정을 맞추고 15개 콘텐츠와 9개 채널을 운영했습니다. 업로드 후 3일·프로필 방문 98회 이상을 광고 판단 기준으로 사용했고 데이터팀의 발송 대상 기준을 반영해 CRM을 협업했습니다. 1,021명은 캠페인 전체 결과입니다.</p><a class="detail-link" href="projects/recruit-content.html">전체 분석과 근거 보기 ↗</a></template><template id="brief-dayton-superb"><span class="eyebrow">BDAI · 공모전 · 해커톤 홍보</span><h2 id="dialog-title">참가자 조건과 기업 일정을 함께 보며 두 행사를 운영하기</h2><p>데이톤 공모전과 슈퍼브 해커톤의 모집 홍보와 진행 공유를 맡았습니다. 슈퍼브는 대학 시험 기간과 일정이 겹치는 문제를 기업 측과 조율했습니다. 데이톤은 목표 30팀에 33팀, 슈퍼브는 목표 300명에 202명이 참여했으며 서로 다른 행사 조건 안에서 결과를 따로 회고했습니다.</p><a class="detail-link" href="projects/dayton-superb.html">전체 분석과 근거 보기 ↗</a></template><template id="brief-retention"><span class="eyebrow">구독 서비스 · 팀 프로젝트 5인 · 3주</span><h2 id="dialog-title">플랜 비교를 멈추고 개입 시점이 보이는 분석 단위로 바꾸기</h2><p>6개월 플랜의 첫 만료 이탈률은 83.79%였지만 플랜끼리 비교해서는 원인을 설명할 지표가 나오지 않았습니다. 같은 플랜 안의 유지·이탈 집단으로 비교군을 바꾸자 2주차부터 활동률 격차가 열렸고 5주차에 6.93%p로 가장 커졌습니다. 이를 근거로 결제 후 28일 개입 실험을 설계했으며 실행 결과는 없습니다.</p><a class="detail-link" href="projects/retention.html">전체 분석과 근거 보기 ↗</a></template><template id="brief-rocketpunch"><span class="eyebrow">채용 플랫폼 · 1인 프로젝트 · 전 과정 단독</span><h2 id="dialog-title">전환율 상승에 가려진 연결 기회의 감소로 문제를 다시 정의하기</h2><p>D+30 지원 전환율은 15.7%에서 53.8%로 올랐지만 절대 지원자는 323명에서 71명으로 줄었습니다. 전환율만 보고 활성화 개선으로 결론 내리지 않고, 공고와 구직 수요가 만날 기회의 감소로 문제를 다시 정의했습니다. 북마크 등 개선 후보를 평가하고 실험을 설계했으며 실제 서비스 적용 결과는 없습니다.</p><a class="detail-link" href="projects/rocketpunch.html">전체 분석과 근거 보기 ↗</a></template><template id="brief-ad-grading"><span class="eyebrow">리워드 광고 · 3인 팀 · 선별 시스템 단독</span><h2 id="dialog-title">매일 들어오는 신규 광고의 검토 우선순위를 등급 체계로 만들기</h2><p>첫 클릭 기준 신규 광고는 하루 중앙값 254개이고 분석 광고의 57.6%는 클릭 활동 기간이 3일 이내였습니다. 성과가 충분히 쌓이기 전에 검토 우선순위를 정하도록 광고 문구 기반 S~D 등급과 경보를 설계했습니다. 후향 평가는 수행했지만 실제 운영 적용과 A/B 테스트 결과는 없습니다.</p><a class="detail-link" href="projects/ad-grading.html">전체 분석과 근거 보기 ↗</a></template><script>
+(function(){
+var d=document,W=window;
+var reduce=W.matchMedia&&W.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var tabs=[].slice.call(d.querySelectorAll('.group__tab'));
+var ids=tabs.map(function(t){return t.getAttribute('data-tab');});
+var panels=ids.map(function(id){return d.getElementById(id);});
+var groupsEl=d.querySelector('.groups'),work=d.getElementById('work'),pnav=d.querySelector('.pnav');
+var toc=d.querySelector('.pnav__toc'),now=d.querySelector('.pnav__now');
+var spyLinks=[].slice.call(d.querySelectorAll('.pnav a[href^="#case-"]'));
+var current=null;
+if(groupsEl)groupsEl.setAttribute('role','tablist');
+function barH(){return pnav?pnav.offsetHeight:0;}
+function spy(){
+  if(!current)return;
+  var cases=[].slice.call(d.getElementById(current).querySelectorAll('.case'));
+  var line=barH()+W.innerHeight*0.3,active=cases.length?cases[0].id:null;
+  cases.forEach(function(c){if(c.getBoundingClientRect().top<=line)active=c.id;});
+  spyLinks.forEach(function(a){if(a.getAttribute('href')==='#'+active)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current');});
+  if(now){var a=d.querySelector('.pnav__drop [data-group="'+current+'"] a[href="#'+active+'"]');now.textContent=a?a.getAttribute('data-label'):'목차';}
+}
+function select(id){
+  if(ids.indexOf(id)<0)return;
+  current=id;
+  tabs.forEach(function(t,i){var on=ids[i]===id;t.setAttribute('aria-selected',on?'true':'false');t.tabIndex=on?0:-1;t.parentNode.classList.toggle('is-active',on);panels[i].hidden=!on;});
+  [].forEach.call(d.querySelectorAll('.pnav__switch [data-switch]'),function(b){b.setAttribute('aria-pressed',b.getAttribute('data-switch')===id?'true':'false');});
+  [].forEach.call(d.querySelectorAll('.pnav [data-group]'),function(l){l.hidden=l.getAttribute('data-group')!==id;});
+  spy();
+}
+function scrollToEl(el,offset,instant){W.scrollTo({top:el.getBoundingClientRect().top+W.pageYOffset-offset,behavior:(reduce||instant)?'auto':'smooth'});}
+function setHash(h){if(history.replaceState)history.replaceState(null,'','#'+h);}
+tabs.forEach(function(t,i){
+  t.setAttribute('role','tab');t.setAttribute('aria-controls',ids[i]);
+  panels[i].setAttribute('role','tabpanel');panels[i].setAttribute('aria-labelledby',t.id);
+  t.addEventListener('click',function(e){e.preventDefault();select(ids[i]);setHash(ids[i]);});
+  t.addEventListener('keydown',function(e){if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;e.preventDefault();var n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];select(n.getAttribute('data-tab'));n.focus();});
+});
+[].forEach.call(d.querySelectorAll('[data-switch]'),function(b){b.addEventListener('click',function(e){
+  e.preventDefault();var id=b.getAttribute('data-switch');if(toc)toc.open=false;
+  select(id);scrollToEl(d.getElementById(id),barH()-1);setHash(id);
+});});
+[].forEach.call(d.querySelectorAll('a[href^="#case-"]'),function(a){a.addEventListener('click',function(e){
+  var id=a.getAttribute('href').slice(1),el=d.getElementById(id);if(!el)return;
+  e.preventDefault();if(toc)toc.open=false;
+  var p=el.closest('.chapter');if(p)select(p.id);
+  scrollToEl(el,barH()+24);setHash(id);
+});});
+function fromHash(scroll,instant){
+  var h=decodeURIComponent(location.hash.slice(1)),el=h&&d.getElementById(h),hit=null;
+  panels.forEach(function(p){if(el&&(p===el||p.contains(el)))hit=p;});
+  if(hit){select(hit.id);if(scroll)scrollToEl(el,el===hit?barH()-1:barH()+24,instant);}
+  else if(!current)select(ids[0]);
+}
+var ticking=false;
+function onScroll(){
+  if(ticking)return;ticking=true;
+  (W.requestAnimationFrame||setTimeout)(function(){
+    ticking=false;
+    if(pnav&&groupsEl&&work){
+      var on=groupsEl.getBoundingClientRect().bottom<barH()&&work.getBoundingClientRect().bottom>barH()+40;
+      pnav.classList.toggle('is-on',on);if(!on&&toc)toc.open=false;
+    }
+    spy();
+  });
+}
+W.addEventListener('scroll',onScroll,{passive:true});W.addEventListener('resize',onScroll);
+W.addEventListener('hashchange',function(){fromHash(true);});
+d.addEventListener('click',function(e){if(toc&&toc.open&&!toc.contains(e.target))toc.open=false;});
+fromHash(!!location.hash,true);onScroll();
+var dialog=d.querySelector('dialog'),trigger;
+if(dialog){
+  [].forEach.call(d.querySelectorAll('[data-case]'),function(b){b.addEventListener('click',function(){trigger=b;dialog.querySelector('.dialog-content').innerHTML=d.getElementById('brief-'+b.getAttribute('data-case')).innerHTML;dialog.showModal();});});
+  dialog.querySelector('.close').addEventListener('click',function(){dialog.close();});
+  dialog.addEventListener('click',function(e){if(e.target!==dialog)return;var r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();});
+  dialog.addEventListener('close',function(){if(trigger)trigger.focus();});
+}
+})();
+</script></body></html>
